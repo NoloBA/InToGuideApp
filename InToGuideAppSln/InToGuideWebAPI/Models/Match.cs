@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InToGuideWebAPI.Models
 {
-    [Table("Matches")]
-    public class Matches
+    [Table("Match")]
+    public class Match
     {
         [Required]
         [Key]
