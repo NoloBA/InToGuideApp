@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace InToGuideWebAPI.Models
 {
     [Table("UserInfo")]
-    public class Customer
+    public class UserInfo
     {
         [Required]
         [Key]
