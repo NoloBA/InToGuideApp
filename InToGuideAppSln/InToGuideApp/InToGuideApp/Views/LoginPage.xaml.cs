@@ -8,5 +8,15 @@ namespace InToGuideApp.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked_1(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
