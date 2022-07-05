@@ -10,18 +10,17 @@ namespace InToGuideWebAPI.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public int UserID { get; set; }
-
-        public string CommentMessage { get; set; }
+        public string Message { get; set; }
 
         public DateTime Time { get; set; }
 
         public DateTime Date { get; set; }
 
+        public string ThreadID { get; set; }
 
 
-        [ForeignKey("")]
-        public int AuthenticationId { get; set; }
+        [ForeignKey("User")]
+        public int UserID { get; set; }
 
 
 
