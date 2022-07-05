@@ -1,7 +1,7 @@
 ﻿namespace InToGuideWebAPI.Models
 {
-    public class Authentication
+    public class Reviews
     {
-        
+
     }
 }
