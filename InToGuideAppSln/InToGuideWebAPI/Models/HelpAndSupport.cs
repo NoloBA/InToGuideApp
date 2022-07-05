@@ -26,10 +26,10 @@ namespace InToGuideWebAPI.Models
 
             public string EnquiryID { get; set; }
 
-            [ForeignKey("UserInfo")]
+            [ForeignKey("User")]
             public int UserId { get; set; }
 
-            public  UserInfo? UserInfo { get; set; }
+            public  User? User{ get; set; }
 
             //public ICollection<BankAccount>? BankAccounts { get; set; }
         }

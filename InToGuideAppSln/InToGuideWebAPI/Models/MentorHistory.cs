@@ -11,10 +11,10 @@ namespace InToGuideWebAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
 
-        [ForeignKey("UserInfo")]
+        [ForeignKey("User")]
         public int UserId { get; set; }
 
-        public UserInfo? UserInfo { get; set; }
+        public User? User { get; set; }
 
     }
 }
