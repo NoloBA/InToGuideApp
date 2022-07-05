@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InToGuideWebAPI.Models
 {
-    [Table("UserInfo")]
-    public class UserInfo
+    [Table("User")]
+    public class User
     {
         [Required]
         [Key]
@@ -41,7 +41,7 @@ namespace InToGuideWebAPI.Models
 
         public Authentication? Authentication { get; set; }
 
-        //public ICollection<BankAccount>? BankAccounts { get; set; }
+        public ICollection<Certificate>? Certificates { get; set; }
     }
 
 
