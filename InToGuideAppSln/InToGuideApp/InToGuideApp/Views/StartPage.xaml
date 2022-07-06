@@ -4,7 +4,8 @@
              x:Class="InToGuideApp.Views.StartPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Image Source="InToGuideLogo"/>
+            <Label Text="He!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
