@@ -14,7 +14,7 @@ namespace InToGuideWebAPI.Models
         [ForeignKey("UserInfo")]
         public int UserId { get; set; }
 
-        public UserInfo? UserInfo { get; set; }
+        public User? User { get; set; }
 
     }
 }
