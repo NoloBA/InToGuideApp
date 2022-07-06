@@ -16,12 +16,12 @@ namespace InToGuideWebAPI.Models
 
         public DateTime Date { get; set; }
 
-        public string ThreadID { get; set; }
+        public string ThreadId { get; set; }
 
 
         [ForeignKey("User")]
-        public int UserID { get; set; }
-
+        public int UserId { get; set; }
+        public User? User { get; set; }
 
 
     }

@@ -4,5 +4,11 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeConnectPage">
-  
+
+    <StackLayout>
+        <Label Text="Lets Connect"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+
 </ContentPage>
