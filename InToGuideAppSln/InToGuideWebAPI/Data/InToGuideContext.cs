@@ -19,6 +19,9 @@ namespace InToGuideWebAPI.Data
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Chat> Chats { get; set; }
+        public DbSet<HelpAndSupport> HelpAndSupports { get; set; }
+        public DbSet<MentorHistory> MentorHistorys { get; set; }
+
 
     }
 }
