@@ -41,7 +41,39 @@ namespace InToGuideWebAPI.Models
 
         public Authentication? Authentication { get; set; }
 
-        public ICollection<Certificate>? Certificates { get; set; }
+        [ForeignKey("Certificate")]
+        public int CertificateId { get; set; }
+
+        public Certificate? Certificate { get; set; }
+        //public ICollection<Certificate>? Certificates { get; set; }
+
+        [ForeignKey("Chat")]
+        public int Message { get; set; }
+
+        public Chat? Chat { get; set; }
+
+        [ForeignKey("HelpAndSupport")]
+        public int EnquiryId { get; set; }
+
+        public HelpAndSupport? HelpAndSupport { get; set; }
+
+
+        [ForeignKey("Match")]
+        public int MatchId { get; set; }
+
+        public Match? Match { get; set; }
+
+
+        [ForeignKey("MentorHistory")]
+        public int HistoryId { get; set; }
+
+        public MentorHistory? MentorHistory { get; set; }
+
+
+        [ForeignKey("Review")]
+        public int ReviewMessage { get; set; }
+
+        public Review? Review { get; set; }
     }
 
 
