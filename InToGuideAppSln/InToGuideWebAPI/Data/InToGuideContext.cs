@@ -23,5 +23,9 @@ namespace InToGuideWebAPI.Data
         public DbSet<MentorHistory> MentorHistorys { get; set; }
 
 
+        public DbSet<HelpAndSupport> HelpAndSupports { get; set; }
+
+        public DbSet<MentorHistory> MentorHistorys { get; set; }
+
     }
 }
