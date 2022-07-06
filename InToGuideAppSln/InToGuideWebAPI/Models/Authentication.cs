@@ -11,7 +11,6 @@ namespace InToGuideWebAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public int AuthenticationId { get; set; }
-
         public string EmailAddress { get; set; }
         public string Password { get; set; }
         public bool VerificationStatus { get; set; }
