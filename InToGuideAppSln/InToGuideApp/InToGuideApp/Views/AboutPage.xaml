@@ -3,6 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InToGuideApp.Views.AboutPage">
+             x:Class="InToGuideApp.Views.AboutPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+
+        <Line Stroke="#F79726"  X2="500" HorizontalOptions="Center"/>
+        <Label Text="ABOUT" FontSize="Header" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+        <Line Stroke="#F79726"  X2="500" HorizontalOptions="Center" />
+     
+        <Label Text="WHO ARE WE?" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+        <Line Stroke="#F79726"  X2="200" HorizontalOptions="Center" />
+
+        <Label Text="An innovative app allowing experiences professionals and qualified gradustes in their field to connect iin order to solve one of the major contributing factors to youth unemployment-industry experience" VerticalTextAlignment="Center"></Label>
+        
+       
+    </StackLayout>
   
 </ContentPage>
