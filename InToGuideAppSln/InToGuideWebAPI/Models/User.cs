@@ -6,6 +6,7 @@ namespace InToGuideWebAPI.Models
     [Table("User")]
     public class User
     {
+
         [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
