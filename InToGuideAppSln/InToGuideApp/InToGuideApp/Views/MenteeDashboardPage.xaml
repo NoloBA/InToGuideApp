@@ -4,5 +4,10 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeDashboardPage">
-  
+    <StackLayout>
+        <Label Text="Hello"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+
 </ContentPage>
