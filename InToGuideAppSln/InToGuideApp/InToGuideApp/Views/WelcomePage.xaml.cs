@@ -8,5 +8,7 @@ namespace InToGuideApp.Views
         {
             InitializeComponent();
         }
+
+        
     }
 }
