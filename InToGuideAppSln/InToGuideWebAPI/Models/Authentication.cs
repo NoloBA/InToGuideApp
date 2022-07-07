@@ -14,5 +14,6 @@ namespace InToGuideWebAPI.Models
         public string EmailAddress { get; set; }
         public string Password { get; set; }
         public bool VerificationStatus { get; set; }
+        public bool Enabled { get; internal set; }
     }
 }
