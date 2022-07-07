@@ -10,6 +10,7 @@ namespace InToGuideWebAPI.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
+        public int HistoryId { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }

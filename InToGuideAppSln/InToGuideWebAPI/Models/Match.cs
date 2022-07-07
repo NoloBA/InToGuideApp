@@ -11,7 +11,17 @@ namespace InToGuideWebAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public int MatchId { get; set; }
+        public int MenteeId { get; set; }
+        public int MentorId { get; set; }
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+
+        public  User? User { get; set; }
 
         
+
+
+
     }
 }
