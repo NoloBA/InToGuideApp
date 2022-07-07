@@ -6,6 +6,7 @@ namespace InToGuideWebAPI.Models
     [Table("User")]
     public class User
     {
+
         [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -41,7 +42,50 @@ namespace InToGuideWebAPI.Models
 
         public Authentication? Authentication { get; set; }
 
-        public ICollection<Certificate>? Certificates { get; set; }
+        [ForeignKey("Certificate")]
+        public int CertificateId { get; set; }
+
+        public Certificate? Certificate { get; set; }
+        //public ICollection<Certificate>? Certificates { get; set; }
+
+        [ForeignKey("Chat")]
+        public string MenteeMessage { get; set; }
+
+        public Chat? MenteeChat { get; set; }
+
+        [ForeignKey("Chat")]
+        public string MentorMessage { get; set; }
+
+        public Chat? MentorChat { get; set; }
+
+        [ForeignKey("HelpAndSupport")]
+        public int EnquiryId { get; set; }
+
+        public HelpAndSupport? HelpAndSupport { get; set; }
+
+
+        [ForeignKey("Match")]
+        public int MentorId { get; set; }
+
+        public Match? MenteeMatch { get; set; }
+
+        [ForeignKey("Match")]
+        public int MenteeId { get; set; }
+
+        public Match? MentorMatch { get; set; }
+
+
+
+        [ForeignKey("MentorHistory")]
+        public int HistoryId { get; set; }
+
+        public MentorHistory? MentorHistory { get; set; }
+
+
+        [ForeignKey("Review")]
+        public int ReviewMessage { get; set; }
+
+        public Review? Review { get; set; }
     }
 
 
