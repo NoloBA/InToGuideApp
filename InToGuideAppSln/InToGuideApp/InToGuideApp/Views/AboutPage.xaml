@@ -12,12 +12,19 @@
         <Label Text="ABOUT" FontSize="Header" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
         <Line Stroke="#F79726"  X2="500" HorizontalOptions="Center" />
      
-        <Label Text="WHO ARE WE?" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
-        <Line Stroke="#F79726"  X2="200" HorizontalOptions="Center" />
-
-        <Label Text="An innovative app allowing experiences professionals and qualified gradustes in their field to connect iin order to solve one of the major contributing factors to youth unemployment-industry experience" VerticalTextAlignment="Center"></Label>
         
-       
+        <Label Text="WHO ARE WE?" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+        <Line Stroke="#F79726" X2="150" HorizontalOptions="CenterAndExpand" BackgroundColor="#F79726" />
+        <Label Text="An innovative app allowing experiences professionals and qualified gradustes in their field to connect iin order to solve one of the major contributing factors to youth unemployment-industry experience" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+
+        <Label Text="OUR AIM?" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+        <Line Stroke="#F79726"  X1="100"  HorizontalOptions="CenterAndExpand" />
+        <Label Text="Creating an interface where mentors and respective mentees can come together and network, mentors can provide a glimpse of what the industry looks like to the mentee and in so doing, providing practical work experience" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+
+        <Label Text="CONTACT US" TextColor="Black" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+        <Line Stroke="#F79726" X1="150" HorizontalOptions="CenterAndExpand" BackgroundColor="#F79726" />
+        <Label Text="EMAIL: helpdesk@intoguide.ac.za" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+        
     </StackLayout>
   
 </ContentPage>

@@ -10,14 +10,15 @@ namespace InToGuideWebAPI.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public string Message { get; set; }
+        public string MenteeMessage { get; set; }
+        public string MentorMessage { get; set; }
+
 
         public DateTime Time { get; set; }
 
         public DateTime Date { get; set; }
 
-        public string ThreadId { get; set; }
-
+        public int ThreadId { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }
