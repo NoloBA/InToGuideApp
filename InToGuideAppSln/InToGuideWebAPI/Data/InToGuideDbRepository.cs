@@ -1,13 +1,11 @@
-﻿using InToGuideWebAPI.Models;
+﻿using InToGuideWebAPI.Enum;
 using InToGuideWebAPI.Interfaces;
-using InToGuideWebAPI.Enum;
+using InToGuideWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
-
-
 
 namespace InToGuideWebAPI.Data
 {
-    public class InToGuideDbRepository: IInToGuideDbRepository
+    public class InToGuideDbRepository: IInToGuideRepossitory
     {
         private InToGuideContext _inToGuideContext;
 
@@ -16,45 +14,65 @@ namespace InToGuideWebAPI.Data
             _inToGuideContext = inToGuideContext;
         }
 
-        #region User
+        public Chat CreateChat(Chat chat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Certificate CreateNewCertificate(Certificate certificate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public HelpAndSupport CreateNewHelpAndSupport(HelpAndSupport helpAndSupport)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MentorHistory CreateNewMentorHistory(MentorHistory mentorhistory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Review CreateNewReview(Review review)
+        {
+            throw new NotImplementedException();
+        }
 
         public User CreateNewUser(User user)
         {
-            _inToGuideContext.Users.Add(user);
-            _inToGuide.SaveChanges();
-
-            return user;
+            throw new NotImplementedException();
         }
 
-        #endregion
+        public bool DoesEmailAddresExistByUser(string email)
+        {
+            throw new NotImplementedException();
+        }
 
-        #region Authentication
+        public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
+        {
+            throw new NotImplementedException();
+        }
 
-        #endregion
+        public bool DoesMessageExistByUser(string message)
+        {
+            throw new NotImplementedException();
+        }
 
+        public bool DoesThreadIdExistByUser(string threadId)
+        {
+            throw new NotImplementedException();
+        }
 
-        #region Match
+        public List<Chat> GetChatList(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
 
-        #endregion
-
-        #region Chat
-
-        #endregion
-
-        #region Certificate
-        #endregion
-
-        #region HelpAndSupport
-        #endregion
-
-        #region MentorHistory
-        #endregion
-
-        #region Review
-        #endregion 
-
-
-
+        public List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
