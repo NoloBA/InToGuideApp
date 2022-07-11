@@ -28,7 +28,11 @@
         <Button Text="Login"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
-                />
+                Command="{Binding LoginCommand}"/>
+
+        <Button Text="Create Account" 
+                TextColor="Blue"  
+                Command="{Binding CreateAccountCommand}"/>
 
 
     </StackLayout>

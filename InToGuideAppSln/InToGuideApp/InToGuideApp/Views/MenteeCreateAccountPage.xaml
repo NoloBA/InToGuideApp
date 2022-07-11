@@ -54,6 +54,9 @@
         </Frame>
         <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"/>
 
+        <Button Text="Create Account" 
+                Command="{Binding CreateMenteeAccountCommand}" />
+        
 
     </StackLayout>
 

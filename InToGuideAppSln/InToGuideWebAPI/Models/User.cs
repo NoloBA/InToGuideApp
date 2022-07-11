@@ -13,7 +13,7 @@ namespace InToGuideWebAPI.Models
 
         public int UserId { get; set; }
 
-        public bool AccountType { get; set; }
+        public int AccountType { get; set; }
 
         public string FirstName { get; set; }
 
