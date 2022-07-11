@@ -9,5 +9,10 @@
         {
             _context = context;
         }
+
+        public void Run()
+        {
+
+        }
     }
 }
