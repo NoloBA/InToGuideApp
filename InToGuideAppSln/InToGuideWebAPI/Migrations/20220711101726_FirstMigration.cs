@@ -29,16 +29,24 @@ namespace InToGuideWebAPI.Migrations
                 name: "Chat",
                 columns: table => new
                 {
-                    MenteeMessage = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ChatId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MenteeMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MentorMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThreadId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ChatId1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Chat", x => x.MenteeMessage);
+                    table.PrimaryKey("PK_Chat", x => x.ChatId);
+                    table.ForeignKey(
+                        name: "FK_Chat_Chat_ChatId1",
+                        column: x => x.ChatId1,
+                        principalTable: "Chat",
+                        principalColumn: "ChatId");
                 });
 
             migrationBuilder.CreateTable(
@@ -73,52 +81,6 @@ namespace InToGuideWebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Certificate",
-                columns: table => new
-                {
-                    CertificateId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Certificate", x => x.CertificateId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "HelpAndSupport",
-                columns: table => new
-                {
-                    EnquiryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HelpAndSupport", x => x.EnquiryId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MentorHistory",
-                columns: table => new
-                {
-                    HistoryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MentorHistory", x => x.HistoryId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -137,12 +99,8 @@ namespace InToGuideWebAPI.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AuthenticationId = table.Column<int>(type: "int", nullable: false),
-                    CertificateId = table.Column<int>(type: "int", nullable: false),
-                    MenteeMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MentorMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EnquiryId = table.Column<int>(type: "int", nullable: false),
+                    ChatId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MatchId = table.Column<int>(type: "int", nullable: false),
-                    HistoryId = table.Column<int>(type: "int", nullable: false),
                     ReviewId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -154,23 +112,69 @@ namespace InToGuideWebAPI.Migrations
                         principalTable: "Authentication",
                         principalColumn: "AuthenticationId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Certificate",
+                columns: table => new
+                {
+                    CertificateId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Certificate", x => x.CertificateId);
                     table.ForeignKey(
-                        name: "FK_User_Certificate_CertificateId",
-                        column: x => x.CertificateId,
-                        principalTable: "Certificate",
-                        principalColumn: "CertificateId",
+                        name: "FK_Certificate_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HelpAndSupport",
+                columns: table => new
+                {
+                    EnquiryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HelpAndSupport", x => x.EnquiryId);
                     table.ForeignKey(
-                        name: "FK_User_HelpAndSupport_EnquiryId",
-                        column: x => x.EnquiryId,
-                        principalTable: "HelpAndSupport",
-                        principalColumn: "EnquiryId",
+                        name: "FK_HelpAndSupport_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MentorHistory",
+                columns: table => new
+                {
+                    HistoryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MentorHistory", x => x.HistoryId);
                     table.ForeignKey(
-                        name: "FK_User_MentorHistory_HistoryId",
-                        column: x => x.HistoryId,
-                        principalTable: "MentorHistory",
-                        principalColumn: "HistoryId",
+                        name: "FK_MentorHistory_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -178,6 +182,11 @@ namespace InToGuideWebAPI.Migrations
                 name: "IX_Certificate_UserId",
                 table: "Certificate",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Chat_ChatId1",
+                table: "Chat",
+                column: "ChatId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HelpAndSupport_UserId",
@@ -193,68 +202,24 @@ namespace InToGuideWebAPI.Migrations
                 name: "IX_User_AuthenticationId",
                 table: "User",
                 column: "AuthenticationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_User_CertificateId",
-                table: "User",
-                column: "CertificateId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_User_EnquiryId",
-                table: "User",
-                column: "EnquiryId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_User_HistoryId",
-                table: "User",
-                column: "HistoryId",
-                unique: true);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Certificate_User_UserId",
-                table: "Certificate",
-                column: "UserId",
-                principalTable: "User",
-                principalColumn: "UserId",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_HelpAndSupport_User_UserId",
-                table: "HelpAndSupport",
-                column: "UserId",
-                principalTable: "User",
-                principalColumn: "UserId",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_MentorHistory_User_UserId",
-                table: "MentorHistory",
-                column: "UserId",
-                principalTable: "User",
-                principalColumn: "UserId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Certificate_User_UserId",
-                table: "Certificate");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_HelpAndSupport_User_UserId",
-                table: "HelpAndSupport");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_MentorHistory_User_UserId",
-                table: "MentorHistory");
+            migrationBuilder.DropTable(
+                name: "Certificate");
 
             migrationBuilder.DropTable(
                 name: "Chat");
 
             migrationBuilder.DropTable(
+                name: "HelpAndSupport");
+
+            migrationBuilder.DropTable(
                 name: "Match");
+
+            migrationBuilder.DropTable(
+                name: "MentorHistory");
 
             migrationBuilder.DropTable(
                 name: "Review");
@@ -264,15 +229,6 @@ namespace InToGuideWebAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Authentication");
-
-            migrationBuilder.DropTable(
-                name: "Certificate");
-
-            migrationBuilder.DropTable(
-                name: "HelpAndSupport");
-
-            migrationBuilder.DropTable(
-                name: "MentorHistory");
         }
     }
 }

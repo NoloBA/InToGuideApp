@@ -42,29 +42,24 @@ namespace InToGuideWebAPI.Models
 
         public Authentication? Authentication { get; set; }
 
-        [ForeignKey("Certificate")]
+ /*       [ForeignKey("Certificate")]
         public int CertificateId { get; set; }
 
-        public Certificate? Certificate { get; set; }
+        public Certificate? Certificate { get; set; }*/
         //public ICollection<Certificate>? Certificates { get; set; }
 
         [ForeignKey("Chat")]
-        public string MenteeMessage { get; set; }
+        public string ChatId { get; set; }
 
         //public Chat? MenteeChat { get; set; }
 
-        [ForeignKey("Chat")]
-
-        //public int UserId { get; set }
-        public string MentorMessage { get; set; }
-
         //public Chat? MentorChat { get; set; }
 
-        [ForeignKey("HelpAndSupport")]
+/*        [ForeignKey("HelpAndSupport")]
         public int EnquiryId { get; set; }
 
         public HelpAndSupport? HelpAndSupport { get; set; }
-
+*/
 
         [ForeignKey("Match")]
         public int MatchId { get; set; }
@@ -78,11 +73,11 @@ namespace InToGuideWebAPI.Models
 
 
 
-        [ForeignKey("MentorHistory")]
+ /*       [ForeignKey("MentorHistory")]
         public int HistoryId { get; set; }
 
         public MentorHistory? MentorHistory { get; set; }
-
+ */
 
         [ForeignKey("Review")]
         public int ReviewId { get; set; }
