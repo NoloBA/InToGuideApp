@@ -19,7 +19,7 @@ namespace InToGuideApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/IntroductionPage");
+            await NavigationService.NavigateAsync("NavigationPage/SettingsPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

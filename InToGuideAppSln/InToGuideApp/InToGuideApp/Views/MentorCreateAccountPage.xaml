@@ -5,10 +5,71 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MentorCreateAccountPage"
              Title="{Binding Title}">
-    <StackLayout>
-        
-        <Button Text="Create Account" 
-                Command="{Binding CreateMentorAccountCommand}" />
-        
-    </StackLayout>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="CREATE ACCOUNT" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="Name" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Surname" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Qualification" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Institution" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Location" HorizontalOptions="Start"/>
+
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Cell" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="ID Number" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+
+            </Frame>
+            <Label Text="Hobbies" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Email" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Password" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Confirm Password" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+
+            <Label Text="Company you working for" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+
+            <Label Text="Position in the company/ Rank" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+
+            <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"
+                    Command="{Binding CreateMenteeAccountCommand}"/>
+
+        </StackLayout>
+    </ScrollView>
+   
 </ContentPage>

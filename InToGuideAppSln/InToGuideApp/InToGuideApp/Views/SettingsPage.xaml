@@ -5,5 +5,28 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.SettingsPage"
              Title="{Binding Title}">
+
+    <StackLayout Padding="10">
+
+        <Line Stroke="#F79726"  X1="100" HorizontalOptions="Center" />
+        <Label Text="Settings" FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+        <Line Stroke="#F79726"  X1="100" HorizontalOptions="Center"/>
+
+        <StackLayout Padding="15">
+            <Label Text="Profile" TextColor="Black"/>
+            <Label Text="Notifications" TextColor="Black"/>
+            <Label Text="Appearance" TextColor="Red"/>
+            <Label Text="Help and Support" TextColor="Black"/>
+            <Label Text="About" TextColor="Black"/>
+            <Label Text="Logout" TextColor="Black"/>
+        </StackLayout>
+
+        <StackLayout VerticalOptions="EndAndExpand" Padding="15">
+            <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"/>
+        </StackLayout>
+        
+
+
+    </StackLayout>
   
 </ContentPage>
