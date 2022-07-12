@@ -6,9 +6,8 @@
              x:Class="InToGuideApp.Views.MenteeDashboardPage"
              IconImageSource="dashboard.png">
     <StackLayout>
-        <Label Text="Hello"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <Label Text="Profile" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+
     </StackLayout>
 
 </ContentPage>
