@@ -3,20 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InToGuideApp.Views.NotificationsPage"
+             x:Class="InToGuideApp.Views.AppearancePage"
              Title="{Binding Title}">
 
     <StackLayout Background="WhiteSmoke">
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Allow PUSH notifications"
+            <Label Text="Enable Light Mode"
                                    TextColor="Black"
                                    Margin="20"
                                    FontAttributes="None"
                                    HorizontalOptions="Start"
                                    FontSize="Medium" />
 
-            <Switch x:Name="PushNotificationsSwitch"
+            <Switch x:Name="LightModeSwitch"
+                    HorizontalOptions="EndAndExpand"
+                    Margin="0,0,20,0"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Enable Dark Mode"
+                                   TextColor="Black"
+                                   Margin="20"
+                                   FontAttributes="None"
+                                   HorizontalOptions="Start"
+                                   FontSize="Medium" />
+
+            <Switch x:Name="DarkModeSwitch"
                     HorizontalOptions="EndAndExpand" 
                     Margin="0,0,20,0"/>
         </StackLayout>

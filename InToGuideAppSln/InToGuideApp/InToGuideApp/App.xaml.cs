@@ -19,7 +19,7 @@ namespace InToGuideApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/IntroductionPage");
+            await NavigationService.NavigateAsync("NavigationPage/SettingsPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -47,6 +47,7 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<NotificationsPage, NotificationsPageViewModel>();
             containerRegistry.RegisterForNavigation<HelpAndSupportPage, HelpAndSupportPageViewModel>();
             containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
+            containerRegistry.RegisterForNavigation<AppearancePage, AppearancePageViewModel>();
         }
     }
 }
