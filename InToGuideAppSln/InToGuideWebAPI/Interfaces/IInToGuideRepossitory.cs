@@ -19,9 +19,7 @@ namespace InToGuideWebAPI.Interfaces
         MentorHistory CreateNewMentorHistory(MentorHistory mentorhistory);
         bool DoesHistoryIdExistUser(MentorHistory mentorhistory);
         Review  CreateNewReview(Review review);
-        object? PerformAuthenticationCheck();
-        object? PerformAuthenticationCheck(object userName, AuthRequest authRequest, object pin);
         Task<object?> CreateNewUser();
-        bool PerformAuthenticationCheck(string userName, string pin);
+        bool PerformAuthenticationCheck(string userName, string password);
     }
 }

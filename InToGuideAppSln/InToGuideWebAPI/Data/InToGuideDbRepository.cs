@@ -85,7 +85,7 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        public object? PerformAuthenticationCheck(object userName, AuthRequest authRequest, object pin)
+        public object? PerformAuthenticationCheck(object userName, object pin)
         {
             throw new NotImplementedException();
         }
