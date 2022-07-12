@@ -95,5 +95,5 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
     }
-   
+
 }

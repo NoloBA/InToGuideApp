@@ -12,8 +12,8 @@ namespace InToGuideWebAPI.Models
         public int ChatId { get; set; }
 
 
-        public string MenteeMessage { get; set; }
-        public string MentorMessage { get; set; }
+        public string MenteeUser { get; set; }
+        public string MentorUser { get; set; }
 
 
         public DateTime Time { get; set; }

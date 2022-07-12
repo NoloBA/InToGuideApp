@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.LoginPage"
+             Title="{Binding Title}"
              NavigationPage.HasNavigationBar="False">
 
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
@@ -28,7 +29,11 @@
         <Button Text="Login"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
-                />
+                Command="{Binding LoginCommand}"/>
+
+        <Button Text="Create Account" 
+                TextColor="Blue"  
+                Command="{Binding CreateAccountCommand}"/>
 
 
     </StackLayout>
