@@ -6,27 +6,66 @@
              x:Class="InToGuideApp.Views.SettingsPage"
              Title="{Binding Title}">
 
-    <StackLayout Padding="10">
+    <ScrollView>
+        <StackLayout Background="WhiteSmoke">
 
-        <Line Stroke="#F79726"  X1="100" HorizontalOptions="Center" />
-        <Label Text="Settings" FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-        <Line Stroke="#F79726"  X1="100" HorizontalOptions="Center"/>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+            <Label Text="Settings" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
 
-        <StackLayout Padding="15">
-            <Label Text="Profile" TextColor="Black"/>
-            <Label Text="Notifications" TextColor="Black"/>
-            <Label Text="Appearance" TextColor="Red"/>
-            <Label Text="Help and Support" TextColor="Black"/>
-            <Label Text="About" TextColor="Black"/>
-            <Label Text="Logout" TextColor="Black"/>
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,10,50,5" Padding="10">
+                <Button Text="Mentor Profile" 
+                    FontSize="Medium"
+                        BackgroundColor="White"
+                    Command="{Binding MentorProfileCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Mentee Profile"
+                        FontSize="Medium"
+                        BackgroundColor="White"
+                    Command="{Binding MenteeProfileCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Notifications"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding NotificationsCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Appearance"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding AppearanceCommand}" />
+
+            </Frame>
+
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="HelpAndSupport"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding HelpAndSupportCommand}" />
+
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="About"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding AboutCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Logout"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding LogoutCommand}" />
+            </Frame>
+
         </StackLayout>
-
-        <StackLayout VerticalOptions="EndAndExpand" Padding="15">
-            <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"/>
-        </StackLayout>
-        
-
-
-    </StackLayout>
+    </ScrollView>
   
 </ContentPage>

@@ -4,32 +4,63 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.HelpAndSupportPage"
-             Title="{Binding Title}"
-             NavigationPage.HasNavigationBar="False">
+             Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout BackgroundColor="WhiteSmoke">
 
-        <Line Stroke="#F79726" X2="200" HorizontalOptions="CenterAndExpand" BackgroundColor="#F79726" />
-        <Label Text="Help and Support" FontSize="Medium" TextColor="Black" HorizontalTextAlignment="Center" ></Label>
-        <Line Stroke="#F79726" X2="200" HorizontalOptions="CenterAndExpand" BackgroundColor="#F79726" />
+        <Line Stroke="#F79726"  X2="350" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+        <Label Text="Help and Support" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+        <Line Stroke="#F79726"  X2="350" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
 
-        <StackLayout>
-            <Label Text="Full name" TextColor="Black"></Label>
-            <Frame BorderColor="Black"></Frame>
-        </StackLayout>
+            <Label 
+                Text="Full name" 
+                FontSize="Medium" 
+                TextColor="Black" 
+                Margin="20,20,20,0">
+                
+            </Label>
+       
+        <Entry Keyboard="Text"
+                   Placeholder="Enter Name"
+                   VerticalOptions="StartAndExpand"
+                   Margin="20,0,20,0" />
 
-        <StackLayout>
-            <Label Text="Email address" TextColor="Black"></Label>
-            <Frame BorderColor="Black"></Frame>
-        </StackLayout>
+        <Label 
+                Text="Email Address" 
+                FontSize="Medium" 
+                TextColor="Black" 
+                Margin="20,20,20,0">
 
-        <StackLayout>
-            <Label Text="Message" TextColor="Black"></Label>
-            <Frame BorderColor="Black" Padding="100"></Frame>
-        </StackLayout>
+        </Label>
 
-        <StackLayout>
-            <Frame Margin="90" CornerRadius="50" BorderColor="#F79726">
+        <Entry Keyboard="Text"
+                   Placeholder="Enter Email Address"
+                   VerticalOptions="StartAndExpand"
+                   Margin="20,0,20,0" />
+
+
+        <Label 
+                Text="Message" 
+                FontSize="Medium" 
+                TextColor="Black" 
+                Margin="20,20,20,0">
+
+        </Label>
+
+        <Entry Keyboard="Text"
+                   Placeholder="Type Message"
+                   VerticalOptions="StartAndExpand"
+                   Margin="20,0,20,0" />
+
+
+
+
+
+
+
+
+
+        <Frame Margin="20,0,20,50" CornerRadius="50" BorderColor="#F79726" Background="White"  Padding="10">
                 <Button Text="Submit" FontSize="Medium"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
@@ -38,7 +69,7 @@
                 />
             </Frame>
            
-        </StackLayout>
+        
        
 
 

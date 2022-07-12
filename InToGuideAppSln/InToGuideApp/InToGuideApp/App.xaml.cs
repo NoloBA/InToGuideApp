@@ -47,6 +47,7 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<NotificationsPage, NotificationsPageViewModel>();
             containerRegistry.RegisterForNavigation<HelpAndSupportPage, HelpAndSupportPageViewModel>();
             containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
+            containerRegistry.RegisterForNavigation<AppearancePage, AppearancePageViewModel>();
         }
     }
 }
