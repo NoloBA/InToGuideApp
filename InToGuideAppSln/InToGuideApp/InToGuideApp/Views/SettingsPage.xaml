@@ -5,5 +5,67 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.SettingsPage"
              Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout Background="WhiteSmoke">
+
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+            <Label Text="Settings" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,10,50,5" Padding="10">
+                <Button Text="Mentor Profile" 
+                    FontSize="Medium"
+                        BackgroundColor="White"
+                    Command="{Binding MentorProfileCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Mentee Profile"
+                        FontSize="Medium"
+                        BackgroundColor="White"
+                    Command="{Binding MenteeProfileCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Notifications"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding NotificationsCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Appearance"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding AppearanceCommand}" />
+
+            </Frame>
+
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="HelpAndSupport"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding HelpAndSupportCommand}" />
+
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="About"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding AboutCommand}" />
+            </Frame>
+
+            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
+                <Button Text="Logout"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                    Command="{Binding LogoutCommand}" />
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
   
 </ContentPage>
