@@ -6,5 +6,6 @@ namespace InToGuideApp.ViewModels
 {
     internal class MenteeTabbedPage
     {
+        
     }
 }

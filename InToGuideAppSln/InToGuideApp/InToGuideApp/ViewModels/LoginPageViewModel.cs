@@ -13,7 +13,7 @@ namespace InToGuideApp.ViewModels
         public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
         {
 
-
+            Title = "Login Page";
         }
 
         private DelegateCommand _loginCommand;
@@ -30,7 +30,7 @@ namespace InToGuideApp.ViewModels
         }
 
         private DelegateCommand _createAccountCommand;
-        public DelegateCommand CommandName =>
+        public DelegateCommand CreateAccountCommand =>
              _createAccountCommand ?? (_createAccountCommand = new DelegateCommand(ExecuteCreateAccountCommand));
 
         private async void ExecuteCreateAccountCommand()

@@ -11,7 +11,7 @@ namespace InToGuideApp.ViewModels
     {
         public IntroductionPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-
+            Title = "Introduction Page";
 
         }
         private DelegateCommand _introductionCommand;

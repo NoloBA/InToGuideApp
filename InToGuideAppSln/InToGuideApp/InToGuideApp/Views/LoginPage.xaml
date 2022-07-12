@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.LoginPage"
+             Title="{Binding Title}"
              NavigationPage.HasNavigationBar="False">
 
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
