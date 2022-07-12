@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\InToGuideWebAPI.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\InToGuideWebAPI.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\InToGuideWebAPI.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
@@ -18,6 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Enums\" />
 	  <Folder Include="Data\" />
 	  <Folder Include="Interfaces\" />
