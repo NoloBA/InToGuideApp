@@ -51,12 +51,14 @@ namespace InToGuideWebAPI.Models
         [ForeignKey("Chat")]
         public string MenteeMessage { get; set; }
 
-        public Chat? MenteeChat { get; set; }
+        //public Chat? MenteeChat { get; set; }
 
         [ForeignKey("Chat")]
+
+        //public int UserId { get; set }
         public string MentorMessage { get; set; }
 
-        public Chat? MentorChat { get; set; }
+        //public Chat? MentorChat { get; set; }
 
         [ForeignKey("HelpAndSupport")]
         public int EnquiryId { get; set; }
@@ -65,14 +67,14 @@ namespace InToGuideWebAPI.Models
 
 
         [ForeignKey("Match")]
-        public int MentorId { get; set; }
+        public int MatchId { get; set; }
 
-        public Match? MenteeMatch { get; set; }
+        //public Match? MenteeMatch { get; set; }
 
-        [ForeignKey("Match")]
-        public int MenteeId { get; set; }
+        //[ForeignKey("Match")]
+        //public int MenteeId { get; set; }
 
-        public Match? MentorMatch { get; set; }
+        //public Match? MentorMatch { get; set; }
 
 
 
@@ -83,9 +85,9 @@ namespace InToGuideWebAPI.Models
 
 
         [ForeignKey("Review")]
-        public int ReviewMessage { get; set; }
+        public int ReviewId { get; set; }
 
-        public Review? Review { get; set; }
+        //public Review? Review { get; set; }
     }
 
 
