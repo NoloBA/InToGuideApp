@@ -21,10 +21,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*//Adds InToGuide Repository to DI container
+//Adds InToGuide Repository to DI container
 builder.Services.AddScoped<InToGuideDbRepository, InToGuideDbRepository>();
 
-// Adds DbInitialiser to DI Container
+/*// Adds DbInitialiser to DI Container
 builder.Services.AddTransient<DbInitialiser>();*/
 
 
@@ -43,15 +43,15 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-/*// Seed Database with information
+// Seed Database with information
 using var scope = app.Services.CreateScope();
 
 var services = scope.ServiceProvider;
 
-var initialiser = services.GetRequiredService<DbInitialiser>();
+/*var initialiser = services.GetRequiredService<DbInitialiser>();
 
-initialiser.Run();
+initialiser.Run();*/
 
-//  End Seed Database*/
+//  End Seed Database
 
 app.Run();

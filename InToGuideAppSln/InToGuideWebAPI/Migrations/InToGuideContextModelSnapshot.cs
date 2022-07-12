@@ -80,12 +80,21 @@ namespace InToGuideWebAPI.Migrations
 
             modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
                 {
-                    b.Property<string>("MenteeMessage")
+                    b.Property<int>("ChatId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatId"), 1L, 1);
+
+                    b.Property<int?>("ChatId1")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("MenteeMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MentorMessage")
                         .IsRequired()
@@ -100,7 +109,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("MenteeMessage");
+                    b.HasKey("ChatId");
+
+                    b.HasIndex("ChatId1");
 
                     b.ToTable("Chat");
                 });
@@ -218,8 +229,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("AuthenticationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CertificateId")
-                        .HasColumnType("int");
+                    b.Property<string>("ChatId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -232,15 +244,9 @@ namespace InToGuideWebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EnquiryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("HistoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Hobbies")
                         .IsRequired()
@@ -256,14 +262,6 @@ namespace InToGuideWebAPI.Migrations
 
                     b.Property<int>("MatchId")
                         .HasColumnType("int");
-
-                    b.Property<string>("MenteeMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MentorMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -288,14 +286,6 @@ namespace InToGuideWebAPI.Migrations
 
                     b.HasIndex("AuthenticationId");
 
-                    b.HasIndex("CertificateId");
-
-                    b.HasIndex("EnquiryId")
-                        .IsUnique();
-
-                    b.HasIndex("HistoryId")
-                        .IsUnique();
-
                     b.ToTable("User");
                 });
 
@@ -308,6 +298,13 @@ namespace InToGuideWebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
+                {
+                    b.HasOne("InToGuideWebAPI.Models.Chat", null)
+                        .WithMany("chats")
+                        .HasForeignKey("ChatId1");
                 });
 
             modelBuilder.Entity("InToGuideWebAPI.Models.HelpAndSupport", b =>
@@ -340,31 +337,12 @@ namespace InToGuideWebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InToGuideWebAPI.Models.Certificate", "Certificate")
-                        .WithMany()
-                        .HasForeignKey("CertificateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("InToGuideWebAPI.Models.HelpAndSupport", "HelpAndSupport")
-                        .WithOne()
-                        .HasForeignKey("InToGuideWebAPI.Models.User", "EnquiryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("InToGuideWebAPI.Models.MentorHistory", "MentorHistory")
-                        .WithOne()
-                        .HasForeignKey("InToGuideWebAPI.Models.User", "HistoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Authentication");
+                });
 
-                    b.Navigation("Certificate");
-
-                    b.Navigation("HelpAndSupport");
-
-                    b.Navigation("MentorHistory");
+            modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
+                {
+                    b.Navigation("chats");
                 });
 #pragma warning restore 612, 618
         }
