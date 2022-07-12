@@ -1,4 +1,5 @@
-﻿using InToGuideWebAPI.Enum;
+﻿using InToGuideWebAPI.Controllers;
+using InToGuideWebAPI.Enum;
 using InToGuideWebAPI.Interfaces;
 using InToGuideWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,11 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
+        public Task<object?> CreateNewUser()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DoesEmailAddresExistByUser(string email)
         {
             throw new NotImplementedException();
@@ -70,6 +76,21 @@ namespace InToGuideWebAPI.Data
         }
 
         public List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object? PerformAuthenticationCheck()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object? PerformAuthenticationCheck(object userName, AuthRequest authRequest, object pin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PerformAuthenticationCheck(string userName, string pin)
         {
             throw new NotImplementedException();
         }
