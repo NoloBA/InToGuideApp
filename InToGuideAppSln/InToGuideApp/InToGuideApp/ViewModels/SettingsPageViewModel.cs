@@ -68,5 +68,14 @@ namespace InToGuideApp.ViewModels
         {
             await NavigationService.NavigateAsync("AboutPage");
         }
+
+        private DelegateCommand _logoutCommand;
+        public DelegateCommand LogoutCommand =>
+            _logoutCommand ?? (_logoutCommand = new DelegateCommand(ExecuteLogoutCommand));
+
+        void ExecuteLogoutCommand()
+        {
+            //Do logout code stuff here 
+        }
     }
 }
