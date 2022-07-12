@@ -3,16 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InToGuideWebAPI.Models
 {
-    public class Review
-    {
         [Table("Review")]
-        public class Chat
+        public class Review
         {
             [Required]
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-            public string ReviewMessage { get; set; }
+            public int ReviewId { get; set; }
 
             public DateTime Time { get; set; }
 
@@ -22,8 +20,8 @@ namespace InToGuideWebAPI.Models
 
 
             [ForeignKey("User")]
-            public int UserID { get; set; }
-            public User? User { get; set; }
+            public int UserId { get; set; }
+            //public User? User { get; set; }
         }
-    }
+    
 }

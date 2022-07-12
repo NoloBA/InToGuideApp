@@ -42,50 +42,47 @@ namespace InToGuideWebAPI.Models
 
         public Authentication? Authentication { get; set; }
 
-        [ForeignKey("Certificate")]
+ /*       [ForeignKey("Certificate")]
         public int CertificateId { get; set; }
 
-        public Certificate? Certificate { get; set; }
+        public Certificate? Certificate { get; set; }*/
         //public ICollection<Certificate>? Certificates { get; set; }
 
         [ForeignKey("Chat")]
-        public string MenteeMessage { get; set; }
+        public string ChatId { get; set; }
 
-        public Chat? MenteeChat { get; set; }
+        //public Chat? MenteeChat { get; set; }
 
-        [ForeignKey("Chat")]
-        public string MentorMessage { get; set; }
+        //public Chat? MentorChat { get; set; }
 
-        public Chat? MentorChat { get; set; }
-
-        [ForeignKey("HelpAndSupport")]
+/*        [ForeignKey("HelpAndSupport")]
         public int EnquiryId { get; set; }
 
         public HelpAndSupport? HelpAndSupport { get; set; }
-
-
-        [ForeignKey("Match")]
-        public int MentorId { get; set; }
-
-        public Match? MenteeMatch { get; set; }
+*/
 
         [ForeignKey("Match")]
-        public int MenteeId { get; set; }
+        public int MatchId { get; set; }
 
-        public Match? MentorMatch { get; set; }
+        //public Match? MenteeMatch { get; set; }
+
+        //[ForeignKey("Match")]
+        //public int MenteeId { get; set; }
+
+        //public Match? MentorMatch { get; set; }
 
 
 
-        [ForeignKey("MentorHistory")]
+ /*       [ForeignKey("MentorHistory")]
         public int HistoryId { get; set; }
 
         public MentorHistory? MentorHistory { get; set; }
-
+ */
 
         [ForeignKey("Review")]
-        public int ReviewMessage { get; set; }
+        public int ReviewId { get; set; }
 
-        public Review? Review { get; set; }
+        //public Review? Review { get; set; }
     }
 
 

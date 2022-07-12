@@ -9,6 +9,8 @@ namespace InToGuideWebAPI.Models
         [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ChatId { get; set; }
+
 
         public string MenteeUser { get; set; }
         public string MentorUser { get; set; }
@@ -22,8 +24,8 @@ namespace InToGuideWebAPI.Models
 
         [ForeignKey("User")]
         public int UserId { get; set; }
-        public User? User { get; set; }
-
+        //public User? User { get; set; }
+        public ICollection<Chat>? chats { get; set; }
 
     }
 }
