@@ -1,5 +1,4 @@
 ﻿
-using InToGuideWebAPI.Controllers;
 using InToGuideWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,9 +11,8 @@ namespace InToGuideWebAPI.Interfaces
         User GetUserByUserId(int UserId, bool fullFetch = true);
         Chat CreateChat(Chat chat);
         bool DoesMessageExistByUser(string message);
-        List<Chat> GetChatList(int ChatId,bool fullFetch = true);
+        List<Chat> GetChatList(int ChatId, bool fullFetch = true);
         Chat GetChat(string chatId);
-
         HelpAndSupport CreateNewHelpAndSupport(HelpAndSupport helpAndSupport);
         bool DoesEmailAddresExistByUser(string email);
         List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true);
@@ -23,8 +21,6 @@ namespace InToGuideWebAPI.Interfaces
         IEnumerable<Match> GetAllMatches();
         MentorHistory GetMentorHistory(int HistorId, bool fullFetch = true);//!!
         List<MentorHistory> GetMentorHistorys(bool fullFetch = true);
-
-
         bool DoesHistoryIdExistUser(MentorHistory mentorhistory);
         Review CreateNewReview(Review review);
         List<Review> GetAllReviews(bool fullFetch = true);
@@ -32,6 +28,10 @@ namespace InToGuideWebAPI.Interfaces
         bool PerformAuthenticationCheck(string userName, string password);
         IEnumerable<Chat> GetChatList();
         Match CreateNewMatch(Match match);
-        List<Match> GetAllMatches(int MatchId,bool fullFetch = true);
+        List<Match> GetAllMatches(int MatchId, bool fullFetch = true);
+
+
+
+
     }
 }
