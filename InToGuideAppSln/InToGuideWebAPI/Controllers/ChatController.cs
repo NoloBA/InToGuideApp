@@ -20,11 +20,12 @@ namespace InToGuideWebAPI.Controllers
         {
             return (IActionResult)_inToGuideRepossitory.CreateChat(chat);//missing cast
         }
-        [HttpGet]
+
+        /*[HttpGet]
         public IActionResult GetChat(string chatId)
         {
             return (IActionResult)_inToGuideRepossitory.GetChat(chatId);//missing caast
-        }
+        }*/
 
         [HttpGet]
         public IEnumerable<Chat>GetChats(string chatId)
