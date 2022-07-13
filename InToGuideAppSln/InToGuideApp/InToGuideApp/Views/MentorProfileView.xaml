@@ -6,7 +6,7 @@
              x:Class="InToGuideApp.Views.MentorProfileView"
              Title="{Binding Title}">
 
-    <Scrolliew>
+    <ScrollView>
         <StackLayout>
             <Image Source="profile.png"
                    HeightRequest="50"
@@ -14,6 +14,6 @@
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"/>
         </StackLayout>
-    </Scrolliew>
+    </ScrollView>
   
 </ContentPage>
