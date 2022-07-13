@@ -32,30 +32,30 @@ namespace InToGuideWebAPI.Controllers
             {
                 try
                 {
-                    if (user == null || !ModelState.IsValid)
+                    if (user == null || !ModelState.IsValid)//no such user or invalid modelstate 
                     {
                         return BadRequest(SystemErrorCodes.UserNotValid.ToString());
                     }
-                    bool customerExists = _inToGuideRepossitory.DoesEmailAddresExistByUser(user.EmailAddress);
-                    if (customerExists)
+                    bool userExists = _inToGuideRepossitory.DoesEmailAddresExistByUser(user.EmailAddress);//don't duplicate user/details
+                    if (userExists)
                     {
                         return StatusCode(StatusCodes.Status409Conflict, SystemErrorCodes.UserDuplicate.ToString());
                     }
-                    _inToGuideRepossitory.CreateNewUser(user);
+                    _inToGuideRepossitory.CreateNewUser(user);//create user
                 }
                 catch (Exception)
                 {
                     return BadRequest(SystemErrorCodes.AccountCreationFailed.ToString());
                 }
-                return Ok(user);
+                return Ok(user); //success
             }
 
             [HttpGet]
-            public async Task<IActionResult> GetUser(int UserId)
+            public IActionResult GetUser(int UserId) //get existing user by uderId
             {
                 try
                 {
-                    return Ok(await _inToGuideRepossitory.CreateNewUser());
+                    return Ok(_inToGuideRepossitory.GetUserByUserId(UserId));
                 }
                 catch (ArgumentException argex)
                 {
@@ -65,35 +65,9 @@ namespace InToGuideWebAPI.Controllers
                 {
                     return StatusCode(500);
              }
-            /* public IEnumerable<Customer> Get()
-            {
-                return _bankingDbRepository.GetAllCustomers();
-            }*/
+
         
             
-            /*[HttpDelete]
-            [Authorize(Roles = "Admin")]
-            [Authorize(Roles = "Regular")]
-            public async Task<IActionResult> Delete(string userId)
-            {
-                try
-                {
-                    await _inToGuideRepossitory. (userId);
-                    return NoContent();
-                }
-                catch (MissingMemberException mmex)
-                {
-                    return BadRequest(mmex.Message);
-                }
-                catch (ArgumentException argex)
-                {
-                    return BadRequest(argex.Message);
-                }
-                catch (Exception)
-                {
-                    return StatusCode(500);
-                }
-            }*/
         }
     }
 }
