@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public MentorDashboardPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Mentor Dashbord Page";
+            Title = "Dashbord";
         }
     }
 }

@@ -4,7 +4,8 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeResourcesPage"
-             IconImageSource="support.png">
+             Title="{Binding Title}"
+             IconImageSource="information.png">
 
     <StackLayout>
         <Label Text="Hi"

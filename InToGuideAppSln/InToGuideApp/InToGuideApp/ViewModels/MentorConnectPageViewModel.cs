@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public MentorConnectPageViewModel(INavigationService navigationService)
            : base(navigationService)
         {
-            Title = "Mentor Connect Page";
+            Title = "Connect";
         }
     }
 }

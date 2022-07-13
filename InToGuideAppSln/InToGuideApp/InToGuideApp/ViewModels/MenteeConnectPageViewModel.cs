@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public MenteeConnectPageViewModel(INavigationService navigationService)
            : base(navigationService)
         {
-            Title = "Mentee Connect Page";
+            Title = "Connect";
         }
     }
 }
