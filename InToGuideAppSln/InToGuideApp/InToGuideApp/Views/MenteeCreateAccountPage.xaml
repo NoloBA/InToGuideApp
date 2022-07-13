@@ -8,8 +8,9 @@
 
     <ScrollView>
         <StackLayout>
-        
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
             <Label Text="CREATE ACCOUNT" HorizontalOptions="CenterAndExpand"/>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
 
             <Label Text="Name" HorizontalOptions="Start"/>
             <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
@@ -55,9 +56,15 @@
             <Label Text="Confirm Password" HorizontalOptions="Start"/>
             <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
                 <Entry></Entry>
+            
             </Frame>
             <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"
                     Command="{Binding CreateMenteeAccountCommand}"/>
+            
+            
+            
+            
+            
 
            
 
