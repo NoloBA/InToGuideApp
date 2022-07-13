@@ -18,7 +18,7 @@
     <Color x:Key="LightButtonTextColor">#212121</Color>
 
     <Color x:Key="LightEntryBackgroundColor">#FAFAFA</Color>
-    <Color x:Key="LightEntryBorderColor">#E1E1E1</Color>
+    <Color x:Key="LightEntryBorderColor">#f79726</Color>
 
     <Color x:Key="LightPageBackgroundColor">#F0F0F0</Color>
     <Color x:Key="LightCardBackgroundColor">#FFFFFF</Color>
