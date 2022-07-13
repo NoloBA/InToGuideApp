@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace InToGuideWebAPI.Models
 {
     [Table("Authentication")]
-    public class Authentication
+    public class Authentication 
     {
         [Required]
         [Key]

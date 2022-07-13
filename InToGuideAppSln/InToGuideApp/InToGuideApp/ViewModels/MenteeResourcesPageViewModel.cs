@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public MenteeResourcesPageViewModel(INavigationService navigationService)
            : base(navigationService)
         {
-            Title = "Mentee Resources Page";
+            Title = "Resources";
         }
     }
 }

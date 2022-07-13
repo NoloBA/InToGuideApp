@@ -19,7 +19,7 @@ namespace InToGuideApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MentorProfilePage");
+            await NavigationService.NavigateAsync("NavigationPage/MentorTabbedPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -48,6 +48,8 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<HelpAndSupportPage, HelpAndSupportPageViewModel>();
             containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
             containerRegistry.RegisterForNavigation<AppearancePage, AppearancePageViewModel>();
+            containerRegistry.RegisterForNavigation<MentorTabbedPage, MentorTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<MenteeTabbedPage, MenteeTabbedPageViewModel>();
         }
     }
 }

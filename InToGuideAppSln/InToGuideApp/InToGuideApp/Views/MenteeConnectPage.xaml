@@ -4,7 +4,8 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeConnectPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             IconImageSource="connect.png">
 
     <StackLayout>
         <Label Text="Lets Connect"

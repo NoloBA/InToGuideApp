@@ -1,4 +1,5 @@
 ﻿using InToGuideWebAPI.Interfaces;
+using InToGuideWebAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,11 +27,11 @@ namespace InToGuideWebAPI.Controllers
 
 
         [HttpPost("login")]
-        public IActionResult Post([FromBody] AuthRequest authRequest)
+        public IActionResult Post([FromBody] AuthenticationRequest authRequest)
         {
             try
             {
-                return Ok (_inToGuideRepossitory.PerformAuthenticationCheck());
+                return Ok(_inToGuideRepossitory.PerformAuthenticationCheck(authRequest.EmailAdress, authRequest.Password));
             }
             catch (AccessViolationException)
             {
@@ -42,48 +43,8 @@ namespace InToGuideWebAPI.Controllers
             }
         }
 
-        /*[HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterationRequest registerationRequest)
-        {
-            try
-            {
-                var result = await _authentication.Register(registerationRequest);
-
-                return Created("", result);
-            }
-            catch (MissingFieldException msex)
-            {
-                return BadRequest(msex.Message);
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpGet("GetUserEmail")]
-        public async Task<IActionResult> GetUserEmail([FromQuery] UserEmailRequest userEmailRequest)
-        {
-            try
-            {
-                var user = await _authentication.GetUserEmail(userEmailRequest);
-                if (!(user.Data == null))
-                {
-                    return Ok(user);
-                }
-                return NotFound(user);
-            }
-            catch (Exception)
-            {
-
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-
-        }*/
     }
 
-    public class AuthRequest
-    {
-    }
+   
 }
 

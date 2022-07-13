@@ -8,6 +8,9 @@
         AuthenticationFailed,
         AccountNotValid,
         AccountCreationFailed,
+        ReviewNotCreated,
+        ReviewBodyEmpty,
+        MentorHistoryNotFound
                
     }
 }
