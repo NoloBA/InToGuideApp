@@ -2,13 +2,14 @@
 using InToGuideWebAPI.Enum;
 using InToGuideWebAPI.Interfaces;
 using InToGuideWebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace InToGuideWebAPI.Data
 {
     public class InToGuideDbRepository: IInToGuideRepossitory
     {
-        private InToGuideContext _inToGuideContext;
+        private readonly InToGuideContext _inToGuideContext;
 
         public InToGuideDbRepository(InToGuideContext inToGuideContext)
         {
@@ -26,6 +27,16 @@ namespace InToGuideWebAPI.Data
         }
 
         public HelpAndSupport CreateNewHelpAndSupport(HelpAndSupport helpAndSupport)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IActionResult CreateNewMatch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Match CreateNewMatch(Match match)
         {
             throw new NotImplementedException();
         }
@@ -70,12 +81,58 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        public List<Chat> GetChatList(bool fullFetch = true)
+        public IEnumerable<Match> GetAllMatches()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Match> GetAllMatches(int MatchId, bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Review> GetAllReviews(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Chat GetChat(string chatId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Chat> GetChatList(bool 
+            fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Chat> GetChatList(int ChatId, bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Chat> GetChatList()
         {
             throw new NotImplementedException();
         }
 
         public List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MentorHistory GetMentorHistory(int HistorId, bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<MentorHistory> GetMentorHistorys(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetUserByUserId(int UserId, bool fullFetch = true)
         {
             throw new NotImplementedException();
         }

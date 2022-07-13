@@ -28,7 +28,6 @@ namespace InToGuideWebAPI.Controllers
             {
                 return BadRequest(argex.Message);
             }
-            return Ok(mentorhistory);//!!!
         }
         // GET by Id action
         [HttpGet]//HistoryID???
