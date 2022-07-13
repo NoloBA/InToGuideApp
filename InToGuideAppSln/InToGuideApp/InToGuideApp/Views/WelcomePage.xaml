@@ -15,7 +15,7 @@
         <Button x:Name="Mentor" Text="I AM A MENTOR" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MentorCommand}"/>
         <Label Text="Are you an experienced proffessional?" HorizontalOptions="Center"/>
 
-        <Button x:Name="Mentee" Text="I AM A QUALIFIED GRADUATE" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MenteeCommand}" />
+         b<Button x:Name="Mentee" Text="I AM A QUALIFIED GRADUATE" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MenteeCommand}" />
         <Label Text="Are you a qualified graduate?" HorizontalOptions="Center"/>
 
        
