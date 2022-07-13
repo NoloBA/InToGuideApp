@@ -5,9 +5,6 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeDashboardPage"
              Title="{Binding Title}">
-    <StackLayout>
-        <Label Text="Profile" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-
-    </StackLayout>
+    
 
 </ContentPage>

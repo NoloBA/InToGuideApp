@@ -9,7 +9,6 @@ namespace InToGuideWebAPI.Interfaces
         Certificate CreateNewCertificate(Certificate certificate);
         User CreateNewUser(User user);
         Chat CreateChat(Chat chat);
-        bool DoesThreadIdExistByUser(string threadId);
         bool DoesMessageExistByUser(string message);
         List<Chat> GetChatList(bool fullFetch = true);
 

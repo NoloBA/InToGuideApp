@@ -5,5 +5,41 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MentorProfilePage"
              Title="{Binding Title}">
+
+    <StackLayout>
+        <Label Text="Profile" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        <ImageButton Source="editing.png"/>
+        <Image Source="profile.png" WidthRequest="100" HorizontalOptions="StartAndExpand"/>
+        <Image Source="star.png"/>
+
+        <StackLayout>
+            <Entry Placeholder="Name"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Placeholder="Surname"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Placeholder="Qualification"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Placeholder="Institution"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Placeholder="City"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Placeholder="Cell"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Placeholder="ID Number"/>
+        </StackLayout>
+        
+    </StackLayout>
   
 </ContentPage>
