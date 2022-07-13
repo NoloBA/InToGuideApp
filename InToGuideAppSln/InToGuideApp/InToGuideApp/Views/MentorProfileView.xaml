@@ -7,12 +7,47 @@
              Title="{Binding Title}">
 
     <ScrollView>
-        <StackLayout>
-            <Image Source="profile.png"
-                   HeightRequest="50"
-                   WidthRequest="50"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Start"/>
+
+        
+        <StackLayout Background="WhiteSmoke">
+            <ImageButton Source="burgermenu.png"
+                         HorizontalOptions="EndAndExpand"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         Margin="0,0,10,0"
+                         BackgroundColor="WhiteSmoke"/>
+            <ImageButton Source="profile.png"
+                         HeightRequest="150"
+                         WidthRequest="150"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="Start"
+                         Margin="0,20,0,0"
+                         BackgroundColor="WhiteSmoke"/>
+
+            <!--<Stars coloured></Stars>-->
+
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Full Name:" TextColor="Black" FontSize="20" Margin="20,10,0,0"/>
+                <Line Stroke="#F79726"  X2="200" StrokeThickness="2"  VerticalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Qualification:" TextColor="Black" FontSize="20" Margin="20,10,0,0"/>
+                <Line Stroke="#F79726"  X2="200" StrokeThickness="2" VerticalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                    <Label Text="Email Address:" TextColor="Black" FontSize="20" Margin="20,10,0,0"/>
+                <Line Stroke="#F79726"  X2="200" StrokeThickness="2" VerticalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+
+            <Label Text="Reviews" FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="20,10,0,0" />
+
+            <Frame BorderColor="Black" 
+                   BackgroundColor="WhiteSmoke"
+                   HeightRequest="200"
+                   Margin="20,0">
+            </Frame>
         </StackLayout>
     </ScrollView>
   

@@ -35,7 +35,6 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<MenteeCreateAccountPage, MenteeCreateAccountPageViewModel>();
             containerRegistry.RegisterForNavigation<MentorCreateAccountPage, MentorCreateAccountPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeResourcesPage, MenteeResourcesPageViewModel>();
-            containerRegistry.RegisterForNavigation<MentorResourcesPage, MentorResourcesPageViewModel>();
             containerRegistry.RegisterForNavigation<MentorDashboardPage, MentorDashboardPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeDashboardPage, MenteeDashboardPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeConnectPage, MenteeConnectPageViewModel>();
