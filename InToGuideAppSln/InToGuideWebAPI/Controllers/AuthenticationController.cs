@@ -31,7 +31,7 @@ namespace InToGuideWebAPI.Controllers
         {
             try
             {
-                return Ok(_inToGuideRepossitory.PerformAuthenticationCheck(authRequest.EmailAdress, authRequest.Password));
+                return Ok(_inToGuideRepossitory.PerformAuthenticationCheck(authRequest.EmailAddress, authRequest.Password));
             }
             catch (AccessViolationException)
             {
