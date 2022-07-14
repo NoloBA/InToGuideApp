@@ -32,10 +32,10 @@ namespace InToGuideWebAPI.Data
             return _inToGuideContext.Users.Any(us => us.UserId == id);
         }
 
-        public bool DoesUserExistByAccountType(bool accounttype)
+        /*public bool DoesUserExistByAccountType(bool accounttype)
         {
             return _inToGuideContext.Users.Any(us => us.AccountType == accounttype);
-        }
+        }*/
 
         public bool DoesUserExistByEmailAddress(string email)
         {
@@ -101,7 +101,7 @@ namespace InToGuideWebAPI.Data
             }
         }
 
-        public User GetUserAccountType(bool accounttype,bool fullFetch = true)
+       /* public User GetUserAccountType(bool accounttype,bool fullFetch = true)
         {
             if (fullFetch)
             { 
@@ -113,7 +113,7 @@ namespace InToGuideWebAPI.Data
                 var users = _inToGuideContext.Users.Where(x => x.AccountType == accounttype).FirstOrDefault();
                 return users;  
             }
-        }
+        }*/
 
         #endregion
 
@@ -157,11 +157,11 @@ namespace InToGuideWebAPI.Data
 
       
 
-        public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
+       /* public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
         {
             
         }
-
+       */
         public bool DoesMessageExistByUser(string message)
         {
             throw new NotImplementedException();
@@ -224,6 +224,61 @@ namespace InToGuideWebAPI.Data
                 return true;
             }
             return false;
+        }
+
+        User IInToGuideRepossitory.GetUserByUserId(int UserId, bool fullFetch)
+        {
+            throw new NotImplementedException();
+        }
+
+        Chat IInToGuideRepossitory.CreateChat(Chat chat)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IInToGuideRepossitory.DoesEmailAddresExistByUser(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IInToGuideRepossitory.CreateNewMatch()
+        {
+            throw new NotImplementedException();
+        }
+
+        MentorHistory IInToGuideRepossitory.CreateNewMentorHistory(MentorHistory mentorhistory)
+        {
+            throw new NotImplementedException();
+        }
+
+        MentorHistory IInToGuideRepossitory.GetMentorHistory(int HistorId, bool fullFetch)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<MentorHistory> IInToGuideRepossitory.GetMentorHistorys(bool fullFetch)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<object?> IInToGuideRepossitory.CreateNewUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IInToGuideRepossitory.PerformAuthenticationCheck(string userName, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        Match IInToGuideRepossitory.CreateNewMatch(Match match)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

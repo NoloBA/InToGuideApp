@@ -9,7 +9,7 @@ namespace InToGuideWebAPI.Models
         [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ChatId { get; set; }
+        //public int ChatId { get; set; }
 
 
         public string MenteeUser { get; set; }

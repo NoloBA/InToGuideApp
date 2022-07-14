@@ -29,24 +29,22 @@ namespace InToGuideWebAPI.Migrations
                 name: "Chat",
                 columns: table => new
                 {
-                    ChatId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MenteeMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MentorMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MenteeUser = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MentorUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThreadId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    ChatId1 = table.Column<int>(type: "int", nullable: true)
+                    ChatMenteeUser = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Chat", x => x.ChatId);
+                    table.PrimaryKey("PK_Chat", x => x.MenteeUser);
                     table.ForeignKey(
-                        name: "FK_Chat_Chat_ChatId1",
-                        column: x => x.ChatId1,
+                        name: "FK_Chat_Chat_ChatMenteeUser",
+                        column: x => x.ChatMenteeUser,
                         principalTable: "Chat",
-                        principalColumn: "ChatId");
+                        principalColumn: "MenteeUser");
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +84,7 @@ namespace InToGuideWebAPI.Migrations
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountType = table.Column<bool>(type: "bit", nullable: false),
+                    AccountType = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Qualification = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -184,9 +182,9 @@ namespace InToGuideWebAPI.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Chat_ChatId1",
+                name: "IX_Chat_ChatMenteeUser",
                 table: "Chat",
-                column: "ChatId1");
+                column: "ChatMenteeUser");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HelpAndSupport_UserId",
