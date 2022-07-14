@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using InToGuideWebAPI.Interfaces;
+using InToGuideWebAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InToGuideWebAPI.Controllers
@@ -7,8 +9,25 @@ namespace InToGuideWebAPI.Controllers
     [ApiController]
     public class MatchController : ControllerBase
     {
-        // GET all action
+        private readonly IInToGuideRepossitory _inToGuideRepossitory;
 
+        public MatchController(IInToGuideRepossitory inToGuideRepossitory)
+        {
+            _inToGuideRepossitory = inToGuideRepossitory;
+        }
+        // GET all action
+        [HttpPost]
+        public IActionResult CreateNewMatch([FromBody] Match match)
+        {
+            return _inToGuideRepossitory.CreateNewMatch();
+        }
+
+        [HttpGet]//Getby MatchID
+        public IEnumerable<Match> Get()
+        {
+           // int MatchId = 0;//MatchID
+            return _inToGuideRepossitory.GetAllMatches();//ienumerable id!!
+        }
         // GET by Id action
 
         // POST action

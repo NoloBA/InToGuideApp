@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InToGuideApp.Views.MenteeResourcesPage">
+             x:Class="InToGuideApp.Views.MenteeResourcesPage"
+             Title="{Binding Title}"
+             IconImageSource="information.png">
 
     <StackLayout>
-        <Label Text="Hi"
+        <Label Text="Resources"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
 
 </ContentPage>

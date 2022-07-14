@@ -13,7 +13,7 @@ namespace InToGuideApp.ViewModels
         public LandingPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Main Page";
+            Title = "Landing Page";
         }
     }
 }

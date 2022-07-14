@@ -1,13 +1,15 @@
-﻿using InToGuideWebAPI.Enum;
+﻿using InToGuideWebAPI.Controllers;
+using InToGuideWebAPI.Enum;
 using InToGuideWebAPI.Interfaces;
 using InToGuideWebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace InToGuideWebAPI.Data
 {
     public class InToGuideDbRepository: IInToGuideRepossitory
     {
-        private InToGuideContext _inToGuideContext;
+        private readonly InToGuideContext _inToGuideContext;
 
         public InToGuideDbRepository(InToGuideContext inToGuideContext)
         {
@@ -170,7 +172,38 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        public List<Chat> GetChatList(bool fullFetch = true)
+        public IEnumerable<Match> GetAllMatches()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Match> GetAllMatches(int MatchId, bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Review> GetAllReviews(bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Chat GetChat(string chatId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Chat> GetChatList(bool 
+            fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Chat> GetChatList(int ChatId, bool fullFetch = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Chat> GetChatList()
         {
             throw new NotImplementedException();
         }

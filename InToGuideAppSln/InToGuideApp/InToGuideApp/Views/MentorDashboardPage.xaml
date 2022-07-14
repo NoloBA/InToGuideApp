@@ -3,6 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InToGuideApp.Views.MentorDashboardPage">
-  
+             x:Class="InToGuideApp.Views.MentorDashboardPage"
+             Title="{Binding Title}"
+             IconImageSource="dashboard.png">
+
+    <StackLayout Background="WhiteSmoke">
+
+        <ImageButton Source="burgermenu.png"
+                         HorizontalOptions="EndAndExpand"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         Margin="0,0,10,0"
+                         BackgroundColor="WhiteSmoke"
+                         Command="{Binding SettingsCommand}"/>
+
+                    <!--<Label Text="{Binding MatchStatus}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
+
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout>
+                <Image Source="profile.png" HeightRequest="50" WidthRequest="50"
+               Margin="10,20,0,0" />
+                <!--<Label Text="{Binding Name}" 
+            <Label Text="{Binding Qualification}"-->
+            <Frame BorderColor="#F79726" 
+               BackgroundColor="WhiteSmoke"
+               Margin="15,0,5,0"
+               HorizontalOptions="CenterAndExpand"
+               Padding="1">
+                <Button Text="Connect"
+                   BackgroundColor="WhiteSmoke"
+                   TextColor="Black"
+                   FontSize="Medium" 
+                    Command="{Binding ConnectCommand}"/>
+            </Frame>
+            </StackLayout>
+
+            <StackLayout>
+                <Image Source="profile.png" HeightRequest="50" WidthRequest="50"
+               Margin="10,20,0,0" />
+                <!--<Label Text="{Binding Name}" 
+            <Label Text="{Binding Qualification}"-->
+                <Frame BorderColor="#F79726" 
+               BackgroundColor="WhiteSmoke"
+               Margin="5,0,5,0"
+               HorizontalOptions="CenterAndExpand"
+               Padding="1">
+                    <Button Text="Connect"
+                   BackgroundColor="WhiteSmoke"
+                   TextColor="Black"
+                   FontSize="Medium" 
+                    Command="{Binding ConnectCommand}"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout>
+                <Image Source="profile.png" HeightRequest="50" WidthRequest="50"
+               Margin="10,20,0,0" />
+                <!--<Label Text="{Binding Name}" 
+            <Label Text="{Binding Qualification}"-->
+                <Frame BorderColor="#F79726" 
+               BackgroundColor="WhiteSmoke"
+               Margin="5,0,15,0"
+               HorizontalOptions="CenterAndExpand"
+               Padding="1">
+                    <Button Text="Connect"
+                   BackgroundColor="WhiteSmoke"
+                   TextColor="Black"
+                   FontSize="Medium" 
+                    Command="{Binding ConnectCommand}"/>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+
+       
+    </StackLayout>
 </ContentPage>

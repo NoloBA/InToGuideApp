@@ -2,9 +2,9 @@
 
 namespace InToGuideApp.Views
 {
-    public partial class MentorResourcesPage : ContentPage
+    public partial class AppearancePage : ContentPage
     {
-        public MentorResourcesPage()
+        public AppearancePage()
         {
             InitializeComponent();
         }

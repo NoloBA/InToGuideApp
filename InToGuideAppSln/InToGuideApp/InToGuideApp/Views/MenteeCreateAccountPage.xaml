@@ -1,60 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" xmlns:viewmodels="clr-namespace:InToGuideApp.ViewModels" x:DataType="viewmodels:MenteeCreateAccountPageViewModel"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InToGuideApp.Views.MenteeCreateAccountPage" BackgroundColor="White">
-    <StackLayout>
-    <Label Text="CREATE ACCOUNT" HorizontalOptions="CenterAndExpand"/>
+             x:Class="InToGuideApp.Views.MenteeCreateAccountPage" BackgroundColor="White"
+             Title="{Binding Title}">
 
-        <Label Text="Name" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry>  </Entry>
-        </Frame>
-        <Label Text="Surname" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Qualification" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Institution" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Location" HorizontalOptions="Start"/>
-                       
-         <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Cell" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="ID Number" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Hobbies" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Email" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Password" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Label Text="Confirm Password" HorizontalOptions="Start"/>
-        <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-            <Entry></Entry>
-        </Frame>
-        <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"/>
+    <ScrollView>
+        <StackLayout>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+            <Label Text="CREATE ACCOUNT" HorizontalOptions="CenterAndExpand"/>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
 
+            <Label Text="Name" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Surname" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Qualification" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Institution" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Location" HorizontalOptions="Start"/>
 
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Cell" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="ID Number" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Hobbies" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Email" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Password" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            </Frame>
+            <Label Text="Confirm Password" HorizontalOptions="Start"/>
+            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
+                <Entry></Entry>
+            
+            </Frame>
+            <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"
+                    Command="{Binding CreateMenteeAccountCommand}"/>
+            
+            
+            
+            
+            
+
+           
+
+        
     </StackLayout>
+    </ScrollView>
 
 </ContentPage>

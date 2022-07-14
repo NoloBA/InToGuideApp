@@ -1,14 +1,15 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace InToGuideApp.ViewModels
 {
-    public class MentorResourcesPageViewModel : BindableBase
+    public class MenteeTabbedPageViewModel : BindableBase
     {
-        public MentorResourcesPageViewModel()
+        public MenteeTabbedPageViewModel()
         {
 
         }

@@ -3,11 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="InToGuideApp.Views.MenteeDashboardPage">
-    <StackLayout>
-        <Label Text="Hello"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="InToGuideApp.Views.MenteeDashboardPage"
+             Title="{Binding Title}"
+             IconImageSource="dashboard.png">
+    <StackLayout BackgroundColor="WhiteSmoke">
+
+        <ImageButton Source="burgermenu.png"
+                         HorizontalOptions="EndAndExpand"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         Margin="0,0,10,0"
+                         BackgroundColor="WhiteSmoke"
+                         Command="{Binding SettingsCommand}"/>
+        <!--<Label Text="{Binding MatchStatus}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
+
+        <Frame BorderColor="#F79726" 
+               BackgroundColor="WhiteSmoke"
+               Margin="20"
+               HorizontalOptions="CenterAndExpand"
+               Padding="5">
+            <Button Text="Connect"
+                   BackgroundColor="WhiteSmoke"
+                   TextColor="Black"
+                   FontSize="Medium" 
+                    Command="{Binding ConnectCommand}"/>
+        </Frame>
+
+        <StackLayout Orientation="Horizontal">
+            <Image Source="profile.png" HeightRequest="70" WidthRequest="70"
+               Margin="20" />
+            <!--<Label Text="{Binding Name}" 
+            <Label Text="{Binding Qualification}"-->
+        </StackLayout>
+    
     </StackLayout>
 
 </ContentPage>
