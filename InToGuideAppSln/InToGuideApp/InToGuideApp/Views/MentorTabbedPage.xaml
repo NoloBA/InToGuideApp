@@ -9,6 +9,6 @@
 
     <views:MentorDashboardPage/>
     <views:MentorConnectPage/>
-    <views:MentorResourcesPage/>
+    
 
 </TabbedPage>

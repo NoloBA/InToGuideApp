@@ -19,7 +19,7 @@ namespace InToGuideApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/MentorProfileView");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -35,7 +35,6 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<MenteeCreateAccountPage, MenteeCreateAccountPageViewModel>();
             containerRegistry.RegisterForNavigation<MentorCreateAccountPage, MentorCreateAccountPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeResourcesPage, MenteeResourcesPageViewModel>();
-            containerRegistry.RegisterForNavigation<MentorResourcesPage, MentorResourcesPageViewModel>();
             containerRegistry.RegisterForNavigation<MentorDashboardPage, MentorDashboardPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeDashboardPage, MenteeDashboardPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeConnectPage, MenteeConnectPageViewModel>();
@@ -50,6 +49,7 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<AppearancePage, AppearancePageViewModel>();
             containerRegistry.RegisterForNavigation<MentorTabbedPage, MentorTabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeTabbedPage, MenteeTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<ReviewPage, ReviewPageViewModel>();
         }
     }
 }

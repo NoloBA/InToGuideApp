@@ -14,5 +14,14 @@ namespace InToGuideApp.ViewModels
         {
             Title = "Dashbord";
         }
+
+        private DelegateCommand _settingsCommand;
+        public DelegateCommand SettingsCommand =>
+            _settingsCommand ?? (_settingsCommand = new DelegateCommand(ExecuteSettingsCommand));
+
+        async void ExecuteSettingsCommand()
+        {
+            await NavigationService.NavigateAsync("SettingsPage");
+        }
     }
 }

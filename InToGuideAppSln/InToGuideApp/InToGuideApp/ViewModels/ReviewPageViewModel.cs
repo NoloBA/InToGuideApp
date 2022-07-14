@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace InToGuideApp.ViewModels
 {
-    public class MentorResourcesPageViewModel : ViewModelBase
+    public class ReviewPageViewModel : ViewModelBase
     {
-        public MentorResourcesPageViewModel(INavigationService navigationService)
+        public ReviewPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Resources";
+            Title = "Review Page";
         }
     }
 }

@@ -80,23 +80,17 @@ namespace InToGuideWebAPI.Migrations
 
             modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
                 {
-                    b.Property<int>("ChatId")
+                    b.Property<string>("MenteeUser")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatId"), 1L, 1);
-
-                    b.Property<int?>("ChatId1")
-                        .HasColumnType("int");
+                    b.Property<string>("ChatMenteeUser")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("MenteeMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MentorMessage")
+                    b.Property<string>("MentorUser")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -109,9 +103,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("ChatId");
+                    b.HasKey("MenteeUser");
 
-                    b.HasIndex("ChatId1");
+                    b.HasIndex("ChatMenteeUser");
 
                     b.ToTable("Chat");
                 });
@@ -223,8 +217,8 @@ namespace InToGuideWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
-                    b.Property<bool>("AccountType")
-                        .HasColumnType("bit");
+                    b.Property<int>("AccountType")
+                        .HasColumnType("int");
 
                     b.Property<int>("AuthenticationId")
                         .HasColumnType("int");
@@ -304,7 +298,7 @@ namespace InToGuideWebAPI.Migrations
                 {
                     b.HasOne("InToGuideWebAPI.Models.Chat", null)
                         .WithMany("chats")
-                        .HasForeignKey("ChatId1");
+                        .HasForeignKey("ChatMenteeUser");
                 });
 
             modelBuilder.Entity("InToGuideWebAPI.Models.HelpAndSupport", b =>

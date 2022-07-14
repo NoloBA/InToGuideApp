@@ -14,5 +14,23 @@ namespace InToGuideApp.ViewModels
         {
             Title = "Mentor Profile View";
         }
+
+        private DelegateCommand _settingsCommand;
+        public DelegateCommand SettingsCommand =>
+            _settingsCommand ?? (_settingsCommand = new DelegateCommand(ExecuteSettingsCommand));
+
+        async void ExecuteSettingsCommand()
+        {
+            await NavigationService.NavigateAsync("SettingsPage");
+        }
+
+        private DelegateCommand _reviewCommand;
+        public DelegateCommand ReviewCommand =>
+            _reviewCommand ?? (_reviewCommand = new DelegateCommand(ExecuteReviewCommand));
+
+        async void ExecuteReviewCommand()
+        {
+            await NavigationService.NavigateAsync("ReviewPage");
+        }
     }
 }
