@@ -15,6 +15,8 @@
                          Margin="0,0,10,0"
                          BackgroundColor="WhiteSmoke"
                          Command="{Binding SettingsCommand}"/>
+
+        
         <!--<Label Text="{Binding MatchStatus}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
 
         <Frame BorderColor="#F79726" 
