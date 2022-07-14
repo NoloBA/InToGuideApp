@@ -8,9 +8,9 @@
              IconImageSource="information.png">
 
     <StackLayout>
-        <Label Text="Hi"
+        <Label Text="Resources"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
 
 </ContentPage>
