@@ -5,13 +5,5 @@
              xmlns:styles="clr-namespace:InToGuideApp.Styles"
             x:Class="InToGuideApp.App">
 
-    <prism:PrismApplication.Resources>
-        <ResourceDictionary>
-            
-
-            <ResourceDictionary.MergedDictionaries>
-                
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </prism:PrismApplication.Resources>
+   
 </prism:PrismApplication>
