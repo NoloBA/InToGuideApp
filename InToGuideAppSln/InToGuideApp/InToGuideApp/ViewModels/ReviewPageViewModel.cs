@@ -4,16 +4,15 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace InToGuideApp.ViewModels
 {
-    public class LandingPageViewModel : ViewModelBase
+    public class ReviewPageViewModel : ViewModelBase
     {
-        public LandingPageViewModel(INavigationService navigationService)
+        public ReviewPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Landing Page";
+            Title = "Review Page";
         }
     }
 }

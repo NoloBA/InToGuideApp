@@ -15,11 +15,19 @@ namespace InToGuideApp
         {
         }
 
+        //public App()
+        //{
+        //    //Register Syncfusion license
+        //    Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
+        //    InitializeComponent();
+        //}
+
         protected override async void OnInitialized()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/IntroductionPage");
+            await NavigationService.NavigateAsync("NavigationPage/MentorTabbedPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,7 +35,6 @@ namespace InToGuideApp
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<StartPage, StartPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<IntroductionPage, IntroductionPageViewModel>();
             containerRegistry.RegisterForNavigation<WelcomePage, WelcomePageViewModel>();
@@ -49,6 +56,7 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<AppearancePage, AppearancePageViewModel>();
             containerRegistry.RegisterForNavigation<MentorTabbedPage, MentorTabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeTabbedPage, MenteeTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<ReviewPage, ReviewPageViewModel>();
         }
     }
 }

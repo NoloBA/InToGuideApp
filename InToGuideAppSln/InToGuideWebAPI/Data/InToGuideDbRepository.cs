@@ -46,7 +46,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullfetch)
             {
-                var users = _inToGuideContext.Users.Include(u => u.MatchId).ToList();
+                var users = _inToGuideContext.Users.Include(u => u.UserId).ToList();
                 return users;
             }
             else 

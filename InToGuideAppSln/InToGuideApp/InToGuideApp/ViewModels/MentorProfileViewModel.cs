@@ -23,5 +23,14 @@ namespace InToGuideApp.ViewModels
         {
             await NavigationService.NavigateAsync("SettingsPage");
         }
+
+        private DelegateCommand _reviewCommand;
+        public DelegateCommand ReviewCommand =>
+            _reviewCommand ?? (_reviewCommand = new DelegateCommand(ExecuteReviewCommand));
+
+        async void ExecuteReviewCommand()
+        {
+            await NavigationService.NavigateAsync("ReviewPage");
+        }
     }
 }
