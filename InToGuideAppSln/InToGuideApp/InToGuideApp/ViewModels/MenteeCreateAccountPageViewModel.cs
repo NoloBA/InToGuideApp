@@ -22,6 +22,7 @@ namespace InToGuideApp.ViewModels
         async void ExecuteCreateMenteeAccountCommand()
         {
             await NavigationService.NavigateAsync("LoginPage");
+            AccountTypeEnum = 2;
         }
     }
 }
