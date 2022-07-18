@@ -16,7 +16,7 @@ namespace InToGuideWebAPI.Data
             _inToGuideContext = inToGuideContext;
         }
 
-        #region user
+        #region User
 
         public User CreateNewUser(User user)
         {
@@ -101,19 +101,19 @@ namespace InToGuideWebAPI.Data
             }
         }
 
-       /* public User GetUserAccountType(bool accounttype,bool fullFetch = true)
-        {
-            if (fullFetch)
-            { 
-            var users = _inToGuideContext.Users.Where(x => x.AccountType == accounttype).Include(x => x.MatchId).FirstOrDefault();
-                return users;
-            }
-            else 
-            {
-                var users = _inToGuideContext.Users.Where(x => x.AccountType == accounttype).FirstOrDefault();
-                return users;  
-            }
-        }*/
+        /* public User GetUserAccountType(bool accounttype,bool fullFetch = true)
+         {
+             if (fullFetch)
+             { 
+             var users = _inToGuideContext.Users.Where(x => x.AccountType == accounttype).Include(x => x.MatchId).FirstOrDefault();
+                 return users;
+             }
+             else 
+             {
+                 var users = _inToGuideContext.Users.Where(x => x.AccountType == accounttype).FirstOrDefault();
+                 return users;  
+             }
+         }*/
 
         #endregion
 
@@ -128,7 +128,8 @@ namespace InToGuideWebAPI.Data
         #endregion
 
 
-       
+
+        #region Certificate
         public Certificate CreateNewCertificate(Certificate certificate)
         {
             _inToGuideContext.Certificates.Add(certificate);
@@ -136,32 +137,43 @@ namespace InToGuideWebAPI.Data
             return certificate;
         }
 
+        #endregion
+
+
+        #region HelpAndSupport
         public HelpAndSupport CreateNewHelpAndSupport(HelpAndSupport helpAndSupport)
         {
             _inToGuideContext.HelpAndSupports.Add(helpAndSupport);  
             _inToGuideContext.SaveChanges();
             return helpAndSupport;
         }
-        
+
+        #endregion
+
+        #region MentorHistory
+
         /*public MentorHistory CreateNewMentorHistory(MentorHistory mentorhistory)
         {
             
         }*/
+        #endregion
 
+
+        #region Review
         public Review CreateNewReview(Review review)
         {
             _inToGuideContext.Reviews.Add(review);
             _inToGuideContext.SaveChanges();
             return review;
         }
+        #endregion
 
-      
 
-       /* public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
-        {
-            
-        }
-       */
+        /* public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
+         {
+
+         }
+        */
         public bool DoesMessageExistByUser(string message)
         {
             throw new NotImplementedException();
@@ -213,6 +225,10 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
+        #region AccountType
+
+        
+        #endregion
 
         #region Authentication
         public bool PerfomAuthenticationCheck(string userName, string password) 
