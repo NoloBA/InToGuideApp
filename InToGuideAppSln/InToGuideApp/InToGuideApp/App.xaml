@@ -3,15 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com" 
              xmlns:styles="clr-namespace:InToGuideApp.Styles"
-             x:Class="InToGuideApp.App">
+            x:Class="InToGuideApp.App">
 
-    <prism:PrismApplication.Resources>
-        <ResourceDictionary>
-            
-
-            <ResourceDictionary.MergedDictionaries>
-                
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </prism:PrismApplication.Resources>
+   
 </prism:PrismApplication>
