@@ -15,19 +15,15 @@ namespace InToGuideApp
         {
         }
 
-        //public App()
-        //{
-        //    //Register Syncfusion license
-        //    Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
-        //    InitializeComponent();
-        //}
+        
 
         protected override async void OnInitialized()
         {
+            //licensing of syncfusion nuget package
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/ReviewPage");
+            await NavigationService.NavigateAsync("NavigationPage/IntroductionPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -57,6 +53,8 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<MentorTabbedPage, MentorTabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeTabbedPage, MenteeTabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<ReviewPage, ReviewPageViewModel>();
+            containerRegistry.RegisterForNavigation<ForgotPasswordPage, ForgotPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<ResetPasswordPage, ResetPasswordPageViewModel>();
         }
     }
 }
