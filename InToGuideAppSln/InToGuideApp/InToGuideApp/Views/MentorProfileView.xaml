@@ -5,5 +5,63 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MentorProfileView"
              Title="{Binding Title}">
+
+    <ScrollView>
+
+        
+        <StackLayout Background="WhiteSmoke">
+            <ImageButton Source="burgermenu.png"
+                         HorizontalOptions="EndAndExpand"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         Margin="0,0,10,0"
+                         BackgroundColor="WhiteSmoke"
+                         Command="{Binding SettingsCommand}"/>
+            <ImageButton Source="profile.png"
+                         HeightRequest="150"
+                         WidthRequest="150"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="Start"
+                         Margin="0,20,0,0"
+                         BackgroundColor="WhiteSmoke"/>
+
+            <!--<Stars coloured></Stars>-->
+
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Full Name:" TextColor="Black" FontSize="20" Margin="20,10,0,0"/>
+                <Line Stroke="#F79726"  X2="200" StrokeThickness="2"  VerticalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Qualification:" TextColor="Black" FontSize="20" Margin="20,10,0,0"/>
+                <Line Stroke="#F79726"  X2="200" StrokeThickness="2" VerticalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                    <Label Text="Email Address:" TextColor="Black" FontSize="20" Margin="20,10,0,0"/>
+                <Line Stroke="#F79726"  X2="200" StrokeThickness="2" VerticalOptions="End" Margin="0,0,0,0"/>
+            </StackLayout>
+
+            <Label Text="Reviews" FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="20,10,0,0" />
+
+            <Frame BorderColor="Black" 
+                   BackgroundColor="WhiteSmoke"
+                   HeightRequest="200"
+                   Margin="20,0">
+            </Frame>
+
+            <Button Text="Leave a mentor review "
+                    BorderColor="#F79726"
+                    BorderWidth="3"
+                    BackgroundColor="#F79726"
+                    Padding="5"
+                    CornerRadius="100"
+                    Margin="20,0,20,20"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="EndAndExpand"
+                    Command="{Binding ReviewCommand}"/>
+
+        </StackLayout>
+    </ScrollView>
   
 </ContentPage>

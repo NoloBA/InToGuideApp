@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InToGuideApp.ViewModels
+namespace InToGuideApp.Services
 {
-    internal class StartPageViewModel
+    internal class LogInService
     {
     }
 }

@@ -15,11 +15,15 @@ namespace InToGuideApp
         {
         }
 
+        
+
         protected override async void OnInitialized()
         {
+            //licensing of syncfusion nuget package
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MenteeTabbedPage");
+            await NavigationService.NavigateAsync("NavigationPage/IntroductionPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,7 +31,6 @@ namespace InToGuideApp
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<StartPage, StartPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<IntroductionPage, IntroductionPageViewModel>();
             containerRegistry.RegisterForNavigation<WelcomePage, WelcomePageViewModel>();
@@ -35,7 +38,6 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<MenteeCreateAccountPage, MenteeCreateAccountPageViewModel>();
             containerRegistry.RegisterForNavigation<MentorCreateAccountPage, MentorCreateAccountPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeResourcesPage, MenteeResourcesPageViewModel>();
-            containerRegistry.RegisterForNavigation<MentorResourcesPage, MentorResourcesPageViewModel>();
             containerRegistry.RegisterForNavigation<MentorDashboardPage, MentorDashboardPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeDashboardPage, MenteeDashboardPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeConnectPage, MenteeConnectPageViewModel>();
@@ -50,6 +52,9 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<AppearancePage, AppearancePageViewModel>();
             containerRegistry.RegisterForNavigation<MentorTabbedPage, MentorTabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<MenteeTabbedPage, MenteeTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<ReviewPage, ReviewPageViewModel>();
+            containerRegistry.RegisterForNavigation<ForgotPasswordPage, ForgotPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<ResetPasswordPage, ResetPasswordPageViewModel>();
         }
     }
 }

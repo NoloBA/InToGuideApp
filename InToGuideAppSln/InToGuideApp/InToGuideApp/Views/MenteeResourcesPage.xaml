@@ -4,12 +4,53 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeResourcesPage"
-             IconImageSource="support.png">
+             Title="{Binding Title}"
+             IconImageSource="information.png">
 
-    <StackLayout>
-        <Label Text="Hi"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <StackLayout BackgroundColor="WhiteSmoke">
+        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+        <Label Text="Resources" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+
+        
+
+        <Label Text="Supporting Documents"
+               FontSize="Medium"
+               TextColor="Black" 
+               Margin="20,20,20,0"/>
+        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
+        <Frame
+            BackgroundColor="WhiteSmoke"
+            BorderColor="Black"
+            Margin="20,10,20,0"
+            HeightRequest="100">
+            
+        </Frame>
+        
+        
+        <Label Text="Supporting Video Links"
+               FontSize="Medium"
+               TextColor="Black" 
+               Margin="20,20,20,0"/>
+        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
+        <Frame
+            BackgroundColor="WhiteSmoke"
+            BorderColor="Black"
+            Margin="20,10,20,0"
+            HeightRequest="100">
+
+        </Frame>
+
+        <Button Text="Mentee Certificate "
+                    BorderColor="#F79726"
+                    BorderWidth="3"
+                    BackgroundColor="#F79726"
+                    Padding="5"
+                    CornerRadius="100"
+                    Margin="20,10,20,10"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="EndAndExpand"/>
+
     </StackLayout>
 
 </ContentPage>

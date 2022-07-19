@@ -24,8 +24,8 @@ builder.Services.AddSwaggerGen();
 //Adds InToGuide Repository to DI container
 builder.Services.AddScoped<InToGuideDbRepository, InToGuideDbRepository>();
 
-/*// Adds DbInitialiser to DI Container
-builder.Services.AddTransient<DbInitialiser>();*/
+// Adds DbInitialiser to DI Container
+builder.Services.AddTransient<DbInitializer>();
 
 
 var app = builder.Build();
@@ -48,9 +48,9 @@ using var scope = app.Services.CreateScope();
 
 var services = scope.ServiceProvider;
 
-/*var initialiser = services.GetRequiredService<DbInitialiser>();
+var initialiser = services.GetRequiredService<DbInitializer>();
 
-initialiser.Run();*/
+initialiser.Run();
 
 //  End Seed Database
 

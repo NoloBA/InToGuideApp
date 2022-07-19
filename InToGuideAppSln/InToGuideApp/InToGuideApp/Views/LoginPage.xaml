@@ -7,7 +7,7 @@
              Title="{Binding Title}"
              NavigationPage.HasNavigationBar="False">
 
-    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+    <StackLayout Orientation="Vertical" BackgroundColor="WhiteSmoke" >
         <Label Text="Login" TextColor="#F79726" FontAttributes="Bold" FontSize="Header"  HorizontalTextAlignment="Center"></Label>
         <Label Text="Sign up to continue" FontSize="Small" HorizontalTextAlignment="Center"></Label>
 
@@ -23,7 +23,11 @@
                     <Entry Placeholder="Password" ></Entry>
                 </StackLayout>
             </Frame>
-            <Label Text="Forget password" ></Label>
+            <Button Text="Forgot Password?"
+                    HorizontalOptions="EndAndExpand"
+                    BackgroundColor="WhiteSmoke"
+                    TextColor="Blue" 
+                    Command="{Binding ForgotPasswordCommand}"/>
         </StackLayout>
 
         <Button Text="Login"

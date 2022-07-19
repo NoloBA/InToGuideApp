@@ -4,16 +4,15 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace InToGuideApp.ViewModels
 {
-    public class LandingPageViewModel : ViewModelBase
+    public class ResetPasswordPageViewModel : ViewModelBase
     {
-        public LandingPageViewModel(INavigationService navigationService)
+        public ResetPasswordPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Landing Page";
+            Title = "Reset Password Page";
         }
     }
 }

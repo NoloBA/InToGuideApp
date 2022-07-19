@@ -12,7 +12,16 @@ namespace InToGuideApp.ViewModels
         public MentorDashboardPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Mentor Dashbord Page";
+            Title = "Dashbord";
+        }
+
+        private DelegateCommand _settingsCommand;
+        public DelegateCommand SettingsCommand =>
+            _settingsCommand ?? (_settingsCommand = new DelegateCommand(ExecuteSettingsCommand));
+
+        async void ExecuteSettingsCommand()
+        {
+            await NavigationService.NavigateAsync("SettingsPage");
         }
     }
 }

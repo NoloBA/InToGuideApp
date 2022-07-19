@@ -38,6 +38,14 @@ namespace InToGuideApp.ViewModels
             await NavigationService.NavigateAsync("WelcomePage");
         }
 
+        private DelegateCommand _forgotPasswordCommand;
+        public DelegateCommand ForgotPasswordCommand =>
+            _forgotPasswordCommand ?? (_forgotPasswordCommand = new DelegateCommand(ExecuteForgotPasswordCommand));
+
+        async void ExecuteForgotPasswordCommand()
+        {
+            await NavigationService.NavigateAsync("ForgotPasswordPage");
+        }
         
     }
 }

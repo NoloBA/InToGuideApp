@@ -2,9 +2,9 @@
 
 namespace InToGuideApp.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class ResetPasswordPage : ContentPage
     {
-        public AboutPage()
+        public ResetPasswordPage()
         {
             InitializeComponent();
         }
