@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InToGuideWebAPI.Models
@@ -13,7 +14,7 @@ namespace InToGuideWebAPI.Models
 
         public int UserId { get; set; }
 
-        public string AccountType { get; set; }
+        public int AccountType { get; set; }
 
         public string FirstName { get; set; }
 
@@ -40,7 +41,7 @@ namespace InToGuideWebAPI.Models
         [ForeignKey("Authentication")]
         public int AuthenticationId { get; set; }
 
-        public Authentication? Authentication { get; set; }
+        public Authentication/*?*/ Authentication { get; set; }
 
  /*       [ForeignKey("Certificate")]
         public int CertificateId { get; set; }

@@ -14,7 +14,7 @@ namespace InToGuideWebAPI.Data
         }
 
         public void Run()
-        {           
+        {
             if (!_context.Users.Any())
             {
 
