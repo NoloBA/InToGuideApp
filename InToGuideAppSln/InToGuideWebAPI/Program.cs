@@ -1,4 +1,5 @@
 using InToGuideWebAPI.Data;
+using InToGuideWebAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -16,13 +17,16 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 }); ;
 
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Adds InToGuide Repository to DI container
-builder.Services.AddScoped<InToGuideDbRepository, InToGuideDbRepository>();
+builder.Services.AddScoped<IInToGuideRepossitory, InToGuideDbRepository>();
+
 
 // Adds DbInitialiser to DI Container
 builder.Services.AddTransient<DbInitializer>();

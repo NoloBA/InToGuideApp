@@ -36,14 +36,14 @@ namespace InToGuideWebAPI.Controllers
                     {
                         return BadRequest(SystemErrorCodes.UserNotValid.ToString());
                     }
-                    bool userExists = _inToGuideRepossitory.DoesEmailAddresExistByUser(user.EmailAddress);//don't duplicate user/details
+                    bool userExists = _inToGuideRepossitory.DoesUserExistByEmailAddress(user.EmailAddress);//don't duplicate user/details
                     if (userExists)
                     {
                         return StatusCode(StatusCodes.Status409Conflict, SystemErrorCodes.UserDuplicate.ToString());
                     }
                     _inToGuideRepossitory.CreateNewUser(user);//create user
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     return BadRequest(SystemErrorCodes.AccountCreationFailed.ToString());
                 }
