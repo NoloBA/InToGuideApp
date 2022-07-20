@@ -18,16 +18,16 @@ namespace InToGuideWebAPI.Controllers
             _inToGuideRepossitory = inToGuideRepossitory;
         }
 
-            // GET all n
+        // GET all n
 
-            // GET by Id action
+        // GET by Id action
 
-            // POST action
+        // POST action
 
-            // PUT action
+        // PUT action
 
-            // DELETE action
-            [HttpPost]
+        // DELETE action
+        [HttpPost(nameof(CreateUser), Name = nameof(CreateUser))]
             public IActionResult CreateUser([FromBody] User user)
             {
                 try
