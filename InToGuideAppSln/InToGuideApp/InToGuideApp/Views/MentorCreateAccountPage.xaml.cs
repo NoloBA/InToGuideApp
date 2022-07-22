@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace InToGuideApp.Views
 {
@@ -6,7 +8,11 @@ namespace InToGuideApp.Views
     {
         public MentorCreateAccountPage()
         {
-            InitializeComponent();
+            
+            {
+                InitializeComponent();
+            }
+            
         }
     }
 }

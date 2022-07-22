@@ -14,7 +14,7 @@ namespace InToGuideWebAPI.Interfaces
         List<Chat> GetChatList(int ChatId, bool fullFetch = true);
         Chat GetChat(string chatId);
         HelpAndSupport CreateNewHelpAndSupport(HelpAndSupport helpAndSupport);
-        bool DoesEmailAddresExistByUser(string email);
+        bool DoesUserExistByEmailAddress(string email);
         List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true);
         IActionResult CreateNewMatch();
         MentorHistory CreateNewMentorHistory(MentorHistory mentorhistory);
@@ -24,7 +24,7 @@ namespace InToGuideWebAPI.Interfaces
         bool DoesHistoryIdExistUser(MentorHistory mentorhistory);
         Review CreateNewReview(Review review);
         List<Review> GetAllReviews(bool fullFetch = true);
-        Task<object?> CreateNewUser();
+        //Task<object?> CreateNewUser();
         bool PerformAuthenticationCheck(string userName, string password);
         IEnumerable<Chat> GetChatList();
         Match CreateNewMatch(Match match);

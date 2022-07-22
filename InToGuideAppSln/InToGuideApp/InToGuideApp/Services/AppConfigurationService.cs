@@ -13,7 +13,7 @@ namespace InToGuideApp.Services
         public AppConfigurationService()
         {
 #if LOCALSERVER
-                _inToGuideServerUrl = "https://10.0.2.2:5267/";
+                _inToGuideServerUrl = "https://10.0.2.2:7267/";
 #else
             _inToGuideServerUrl = "http://localhost:7267/";
 #endif

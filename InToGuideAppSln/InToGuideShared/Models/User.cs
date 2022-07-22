@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -38,32 +39,33 @@ namespace InToGuideWebAPI.Models
 
         public DateTime Date { get; set; }
 
-        [ForeignKey("Authentication")]
-        public int AuthenticationId { get; set; }
+        //        [ForeignKey("Authentication")]
+        // public int AuthenticationId { get; set; }
 
-        public Authentication/*?*/ Authentication { get; set; }
+        // public Authentication? Authentication { get; set; }
 
- /*       [ForeignKey("Certificate")]
-        public int CertificateId { get; set; }
+        /*       [ForeignKey("Certificate")]
+               public int CertificateId { get; set; }
 
-        public Certificate? Certificate { get; set; }*/
+               public Certificate? Certificate { get; set; }*/
         //public ICollection<Certificate>? Certificates { get; set; }
 
-        [ForeignKey("Chat")]
-        public string ChatId { get; set; }
+        //[ForeignKey("Chat")]
+        //public ICollection<User> chats { get; set; }
+        //public string ChatId { get; set; }
 
         //public Chat? MenteeChat { get; set; }
 
         //public Chat? MentorChat { get; set; }
 
-/*        [ForeignKey("HelpAndSupport")]
-        public int EnquiryId { get; set; }
+        /*        [ForeignKey("HelpAndSupport")]
+                public int EnquiryId { get; set; }
 
-        public HelpAndSupport? HelpAndSupport { get; set; }
-*/
+                public HelpAndSupport? HelpAndSupport { get; set; }
+        */
 
-        [ForeignKey("Match")]
-        public int MatchId { get; set; }
+        //[ForeignKey("Match")]
+        //public int MatchId { get; set; }
 
         //public Match? MenteeMatch { get; set; }
 
@@ -74,14 +76,14 @@ namespace InToGuideWebAPI.Models
 
 
 
- /*       [ForeignKey("MentorHistory")]
-        public int HistoryId { get; set; }
+        /*       [ForeignKey("MentorHistory")]
+               public int HistoryId { get; set; }
 
-        public MentorHistory? MentorHistory { get; set; }
- */
+               public MentorHistory? MentorHistory { get; set; }
+        */
 
-        [ForeignKey("Review")]
-        public int ReviewId { get; set; }
+        //[ForeignKey("Review")]
+        //public int ReviewId { get; set; }
 
         //public Review? Review { get; set; }
     }

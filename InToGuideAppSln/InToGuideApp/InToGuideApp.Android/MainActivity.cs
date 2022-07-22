@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using InToGuideApp.Droid.Services;
+using InToGuideApp.Services.Interfaces;
 using Prism;
 using Prism.Ioc;
 
@@ -31,6 +33,8 @@ namespace InToGuideApp.Droid
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register any platform specific implementations
+
+            containerRegistry.Register<IHttpNativeHandler, NoSslAndroidHandler>();
         }
     }
 }

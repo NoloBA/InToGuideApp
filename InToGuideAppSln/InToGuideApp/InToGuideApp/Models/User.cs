@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InToGuideApp.Models
 {
-    public class User
+    public class UserOld
     {
         public int UserId { get; set; }
 

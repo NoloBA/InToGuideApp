@@ -46,7 +46,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullfetch)
             {
-                var users = _inToGuideContext.Users.Include(u => u.MatchId).ToList();
+                var users = _inToGuideContext.Users.Include(u => u.UserId).ToList();
                 return users;
             }
             else 
@@ -252,9 +252,9 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        bool IInToGuideRepossitory.DoesEmailAddresExistByUser(string email)
+        bool IInToGuideRepossitory.DoesUserExistByEmailAddress(string email)
         {
-            throw new NotImplementedException();
+            return _inToGuideContext.Users.Any(us => us.EmailAddress == email);
         }
 
         IActionResult IInToGuideRepossitory.CreateNewMatch()
@@ -277,10 +277,10 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        Task<object?> IInToGuideRepossitory.CreateNewUser()
-        {
-            throw new NotImplementedException();
-        }
+        //Task<object?> IInToGuideRepossitory.CreateNewUser()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         bool IInToGuideRepossitory.PerformAuthenticationCheck(string userName, string password)
         {
