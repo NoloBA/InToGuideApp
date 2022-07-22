@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InToGuideApp.Services
+namespace InToGuideApp.Models
 {
-    internal class LogInService
+    public class Test
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using InToGuideWebAPI.Enum;
+﻿using InToGuideApp.Models;
+using InToGuideWebAPI.Enum;
 using InToGuideWebAPI.Interfaces;
 using InToGuideWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -27,27 +28,30 @@ namespace InToGuideWebAPI.Controllers
         // PUT action
 
         // DELETE action
-        [HttpPost(nameof(CreateUser), Name = nameof(CreateUser))]
+        [HttpPost]
             public IActionResult CreateUser([FromBody] User user)
             {
+                User newUser = null;
+
                 try
                 {
                     if (user == null || !ModelState.IsValid)//no such user or invalid modelstate 
                     {
                         return BadRequest(SystemErrorCodes.UserNotValid.ToString());
                     }
-                    bool userExists = _inToGuideRepossitory.DoesUserExistByEmailAddress(user.EmailAddress);//don't duplicate user/details
-                    if (userExists)
+                bool userExists =  _inToGuideRepossitory.DoesUserExistByEmailAddress(user.EmailAddress);//don't duplicate user/details
+                 
+                if (userExists)
                     {
                         return StatusCode(StatusCodes.Status409Conflict, SystemErrorCodes.UserDuplicate.ToString());
                     }
-                    _inToGuideRepossitory.CreateNewUser(user);//create user
+                       newUser = _inToGuideRepossitory.CreateNewUser(user);
                 }
                 catch (Exception ex)
                 {
                     return BadRequest(SystemErrorCodes.AccountCreationFailed.ToString());
                 }
-                return Ok(user); //success
+                return Ok(newUser); //success
             }
 
             [HttpGet]
@@ -68,6 +72,6 @@ namespace InToGuideWebAPI.Controllers
 
         
             
-        }
+            }
     }
 }

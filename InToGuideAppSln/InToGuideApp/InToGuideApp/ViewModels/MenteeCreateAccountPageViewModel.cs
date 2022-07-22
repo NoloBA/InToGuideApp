@@ -1,4 +1,4 @@
-﻿using InToGuideWebAPI.Enum;
+﻿
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -23,7 +23,7 @@ namespace InToGuideApp.ViewModels
         async void ExecuteCreateMenteeAccountCommand()
         {
             await NavigationService.NavigateAsync("LoginPage");
-            int AccountType = (int)AccountTypeEnum.Mentee;
+            //int AccountType = (int)AccountTypeEnum.Mentee;
         }
     }
 }

@@ -27,11 +27,11 @@ public class DbInitializer
             user.Institution = "4432125032086";
             user.City = "1428 Elm Street";
 
-            var userAccount = new Authentication();
+         /*   var userAccount = new Authentication();
             userAccount.EmailAddress = "me@computer.com";
             userAccount.Password = "12345";
             userAccount.Enabled = true;
-
+         */
             /* var bankAccount = new Match();
              bankAccount.AccountNumber = "53435434543";
              bankAccount.BankAccountTypeId = 1;
