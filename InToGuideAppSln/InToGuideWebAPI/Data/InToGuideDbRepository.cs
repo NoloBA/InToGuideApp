@@ -61,7 +61,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullfetch)
             { 
-            var users = _inToGuideContext.Users.Where(x => x.UserId == id).Include(u => u.MatchId).FirstOrDefault();
+            var users = _inToGuideContext.Users.Where(x => x.UserId == id).Include(u => u.AccountType).FirstOrDefault();
                 return users;
             }
             else 
@@ -75,7 +75,8 @@ namespace InToGuideWebAPI.Data
         {
         if(fullFatch)              
                 {
-                    var users = _inToGuideContext.Users.Where(x => x.LastName.Contains(surname)).Include(x => x.MatchId).FirstOrDefault();
+                    var users = _inToGuideContext.Users.Where(x => x.LastName.Contains(surname)).Include(x => x.UserId).FirstOrDefault();
+                //remember to change the include to matchid or 
                     return users;
                 }
                 else
@@ -90,7 +91,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullFetch)
             {
-                var users = _inToGuideContext.Users.Where(x => x.EmailAddress == email).Include(x => x.MatchId).Include(x => x.MatchId).FirstOrDefault();
+                var users = _inToGuideContext.Users.Where(x => x.EmailAddress == email).Include(x => x.UserId).FirstOrDefault();
                 return users;
             }
             else
@@ -199,26 +200,26 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        public Chat GetChat(string chatId)
-        {
-            throw new NotImplementedException();
-        }
+        //public Chat GetChat(string chatId)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public List<Chat> GetChatList(bool 
-            fullFetch = true)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<Chat> GetChatList(bool 
+        //    fullFetch = true)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public List<Chat> GetChatList(int ChatId, bool fullFetch = true)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<Chat> GetChatList(int ChatId, bool fullFetch = true)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public IEnumerable<Chat> GetChatList()
-        {
-            throw new NotImplementedException();
-        }
+        //public IEnumerable<Chat> GetChatList()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true)
         {
@@ -247,10 +248,10 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        Chat IInToGuideRepossitory.CreateChat(Chat chat)
-        {
-            throw new NotImplementedException();
-        }
+        //Chat IInToGuideRepossitory.CreateChat(Chat chat)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         bool IInToGuideRepossitory.DoesUserExistByEmailAddress(string email)
         {
@@ -293,6 +294,21 @@ namespace InToGuideWebAPI.Data
         }
 
         public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesUserExistByUserId(int UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesUserExistByEmailAddress(object emailAddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesReviewExistById(int ReviewId)
         {
             throw new NotImplementedException();
         }

@@ -11,10 +11,10 @@ namespace InToGuideWebAPI.Interfaces
 
        
         User GetUserByUserId(int UserId, bool fullFetch = true);
-        Chat CreateChat(Chat chat);
+        //Chat CreateChat(Chat chat);
         bool DoesMessageExistByUser(string message);
-        List<Chat> GetChatList(int ChatId, bool fullFetch = true);
-        Chat GetChat(string chatId);
+        //List<Chat> GetChatList(int ChatId, bool fullFetch = true);
+        //Chat GetChat(string chatId);
         HelpAndSupport CreateNewHelpAndSupport(HelpAndSupport helpAndSupport);
         bool DoesUserExistByEmailAddress(string email);
         bool DoesUserExistByUserId(int UserId);
@@ -31,7 +31,7 @@ namespace InToGuideWebAPI.Interfaces
         //Task<object?> CreateNewUser();
         bool DoesReviewExistById(int ReviewId);
         bool PerformAuthenticationCheck(string userName, string password);
-        IEnumerable<Chat> GetChatList();
+        //IEnumerable<Chat> GetChatList();
         Match CreateNewMatch(Match match);
         List<Match> GetAllMatches(int MatchId, bool fullFetch = true);
         

@@ -39,6 +39,7 @@ namespace InToGuideWebAPI.Models
 
         public DateTime Date { get; set; }
 
+
         //        [ForeignKey("Authentication")]
         // public int AuthenticationId { get; set; }
 
