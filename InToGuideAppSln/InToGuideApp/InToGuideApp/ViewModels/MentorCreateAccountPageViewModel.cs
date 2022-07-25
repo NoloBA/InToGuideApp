@@ -21,23 +21,10 @@ namespace InToGuideApp.ViewModels
     public class MentorCreateAccountPageViewModel : ViewModelBase
     {
 
-        //CreateAccountService _createAccountService = new CreateAccountService();
         private ICreateAccount _createAccountService;
         private IDialogService _dialogService;
         private IEventAggregator _eventAggregator;
-        public string Message { get; set; }
-        //public string AccountType { get; set; }
-        //public string FirstName { get; set; }
-        //public string LastName { get; set; }
-        //public string Qualification { get; set; }
-
-        //public string Institution { get; set; }
-        //public string City { get; set; }
-        //public string Province { get; set; }
-        //public string Hobbies { get; set; }
-        //public string PhoneNumber { get; set; }
-        //public string EmailAddress { get; set; }
-        //public string Password { get; set; }
+        
 
         private ValidatableObject<string> _accountType;
         public ValidatableObject<string> AccountType
@@ -126,7 +113,7 @@ namespace InToGuideApp.ViewModels
             //activityindicator.isrunning = true
             try
             {
-                var user = await _createAccountService.CreateNewUser((int) AccountTypeEnum.Mentor, FirstName.Value, LastName.Value, Qualification.Value, Institution.Value, City.Value, Province.Value, Hobbies.Value, PhoneNumber.Value, EmailAddress.Value, Password.Value );
+                var user = await _createAccountService.CreateNewUser((int)AccountTypeEnum.Mentor, FirstName.Value, LastName.Value, Qualification.Value, Institution.Value, City.Value, Province.Value, Hobbies.Value, PhoneNumber.Value, EmailAddress.Value, Password.Value, DateTime.Today);
             
                 if (user != null)
                 {

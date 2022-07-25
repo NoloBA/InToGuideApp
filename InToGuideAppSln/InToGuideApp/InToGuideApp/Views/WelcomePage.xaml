@@ -5,18 +5,21 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.WelcomePage"
              Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
 
     <StackLayout>
+
+        <Label Text="Welcome to" TextColor="Black" HorizontalOptions="Center" FontSize="35" FontAttributes="None" Margin="20,30,20,0"/>
+        <Label Text="Industry Tour Guide!"  TextColor="Black" HorizontalOptions="Center" FontSize="35" FontAttributes="None" Margin="20,0,20,0"/>
+        <Image Source="intoGuideLogo.png" Aspect="AspectFit" HeightRequest="300" Margin="0,20,0,20"/>
         
-        <Image Source="intoGuideLogo.png" Aspect="AspectFit"/>
-        <Label Text="Welcome to InToGuide!" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" Margin="30"/>
 
-        <Button x:Name="Mentor" Text="I AM A MENTOR" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MentorCommand}"/>
-        <Label Text="Are you an experienced proffessional?" HorizontalOptions="Center"/>
+        <Button x:Name="Mentor" Text="I AM A MENTOR" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MentorCommand}"/>
+        <Label Text="Are you an experienced professional?" FontAttributes="Italic" HorizontalOptions="Center" Margin="0,0,0,20"/>
 
-         <Button x:Name="Mentee" Text="I AM A QUALIFIED GRADUATE" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MenteeCommand}" />
-        <Label Text="Are you a qualified graduate?" HorizontalOptions="Center"/>
+         <Button x:Name="Mentee" Text="I AM A QUALIFIED GRADUATE" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,0,30,0" Command="{Binding MenteeCommand}" />
+        <Label Text="Are you a qualified graduate?" FontAttributes="Italic" HorizontalOptions="Center"/>
 
        
 
