@@ -7,48 +7,52 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="InToGuideApp.Views.MentorCreateAccountPage"
              Title="{Binding Title}">
-    <!--xmlns:viewmodels="clr-namespace:InToGuideApp.ViewModels" x:DataType="viewmodels:MentorCreateAccountPageViewModel"-->
+    
     <ScrollView>
         <StackLayout BackgroundColor="WhiteSmoke">
             
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
-            <Label Text="Create Mentor Account" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+            <!--<Line Stroke="#F79726"  X2="300" StrokeThickness="4" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0"/>
+            <Label Text="Create Mentor Account" FontSize="35" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+            <Line Stroke="#F79726"  X2="300"  StrokeThickness="5" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"/>-->
 
-            <Entry x:Name="accountTypeEntry" Text="{Binding AccountType.Value}" Placeholder="Account Type" Keyboard="Text"></Entry>
-            
-            <Entry x:Name="firstNameEntry" Text="{Binding FirstName.Value}" Placeholder="First Name" Keyboard="Text"></Entry>
-
-
-            <Entry x:Name="lastNameEntry" Text="{Binding LastName.Value}" Placeholder="Last Name" Keyboard="Text"></Entry>
-
-
-            <Entry x:Name="qualificationEntry" Text="{Binding Qualification.Value}" Placeholder="Qualification" Keyboard="Text"></Entry>
+            <Frame BorderColor="#F79726"   Padding="10" Margin="10,20" BackgroundColor="WhiteSmoke" >
+                <Frame BorderColor="#F79726"   Padding="10" Margin="0" BackgroundColor="WhiteSmoke" >
+                    <Label Text="Create Mentor Account" FontSize="30" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+                </Frame>
+            </Frame>
+                
+            <Entry x:Name="firstNameEntry" Text="{Binding FirstName.Value}" Placeholder="First Name" Keyboard="Text" Margin="10,5"></Entry>
 
 
-            <Entry x:Name="institutionEntry" Text="{Binding Institution.Value}" Placeholder="Institution" Keyboard="Text"></Entry>
+            <Entry x:Name="lastNameEntry" Text="{Binding LastName.Value}" Placeholder="Last Name" Keyboard="Text" Margin="10,5"></Entry>
 
 
-            <Entry x:Name="cityEntry" Text="{Binding City.Value}" Placeholder="City" Keyboard="Text"></Entry>
-            
-            <Entry x:Name="provinceEntry" Text="{Binding Province.Value}" Placeholder="Province" Keyboard="Text"></Entry>
+            <Entry x:Name="qualificationEntry" Text="{Binding Qualification.Value}" Placeholder="Qualification" Keyboard="Text"  Margin="10,5"></Entry>
 
-            <Entry x:Name="phoneNumberEntry" Text="{Binding PhoneNumber.Value}" Placeholder="Phone Number" Keyboard="Telephone">
+
+            <Entry x:Name="institutionEntry" Text="{Binding Institution.Value}" Placeholder="Institution" Keyboard="Text"  Margin="10,5"></Entry>
+
+
+            <Entry x:Name="cityEntry" Text="{Binding City.Value}" Placeholder="City" Keyboard="Text"  Margin="10,5"></Entry>
+
+            <Entry x:Name="provinceEntry" Text="{Binding Province.Value}" Placeholder="Province" Keyboard="Text"  Margin="10,5"></Entry>
+
+            <Entry x:Name="phoneNumberEntry" Text="{Binding PhoneNumber.Value}" Placeholder="Phone Number" Keyboard="Telephone"  Margin="10,5">
                 <!--<Entry.Behaviors>
                     <local:PhoneNumberValidationBehaviour></local:PhoneNumberValidationBehaviour>
                 </Entry.Behaviors>-->
             </Entry>
 
 
-            <Entry x:Name="hobbiesEntry" Text="{Binding Hobbies.Value}" Placeholder="Hobbies" Keyboard="Text"></Entry>
+            <Entry x:Name="hobbiesEntry" Text="{Binding Hobbies.Value}" Placeholder="Leisure Activity" Keyboard="Text"  Margin="10,5"></Entry>
 
-            <Entry x:Name="emailAddressEntry" Text="{Binding EmailAddress.Value}" Placeholder="Email Address" Keyboard="Email">
+            <Entry x:Name="emailAddressEntry" Text="{Binding EmailAddress.Value}" Placeholder="Email Address" Keyboard="Email"  Margin="10,5">
                 <!--<Entry.Behaviors>
                     <local:EmailValidationBehaviour></local:EmailValidationBehaviour>
                 </Entry.Behaviors>-->
             </Entry>
 
-            <Entry x:Name="passwordEntry" Text="{Binding Password.Value}" Placeholder="Password" Keyboard="Text"></Entry>
+            <Entry x:Name="passwordEntry" Text="{Binding Password.Value}" Placeholder="Password" Keyboard="Text"  Margin="10,5"></Entry>
             
 
             <!--<Label Text="Company you working for" HorizontalOptions="Start"/>
@@ -60,11 +64,9 @@
             <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
                 <Entry></Entry>
             </Frame-->
-
-            <Button x:Name="CreateMentorAccount" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="White"
+            <Button x:Name="MentorCreateAccount" Text="Create Account" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
                     Command="{Binding CreateMentorAccountCommand}"/>
-
-            <Label Text="{Binding Message}" TextColor="Green" />
+           
 
         </StackLayout>
     </ScrollView>
