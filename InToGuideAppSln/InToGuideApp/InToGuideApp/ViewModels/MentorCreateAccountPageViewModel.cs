@@ -98,6 +98,7 @@ namespace InToGuideApp.ViewModels
         private ValidatableObject<string> _phoneNumber;
         public ValidatableObject<string> PhoneNumber
         {
+
             get { return _phoneNumber; }
             set { SetProperty(ref _phoneNumber, value); }
         }

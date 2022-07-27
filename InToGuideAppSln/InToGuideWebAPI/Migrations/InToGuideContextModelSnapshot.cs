@@ -188,6 +188,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("AccountType")
                         .HasColumnType("int");
 
+                    b.Property<int>("AuthenticationId")
+                        .HasColumnType("int");
+
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
@@ -222,6 +225,8 @@ namespace InToGuideWebAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
+
+                    b.HasIndex("AuthenticationId");
 
                     b.ToTable("User");
                 });
@@ -268,6 +273,17 @@ namespace InToGuideWebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
+                {
+                    b.HasOne("InToGuideWebAPI.Models.Authentication", "Authentication")
+                        .WithMany()
+                        .HasForeignKey("AuthenticationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Authentication");
                 });
 #pragma warning restore 612, 618
         }

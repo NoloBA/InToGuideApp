@@ -40,10 +40,10 @@ namespace InToGuideWebAPI.Models
         public DateTime Date { get; set; }
 
 
-        //        [ForeignKey("Authentication")]
-        // public int AuthenticationId { get; set; }
+               [ForeignKey("Authentication")]
+        public int AuthenticationId { get; set; }
 
-        // public Authentication? Authentication { get; set; }
+        public Authentication Authentication { get; set; }
 
         /*       [ForeignKey("Certificate")]
                public int CertificateId { get; set; }

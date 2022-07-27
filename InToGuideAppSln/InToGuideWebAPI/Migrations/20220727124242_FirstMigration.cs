@@ -58,11 +58,18 @@ namespace InToGuideWebAPI.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AuthenticationId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_User_Authentication_AuthenticationId",
+                        column: x => x.AuthenticationId,
+                        principalTable: "Authentication",
+                        principalColumn: "AuthenticationId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,13 +176,15 @@ namespace InToGuideWebAPI.Migrations
                 name: "IX_MentorHistory_UserId",
                 table: "MentorHistory",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_AuthenticationId",
+                table: "User",
+                column: "AuthenticationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Authentication");
-
             migrationBuilder.DropTable(
                 name: "Certificate");
 
@@ -193,6 +202,9 @@ namespace InToGuideWebAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Authentication");
         }
     }
 }
