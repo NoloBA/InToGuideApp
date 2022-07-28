@@ -19,6 +19,13 @@ namespace InToGuideApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private LayoutState _mainState;
+        public LayoutState MainState
+        {
+            get { return _mainState; }
+            set { SetProperty(ref _mainState, value); }
+        }
+
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

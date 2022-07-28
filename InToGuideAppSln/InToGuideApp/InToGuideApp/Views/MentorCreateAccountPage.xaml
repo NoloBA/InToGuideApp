@@ -37,15 +37,25 @@
 
             <Entry x:Name="provinceEntry" Text="{Binding Province.Value}" Placeholder="Province" Keyboard="Text"  Margin="10,5"></Entry>
 
+            
+
+
+            <Entry x:Name="hobbiesEntry" Text="{Binding Hobbies.Value}" Placeholder="Leisure Activity" Keyboard="Text"  Margin="10,5"></Entry>
+            
+            <Entry x:Name="idNumberEntry" Text="{Binding IdNumber.Value}" Placeholder="ID Number" Keyboard="Text"  Margin="10,5"></Entry>
+            
+            <Entry x:Name="professionEntry" Text="{Binding Profession.Value}" Placeholder="Profession" Keyboard="Text"  Margin="10,5"></Entry>
+            
+            <Entry x:Name="companyEntry" Text="{Binding Company.Value}" Placeholder="Company" Keyboard="Text"  Margin="10,5"></Entry>
+
+
             <Entry x:Name="phoneNumberEntry" Text="{Binding PhoneNumber.Value}" Placeholder="Phone Number" Keyboard="Telephone"  Margin="10,5">
                 <!--<Entry.Behaviors>
                     <local:PhoneNumberValidationBehaviour></local:PhoneNumberValidationBehaviour>
                 </Entry.Behaviors>-->
             </Entry>
-
-
-            <Entry x:Name="hobbiesEntry" Text="{Binding Hobbies.Value}" Placeholder="Leisure Activity" Keyboard="Text"  Margin="10,5"></Entry>
-
+            
+            
             <Entry x:Name="emailAddressEntry" Text="{Binding EmailAddress.Value}" Placeholder="Email Address" Keyboard="Email"  Margin="10,5">
                 <!--<Entry.Behaviors>
                     <local:EmailValidationBehaviour></local:EmailValidationBehaviour>
@@ -54,16 +64,6 @@
 
             <Entry x:Name="passwordEntry" Text="{Binding Password.Value}" Placeholder="Password" Keyboard="Text"  Margin="10,5"></Entry>
             
-
-            <!--<Label Text="Company you working for" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-
-            <Label Text="Position in the company/ Rank" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame-->
             <Button x:Name="MentorCreateAccount" Text="Create Account" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
                     Command="{Binding CreateMentorAccountCommand}"/>
            

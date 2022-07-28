@@ -9,60 +9,129 @@
     <ScrollView>
         <StackLayout Background="WhiteSmoke">
 
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+            <!--<Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
             <Label Text="Settings" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>-->
 
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,10,50,5" Padding="10">
-                <Button Text="Mentor Profile" 
-                    FontSize="Medium"
-                        BackgroundColor="White"
-                    Command="{Binding MentorProfileCommand}" />
+            <!--<Frame BorderColor="#F79726"   Padding="10" Margin="50,20" BackgroundColor="WhiteSmoke" >
+                <Frame BorderColor="#F79726"   Padding="10" Margin="0,0" BackgroundColor="WhiteSmoke" >
+                    <Label Text="Settings" FontSize="30" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+                </Frame>
+            </Frame>-->
+            <Label Text="Settings" TextColor="Black" FontSize="65" HorizontalOptions="CenterAndExpand" Margin="10,20" />
+
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="profile.png" HeightRequest="45" WidthRequest="45" />
+                    <Button Text="Profile" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding ProfileCommand}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        </Button>
+                </StackLayout>
             </Frame>
 
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
-                <Button Text="Mentee Profile"
-                        FontSize="Medium"
-                        BackgroundColor="White"
-                    Command="{Binding MenteeProfileCommand}" />
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="notification.png" HeightRequest="40" WidthRequest="40" />
+                    <Button Text="Notifications" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding NotificationsCommand}" >
+                        <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Released">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
+                </StackLayout>
             </Frame>
 
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
-                <Button Text="Notifications"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                    Command="{Binding NotificationsCommand}" />
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="appearance.png" HeightRequest="50" WidthRequest="50" />
+                    <Button Text="Appearance" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding AppearanceCommand}" />
+                </StackLayout>
             </Frame>
 
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
-                <Button Text="Appearance"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                    Command="{Binding AppearanceCommand}" />
-
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="headphones.png" HeightRequest="40" WidthRequest="40" />
+                    <Button Text="Help &amp; Support" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding HelpAndSupportCommand}" />
+                </StackLayout>
             </Frame>
 
-
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
-                <Button Text="HelpAndSupport"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                    Command="{Binding HelpAndSupportCommand}" />
-
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="review.png" HeightRequest="40" WidthRequest="40" />
+                    <Button Text="Mentor Review" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding ReviewCommand}" />
+                </StackLayout>
             </Frame>
 
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
-                <Button Text="About"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                    Command="{Binding AboutCommand}" />
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="info.png" HeightRequest="40" WidthRequest="40" />
+                    <Button Text="About Us" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding AboutCommand}" />
+                </StackLayout>
             </Frame>
 
-            <Frame BorderColor="#F79726" BackgroundColor="White" Margin="50,0,50,5" Padding="10">
-                <Button Text="Logout"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                    Command="{Binding LogoutCommand}" />
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="logout.png" HeightRequest="35" WidthRequest="35" />
+                    <Button Text="Logout" 
+                            FontSize="Medium"
+                            Margin="20,0,0,0"
+                            BackgroundColor="WhiteSmoke"
+                            HorizontalOptions="Start"
+                            Command="{Binding LogoutCommand}" />
+                </StackLayout>
             </Frame>
 
         </StackLayout>

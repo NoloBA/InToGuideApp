@@ -1,25 +1,29 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InToGuideWebAPI.Models
 {
-    [Table("Certificate")]
-    public class Certificate
+    [Table("Review")]
+    public class Review
     {
         [Required]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public int CertificateId { get; set; }
+        public int ReviewId { get; set; }
 
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public DateTime Time { get; set; }
+
         public DateTime Date { get; set; }
+
+        public int Rating { get; set; }
+
+        public string ReviewMessage { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }
-
         public User? User { get; set; }
-
     }
+    
 }

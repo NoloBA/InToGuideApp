@@ -232,7 +232,7 @@ namespace InToGuideWebAPI.Data
         #endregion
 
         #region Authentication
-        public bool PerfomAuthenticationCheck(string userName, string password) 
+        public bool PerformAuthenticationCheck(string userName, string password) 
         {
             var users = _inToGuideContext.Authentications.Where(u => u.EmailAddress == userName && u.Password == password).FirstOrDefault();
 
@@ -282,11 +282,6 @@ namespace InToGuideWebAPI.Data
         //{
         //    throw new NotImplementedException();
         //}
-
-        bool IInToGuideRepossitory.PerformAuthenticationCheck(string userName, string password)
-        {
-            throw new NotImplementedException();
-        }
 
         Match IInToGuideRepossitory.CreateNewMatch(Match match)
         {

@@ -15,14 +15,7 @@ namespace InToGuideApp.ViewModels
             Title = "Settings";
         }
 
-        private DelegateCommand _menteeProfileCommand;
-        public DelegateCommand MenteeProfileCommand =>
-            _menteeProfileCommand ?? (_menteeProfileCommand = new DelegateCommand(ExecuteMenteeProfileCommand));
-
-        async void ExecuteMenteeProfileCommand()
-        {
-            await NavigationService.NavigateAsync("MenteeProfilePage");
-        }
+       
 
         private DelegateCommand _mentorProfileCommand;
         public DelegateCommand MentorProfileCommand =>
@@ -30,7 +23,7 @@ namespace InToGuideApp.ViewModels
 
         async void ExecuteMentorProfileCommand()
         {
-            await NavigationService.NavigateAsync("MentorProfilePage");
+            await NavigationService.NavigateAsync("ProfilePage"); //how do i redirect mentee/mmentor profile to only profile
         }
 
         private DelegateCommand _appearanceCommand;
@@ -63,6 +56,15 @@ namespace InToGuideApp.ViewModels
         private DelegateCommand _aboutCommand;
         public DelegateCommand AboutCommand =>
             _aboutCommand ?? (_aboutCommand = new DelegateCommand(ExecuteAboutCommand));
+
+        private DelegateCommand _reviewCommand;
+        public DelegateCommand ReviewCommand =>
+            _reviewCommand ?? (_reviewCommand = new DelegateCommand(ExecuteReviewCommand));
+
+        async void ExecuteReviewCommand()
+        {
+            await NavigationService.NavigateAsync("ReviewPage");
+        }
 
         async void ExecuteAboutCommand()
         {

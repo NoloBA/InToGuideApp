@@ -26,7 +26,7 @@ namespace InToGuideWebAPI.Controllers
         }
 
 
-        [HttpPost("login")]
+        [HttpPost]
         public IActionResult Post([FromBody] AuthenticationRequest authRequest)
         {
             try

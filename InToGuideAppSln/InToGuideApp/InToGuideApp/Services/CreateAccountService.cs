@@ -1,6 +1,6 @@
 ﻿
 using InToGuideApp.Services.Interfaces;
-using InToGuideApp.Models;
+
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace InToGuideApp.Services
             _config = config;
         }
 
-        public async Task<User> CreateNewUser(int accountType, string firstName, string lastName, string qualification, string institution, string city, string province, string hobbies, string phoneNumber, string emailAddress, string password, DateTime date)
+        public async Task<User> CreateNewUser(int accountType, string firstName, string lastName, string qualification, string institution, string city, string province, string hobbies, string idNumber, string profession, string company, string phoneNumber, string emailAddress, string password, DateTime date)
         { 
 
             Uri uri = new Uri(_config.InToGuideServerUrl + "api/User");
@@ -39,11 +39,23 @@ namespace InToGuideApp.Services
                    City = city,
                    Province = province,
                    Hobbies = hobbies,
+                   IdNumber = idNumber,
+                   Profession = profession,
+                   Company = company,
                    PhoneNumber = phoneNumber,
                    EmailAddress = emailAddress,
                    Password = password,
                   Date = date,
                };
+
+            var authentication = new Authentication();
+            authentication.EmailAddress = emailAddress;
+            authentication.Password = password;
+            //authentication.Enabled = true;
+            authentication.VerificationStatus = true;
+
+            model.Authentication = authentication;
+
 
  
                 var json = JsonConvert.SerializeObject(model);

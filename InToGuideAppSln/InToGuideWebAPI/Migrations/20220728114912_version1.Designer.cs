@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InToGuideWebAPI.Migrations
 {
     [DbContext(typeof(InToGuideContext))]
-    [Migration("20220723111305_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20220728114912_version1")]
+    partial class version1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,11 +61,9 @@ namespace InToGuideWebAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -87,19 +85,15 @@ namespace InToGuideWebAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EnquiryId"), 1L, 1);
 
                     b.Property<string>("EmailAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -120,18 +114,17 @@ namespace InToGuideWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"), 1L, 1);
 
-                    b.Property<int>("MenteeId")
+                    b.Property<int?>("MenteeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MentorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
+                    b.Property<int?>("MentorId")
                         .HasColumnType("int");
 
                     b.HasKey("MatchId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("MenteeId");
+
+                    b.HasIndex("MentorId");
 
                     b.ToTable("Match");
                 });
@@ -168,6 +161,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
+                    b.Property<string>("ReviewMessage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
@@ -175,6 +171,8 @@ namespace InToGuideWebAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ReviewId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Review");
                 });
@@ -190,7 +188,16 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("AccountType")
                         .HasColumnType("int");
 
+                    b.Property<int>("AuthenticationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CertificateId")
+                        .HasColumnType("int");
+
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
@@ -205,6 +212,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<string>("Hobbies")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("IdNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Institution")
                         .HasColumnType("nvarchar(max)");
 
@@ -217,6 +227,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Profession")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Province")
                         .HasColumnType("nvarchar(max)");
 
@@ -225,13 +238,15 @@ namespace InToGuideWebAPI.Migrations
 
                     b.HasKey("UserId");
 
+                    b.HasIndex("AuthenticationId");
+
                     b.ToTable("User");
                 });
 
             modelBuilder.Entity("InToGuideWebAPI.Models.Certificate", b =>
                 {
                     b.HasOne("InToGuideWebAPI.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Certificates")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -252,13 +267,17 @@ namespace InToGuideWebAPI.Migrations
 
             modelBuilder.Entity("InToGuideWebAPI.Models.Match", b =>
                 {
-                    b.HasOne("InToGuideWebAPI.Models.User", "User")
+                    b.HasOne("InToGuideWebAPI.Models.User", "Mentee")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MenteeId");
 
-                    b.Navigation("User");
+                    b.HasOne("InToGuideWebAPI.Models.User", "Mentor")
+                        .WithMany()
+                        .HasForeignKey("MentorId");
+
+                    b.Navigation("Mentee");
+
+                    b.Navigation("Mentor");
                 });
 
             modelBuilder.Entity("InToGuideWebAPI.Models.MentorHistory", b =>
@@ -270,6 +289,33 @@ namespace InToGuideWebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("InToGuideWebAPI.Models.Review", b =>
+                {
+                    b.HasOne("InToGuideWebAPI.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
+                {
+                    b.HasOne("InToGuideWebAPI.Models.Authentication", "Authentication")
+                        .WithMany()
+                        .HasForeignKey("AuthenticationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Authentication");
+                });
+
+            modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
+                {
+                    b.Navigation("Certificates");
                 });
 #pragma warning restore 612, 618
         }

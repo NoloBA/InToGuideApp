@@ -82,6 +82,27 @@ namespace InToGuideApp.ViewModels
             set { SetProperty(ref _hobbies, value); }
         }
 
+        private ValidatableObject<string> _idNumber;
+        public ValidatableObject<string> IdNumber
+        {
+            get { return _idNumber; }
+            set { SetProperty(ref _idNumber, value); }
+        }
+
+        private ValidatableObject<string> _profession;
+        public ValidatableObject<string> Profession
+        {
+            get { return _profession; }
+            set { SetProperty(ref _profession, value); }
+        }
+
+        private ValidatableObject<string> _company;
+        public ValidatableObject<string> Company
+        {
+            get { return _company; }
+            set { SetProperty(ref _company, value); }
+        }
+
         private ValidatableObject<string> _phoneNumber;
         public ValidatableObject<string> PhoneNumber
         {
@@ -110,10 +131,10 @@ namespace InToGuideApp.ViewModels
         private async void ExecuteCreateMentorAccountCommand()
         {
 
-            //activityindicator.isrunning = true
+            MainState = LayoutState.Loading;
             try
             {
-                var user = await _createAccountService.CreateNewUser((int)AccountTypeEnum.Mentor, FirstName.Value, LastName.Value, Qualification.Value, Institution.Value, City.Value, Province.Value, Hobbies.Value, PhoneNumber.Value, EmailAddress.Value, Password.Value, DateTime.Today);
+                var user = await _createAccountService.CreateNewUser((int)AccountTypeEnum.Mentor, FirstName.Value, LastName.Value, Qualification.Value, Institution.Value, City.Value, Province.Value, Hobbies.Value,IdNumber.Value, Profession.Value, Company.Value, PhoneNumber.Value, EmailAddress.Value, Password.Value, DateTime.Today);
             
                 if (user != null)
                 {
@@ -137,6 +158,10 @@ namespace InToGuideApp.ViewModels
                     { "message", Constants.Errors.GeneralError }
                 };
                 _dialogService.ShowDialog(nameof(ErrorDialog), param);
+            }
+            finally 
+            {
+                MainState = LayoutState.None;
             }
             
         }
@@ -168,6 +193,9 @@ namespace InToGuideApp.ViewModels
             City = new ValidatableObject<string>();
             Province = new ValidatableObject<string>();
             Hobbies = new ValidatableObject<string>();
+            IdNumber = new ValidatableObject<string>();
+            Profession = new ValidatableObject<string>();
+            Company = new ValidatableObject<string>();
             PhoneNumber = new ValidatableObject<string>();
             EmailAddress = new ValidatableObject<string>();
             Password = new ValidatableObject<string>();
