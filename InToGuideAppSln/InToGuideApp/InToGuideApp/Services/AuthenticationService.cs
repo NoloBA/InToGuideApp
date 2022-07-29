@@ -1,4 +1,5 @@
 ﻿using InToGuideApp.Services.Interfaces;
+using InToGuideShared;
 using InToGuideWebAPI.Models;
 using Newtonsoft.Json;
 using System;
@@ -22,7 +23,7 @@ namespace InToGuideApp.Services
             _config = config;
         }
 
-        public async Task<bool> Authenticate(string emailAddress, string password)
+        public async Task<AuthenticationResponse> Authenticate (string emailAddress, string password)
         {
             Uri uri = new Uri(_config.InToGuideServerUrl + "api/Authentication");
 
@@ -30,18 +31,15 @@ namespace InToGuideApp.Services
             {
                 var request = new AuthenticationRequest() { EmailAddress = emailAddress, Password = password };
                 string requestJson = JsonConvert.SerializeObject(request);
-
                 StringContent content = new StringContent(requestJson, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
                 response = await _httpClient.PostAsync(uri, content);
-
-
                 if (response.IsSuccessStatusCode)
                 {
                     var contentResponse = await response.Content.ReadAsStringAsync();
 
-                    var valueResponse = JsonConvert.DeserializeObject<bool>(contentResponse);
+                    var valueResponse = JsonConvert.DeserializeObject<AuthenticationResponse>(contentResponse);
 
                     return valueResponse;
                 }
@@ -52,7 +50,44 @@ namespace InToGuideApp.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
-            return false;
+            return new AuthenticationResponse();
         }
+
+
+
+
+
+        //public async Task<bool> Authenticate(string emailAddress, string password)
+        //{
+        //    Uri uri = new Uri(_config.InToGuideServerUrl + "api/Authentication");
+
+            //    try
+            //    {
+            //        var request = new AuthenticationRequest() { EmailAddress = emailAddress, Password = password };
+            //        string requestJson = JsonConvert.SerializeObject(request);
+
+            //        StringContent content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+            //        HttpResponseMessage response = null;
+            //        response = await _httpClient.PostAsync(uri, content);
+
+
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            var contentResponse = await response.Content.ReadAsStringAsync();
+
+            //            var valueResponse = JsonConvert.DeserializeObject<bool>(contentResponse);
+
+            //            return valueResponse;
+            //        }
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            //    }
+
+            //    return false;
+            //}
     }
 }

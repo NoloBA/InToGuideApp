@@ -30,8 +30,11 @@ namespace InToGuideWebAPI.Interfaces
         List<Review> GetAllReviews(bool fullFetch = true);
         //Task<object?> CreateNewUser();
         bool DoesReviewExistById(int ReviewId);
+        
         bool PerformAuthenticationCheck(string userName, string password);
         //IEnumerable<Chat> GetChatList();
+        User GetUserByAuthenticationId(int authenticationId, bool fullFetch = true);
+        public Authentication GetAuthentication(string userName, string pin);
         Match CreateNewMatch(Match match);
         List<Match> GetAllMatches(int MatchId, bool fullFetch = true);
         

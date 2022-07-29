@@ -4,6 +4,7 @@ using InToGuideApp.Services.Interfaces;
 using InToGuideApp.Validations;
 using InToGuideApp.Views.Dialogs;
 using InToGuideWebAPI.Enum;
+using InToGuideWebAPI.Models;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -21,6 +22,15 @@ namespace InToGuideApp.ViewModels
         private IAuthentication _authenticationService;
         private IDialogService _dialogService;
         private IEventAggregator _eventAggregator;
+
+        private IDataCache _dataCache;
+        
+        private User _loggedInUser;
+        public User LoggedInUser
+        {
+            get { return _loggedInUser; }
+            set { SetProperty(ref _loggedInUser, value); }
+        }
 
         private ValidatableObject<string> _emailAddress;
         public ValidatableObject<string> EmailAddress
@@ -52,21 +62,27 @@ namespace InToGuideApp.ViewModels
 
                 if (ValidateLoginData())
                 {
-                    var user = await _authenticationService.Authenticate(EmailAddress.Value, Password.Value);
-                    if (user)
+                    var authResponse = await _authenticationService.Authenticate(EmailAddress.Value, Password.Value);
+                    if (authResponse.Authenticated)
                     {
                         ClearAuthData();
 
-                        await NavigationService.NavigateAsync("MentorTabbedPage");
-                        //if (AccountTypeEnum.Mentor)
-                        //{
-                        //    await NavigationService.NavigateAsync("MentorTabbedPage");
-                        //}
-                        //else if (AccountTypeEnum == 2)
-                        //{
-                        //    await NavigationService.NavigateAsync("MenteeTabbedPage");
-                        //}
+                        _dataCache.IsAuthenticated = true;
+                        _dataCache.AuthenticatedUser = authResponse.AuthenticatedUser;
 
+                        LoggedInUser = _dataCache.AuthenticatedUser;
+
+                        if (LoggedInUser != null)
+                        {
+                            if (LoggedInUser.AccountType == 1) //if mentor
+                            {
+                                await NavigationService.NavigateAsync("MentorTabbedPage"); //redirects to mentor tabbed page
+                            }
+                            else if (LoggedInUser.AccountType == 2) //if mentee
+                            {
+                                await NavigationService.NavigateAsync("MenteeTabbedPage"); //redirects to mentee tabbed page
+                            }
+                        }
                     }
                     else
                     {
@@ -93,6 +109,8 @@ namespace InToGuideApp.ViewModels
            
 
         }
+
+
 
         private DelegateCommand<string> _validateCommand;
         public DelegateCommand<string> ValidateCommand =>
@@ -127,12 +145,14 @@ namespace InToGuideApp.ViewModels
 
 
         public LoginPageViewModel(INavigationService navigationService, IDialogService dialogService,
-           IEventAggregator eventAggregator, IAuthentication authentication) : base(navigationService)
+           IEventAggregator eventAggregator, IAuthentication authentication, IDataCache dataCache) : base(navigationService)
         {
             _dialogService = dialogService;
             _eventAggregator = eventAggregator;
 
             _authenticationService = authentication;
+
+            _dataCache = dataCache;
 
             AddValidations();
 
@@ -142,8 +162,24 @@ namespace InToGuideApp.ViewModels
         public override void Initialize(INavigationParameters parameters)
         {
             Title = "Login Page";
+
+            
         }
 
+        //private async void DashboardRedirect()
+        //{
+        //    if(LoggedInUser != null)
+        //    {
+        //        if(LoggedInUser.AccountType == 1)
+        //        {
+        //            await NavigationService.NavigateAsync("MentorTabbedPage");
+        //        }
+        //        else if(LoggedInUser.AccountType == 2)
+        //        {
+        //            await NavigationService.NavigateAsync("MenteeTabbedPage");
+        //        }
+        //    }
+        //}
         private void AddValidations()
         {
             EmailAddress = new ValidatableObject<string>();

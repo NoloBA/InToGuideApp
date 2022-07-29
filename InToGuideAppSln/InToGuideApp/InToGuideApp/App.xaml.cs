@@ -26,7 +26,7 @@ namespace InToGuideApp
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/ReviewPage");
+            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -34,6 +34,9 @@ namespace InToGuideApp
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.Register<ICreateAccount, CreateAccountService>();
             containerRegistry.Register<IAuthentication, AuthenticationService>();
+
+            containerRegistry.RegisterSingleton<IDataCache, InMemoryDataCache>();
+
             containerRegistry.Register<IAppConfiguration, AppConfigurationService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();

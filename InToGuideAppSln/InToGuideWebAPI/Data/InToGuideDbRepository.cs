@@ -102,6 +102,22 @@ namespace InToGuideWebAPI.Data
             }
         }
 
+        public User GetUserByAuthenticationId(int authenticationId, bool fullFetch = true)
+        {
+            if (fullFetch)
+            {
+
+                var users = _inToGuideContext.Users.Where(x => x.AuthenticationId == authenticationId).FirstOrDefault();
+                return users;
+            }
+
+            else
+            {
+                var users = _inToGuideContext.Users.Where(x => x.AuthenticationId == authenticationId).FirstOrDefault();
+                return users;
+
+            }
+        }
         /* public User GetUserAccountType(bool accounttype,bool fullFetch = true)
          {
              if (fullFetch)
@@ -241,6 +257,14 @@ namespace InToGuideWebAPI.Data
                 return true;
             }
             return false;
+        }
+
+        public Authentication GetAuthentication(string userName, string pin)
+        {
+            var user = _inToGuideContext.Authentications.Where(u => u.EmailAddress == userName && u.Password == pin).FirstOrDefault();
+
+
+            return user;
         }
 
         User IInToGuideRepossitory.GetUserByUserId(int UserId, bool fullFetch)
