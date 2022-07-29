@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InToGuideWebAPI.Migrations
 {
     [DbContext(typeof(InToGuideContext))]
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
     [Migration("20220728114912_version1")]
     partial class version1
+//========
+//    [Migration("20220727124242_FirstMigration")]
+//    partial class FirstMigration
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -191,9 +196,12 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("AuthenticationId")
                         .HasColumnType("int");
 
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
                     b.Property<int>("CertificateId")
                         .HasColumnType("int");
 
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
@@ -291,6 +299,7 @@ namespace InToGuideWebAPI.Migrations
                     b.Navigation("User");
                 });
 
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
             modelBuilder.Entity("InToGuideWebAPI.Models.Review", b =>
                 {
                     b.HasOne("InToGuideWebAPI.Models.User", "User")
@@ -302,6 +311,8 @@ namespace InToGuideWebAPI.Migrations
                     b.Navigation("User");
                 });
 
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
             modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
                 {
                     b.HasOne("InToGuideWebAPI.Models.Authentication", "Authentication")
@@ -312,11 +323,14 @@ namespace InToGuideWebAPI.Migrations
 
                     b.Navigation("Authentication");
                 });
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
 
             modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
                 {
                     b.Navigation("Certificates");
                 });
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
 #pragma warning restore 612, 618
         }
     }

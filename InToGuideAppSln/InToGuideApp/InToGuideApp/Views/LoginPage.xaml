@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:controls="clr-namespace:InToGuideApp.Views" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.LoginPage"
              Title="{Binding Title}"
              NavigationPage.HasNavigationBar="False">
 
-    <StackLayout Orientation="Vertical" BackgroundColor="WhiteSmoke" >
+    <StackLayout Orientation="Vertical" BackgroundColor="WhiteSmoke" xct:StateLayout.CurrentState="{Binding MainState}">
+        <xct:StateLayout.StateViews>
+            <xct:StateView 
+                    StateKey="Loading"
+                    VerticalOptions="FillAndExpand">
+                <controls:LoadingView></controls:LoadingView>
+            </xct:StateView>
+        </xct:StateLayout.StateViews>
         <!--<Frame BorderColor="#F79726"   Padding="10" Margin="10,20,10,20" BackgroundColor="WhiteSmoke" >
             <Frame BorderColor="#F79726"   Padding="10" Margin="0,0,0,0" BackgroundColor="WhiteSmoke" >
                 <Label Text="Login" FontSize="30" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
@@ -16,9 +25,9 @@
 
         <Label Text="Login" TextColor="Black" FontSize="80" HorizontalOptions="CenterAndExpand" Margin="10,30" />
 
-        <Entry x:Name="provinceEntry" Text="{Binding EmailAddress.Value}" Placeholder="Email Address" Keyboard="Text"  Margin="10,5,10,20"></Entry>
+        <Entry x:Name="emailEntry" Text="{Binding EmailAddress.Value}" Placeholder="Email Address" Keyboard="Text"  Margin="10,5,10,20"></Entry>
 
-        <Entry x:Name="phoneNumberEntry" Text="{Binding Password.Value}" Placeholder="Password" Keyboard="Text"  Margin="10,5,10,0"/>
+        <Entry x:Name="passwordEntry" Text="{Binding Password.Value}" Placeholder="Password" Keyboard="Text"  Margin="10,5,10,0"/>
 
         <Button Text="Forgot Password?"
                     HorizontalOptions="EndAndExpand"

@@ -12,6 +12,7 @@ using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace InToGuideApp.ViewModels
 {
@@ -128,8 +129,10 @@ namespace InToGuideApp.ViewModels
         {
 
             //activityindicator.isrunning = true
+           
             try
             {
+                MainState = LayoutState.Loading;
                 var user = await _createAccountService.CreateNewUser((int)AccountTypeEnum.Mentee, FirstName.Value, LastName.Value, Qualification.Value, Institution.Value, City.Value, Province.Value, Hobbies.Value, IdNumber.Value,"N/A", "N/A",  PhoneNumber.Value, EmailAddress.Value, Password.Value, DateTime.Today);
 
                 if (user != null)
@@ -154,6 +157,10 @@ namespace InToGuideApp.ViewModels
                     { "message", Constants.Errors.GeneralError }
                 };
                 _dialogService.ShowDialog(nameof(ErrorDialog), param);
+            }
+            finally
+            {
+                MainState = LayoutState.None;
             }
 
         }

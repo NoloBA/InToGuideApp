@@ -46,8 +46,12 @@ namespace InToGuideWebAPI.Migrations
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.cs
                     AuthenticationId = table.Column<int>(type: "int", nullable: false),
                     CertificateId = table.Column<int>(type: "int", nullable: false)
+////========
+//                    AuthenticationId = table.Column<int>(type: "int", nullable: false)
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.cs
                 },
                 constraints: table =>
                 {
@@ -197,11 +201,14 @@ namespace InToGuideWebAPI.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.cs
                 name: "IX_Review_UserId",
                 table: "Review",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.cs
                 name: "IX_User_AuthenticationId",
                 table: "User",
                 column: "AuthenticationId");

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:effects="clr-namespace:InToGuideApp.Effects"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.HelpAndSupportPage"
              Title="{Binding Title}">
@@ -15,12 +16,39 @@
         <Label Text="Help &amp; Support" TextColor="Black" FontSize="50" HorizontalOptions="CenterAndExpand" Margin="10,20" />
 
 
-        <Entry x:Name="fullNameEntry" Placeholder="Enter Full Name" Keyboard="Text"  Margin="10,5"></Entry>
-        <Entry x:Name="emailEntry" Placeholder="Enter Email Address" Keyboard="Text"  Margin="10,5"></Entry>
-        <Entry x:Name="queryEntry" Placeholder="Enter Query Message" Keyboard="Text"  Margin="10,5"></Entry>
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="40"
+               Margin="10,15,10,10"
+               Padding="2">
+            <Entry x:Name="fullNameEntry" Placeholder="Enter Full Name" Keyboard="Text"  Margin="0">
+                <Entry.Effects>
+                    <effects:PlainEntry/>
+                </Entry.Effects>
+            </Entry>
+        </Frame>
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="40"
+               Margin="10,10,10,10"
+               Padding="2">
+            <Entry x:Name="emailEntry" Placeholder="Enter Email Address" Keyboard="Text"  Margin="0">
+                <Entry.Effects>
+                    <effects:PlainEntry/>
+                </Entry.Effects>
+            </Entry>
+        </Frame>
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="300"
+               Margin="10,10,10,20"
+               Padding="0">
+            <Editor x:Name="queryEntry" Placeholder="Enter Query Message"  Keyboard="Text"  Margin="0" HeightRequest="150">
+            </Editor>
+        </Frame>
 
 
-        <Button x:Name="HelpAndSupportQuery" Text="Submit" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
+        <Button x:Name="HelpAndSupportButton" Text="Submit" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
                     Command="{Binding HelpAndSupportQueryCommand}"/>
 
 

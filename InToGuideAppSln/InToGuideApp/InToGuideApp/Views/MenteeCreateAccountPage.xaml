@@ -2,13 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:controls="clr-namespace:InToGuideApp.Views"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeCreateAccountPage" BackgroundColor="White"
              NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
     <ScrollView>
-        <StackLayout BackgroundColor="WhiteSmoke">
+        <StackLayout BackgroundColor="WhiteSmoke" xct:StateLayout.CurrentState="{Binding MainState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView 
+                    StateKey="Loading"
+                    VerticalOptions="FillAndExpand">
+                    <controls:LoadingView></controls:LoadingView>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
 
             <!--<Line Stroke="#F79726"  X2="300" StrokeThickness="4" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0"/>
             <Label Text="Create Mentee Account" FontSize="35" TextColor="Black"  HorizontalTextAlignment="Center"></Label>

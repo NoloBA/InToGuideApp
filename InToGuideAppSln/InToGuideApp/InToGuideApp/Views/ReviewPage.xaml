@@ -4,7 +4,8 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.ReviewPage"
-             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms" 
+             xmlns:effects="clr-namespace:InToGuideApp.Effects"
              Title="{Binding Title}">
 
     <StackLayout BackgroundColor="WhiteSmoke">
@@ -14,10 +15,20 @@
 
         <Label Text="Mentor Review" TextColor="Black" FontSize="50" HorizontalOptions="CenterAndExpand" Margin="10,20" />
 
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="40"
+               Margin="10,15,10,20"
+               Padding="2">
+            <Entry x:Name="fullNameEntry" Placeholder="Enter Full Name" Keyboard="Text"  Margin="0">
+                <Entry.Effects>
+                    <effects:PlainEntry/>
+                </Entry.Effects>
+            </Entry>
+        </Frame>
 
-        <Entry x:Name="fullNameEntry" Placeholder="Enter Full Name" Keyboard="Text"  Margin="10,5"></Entry>
 
-        <Label Text="Select stars for rating" TextColor="Black" FontSize="18" Margin="10,5,10,5"/>
+        <Label Text="Select stars for rating:" TextColor="Black" FontSize="18" Margin="10,5,10,5"/>
         <rating:SfRating x:Name="rating" 
                          ItemCount="5"
                          Value="0"
@@ -34,30 +45,21 @@
             </rating:SfRating.RatingSettings>
         </rating:SfRating>
 
-        <Editor x:Name="queryEntry" Placeholder="Review Message"  Keyboard="Text"  Margin="10,5" HeightRequest="80">
-        </Editor>
-
-
-        <Button x:Name="HelpAndSupportQuery" Text="Submit" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
-                    Command="{Binding ReviewCommand}"/>
-
-        <Label Text="Review Message:" TextColor="Black" FontSize="20" Margin="20,20,20,0"/>
         <Frame BorderColor="Black"
                BackgroundColor="WhiteSmoke"
-               HeightRequest="200"
-               Margin="20,10,20,0">
-            <Entry Keyboard="Text"
-                   Placeholder="Type Message"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start"/>
+               HeightRequest="300"
+               Margin="10,40,10,20"
+               Padding="0">
+            <Editor x:Name="reviewEntry" Placeholder="Type Review Message"  Keyboard="Text"  Margin="5" HeightRequest="150">
+            </Editor>
         </Frame>
+        
 
 
+        <Button x:Name="ReviewButton" Text="Submit" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
+                    Command="{Binding ReviewCommand}"/>
 
-
-
-
-
+        
 
     </StackLayout>
 </ContentPage>

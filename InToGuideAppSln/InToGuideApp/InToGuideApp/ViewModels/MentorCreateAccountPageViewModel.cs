@@ -106,6 +106,7 @@ namespace InToGuideApp.ViewModels
         private ValidatableObject<string> _phoneNumber;
         public ValidatableObject<string> PhoneNumber
         {
+
             get { return _phoneNumber; }
             set { SetProperty(ref _phoneNumber, value); }
         }
@@ -131,9 +132,10 @@ namespace InToGuideApp.ViewModels
         private async void ExecuteCreateMentorAccountCommand()
         {
 
-            MainState = LayoutState.Loading;
+            
             try
             {
+                MainState = LayoutState.Loading;
                 var user = await _createAccountService.CreateNewUser((int)AccountTypeEnum.Mentor, FirstName.Value, LastName.Value, Qualification.Value, Institution.Value, City.Value, Province.Value, Hobbies.Value,IdNumber.Value, Profession.Value, Company.Value, PhoneNumber.Value, EmailAddress.Value, Password.Value, DateTime.Today);
             
                 if (user != null)

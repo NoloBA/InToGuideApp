@@ -12,6 +12,7 @@ using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace InToGuideApp.ViewModels
 {
@@ -44,9 +45,10 @@ namespace InToGuideApp.ViewModels
         private async void ExecuteLoginCommand()
         {
             // Do Login Authentication Stuff - check whether user exists and check username and password
+            
             try
             {
-
+                MainState = LayoutState.Loading;
 
                 if (ValidateLoginData())
                 {
@@ -83,6 +85,10 @@ namespace InToGuideApp.ViewModels
                     {"message",Constants.Errors.GeneralError }
                 };
                 _dialogService.ShowDialog(nameof(ErrorDialog), param);
+            }
+            finally
+            {
+                MainState = LayoutState.None;
             }
            
 
