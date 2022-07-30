@@ -5,22 +5,51 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeProfilePage"
              Title="{Binding Title}">
+    <ScrollView>
+        <StackLayout>
 
-    <StackLayout>
-        <Label Text="Profile" HorizontalOptions="CenterAndExpand"/>
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
-        <Label Text="Name:"/>
-        <Label Text="Surname:"/>
-        <Label Text="Qualification:"/>
-        <Label Text="Institution:"/>
-        <Label Text="City:"/>
-        <Label Text="Cell:"/>
-        <Label Text="ID Number:"/>
-        <Label Text="Email:"/>
-        <Button x:Name=" Password" Text="Change Password" />
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
-        
+            <StackLayout Orientation="Horizontal">
+                <ImageButton Source="editing.png" WidthRequest="25" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" BackgroundColor="WhiteSmoke"/>
+            </StackLayout>
 
-    </StackLayout>
-  
+            <Line Stroke="#F79726"  X2="200"  StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+            <Label Text="Profile" TextColor="Black" FontSize="40"  HorizontalTextAlignment="Center"/>
+            <Line Stroke="#F79726"  X2="200"  StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+
+            <Image Source="profile.png" WidthRequest="60" HorizontalOptions="StartAndExpand"/>
+
+            <Label Text="Name:"/>
+            <Label Text="Surname:"/>
+            <Label Text="Qualification:"/>
+            <Label Text="Institution:"/>
+            <Label Text="City:"/>
+            <Label Text="Cell:"/>
+            <Label Text="ID Number:"/>
+            <Label Text="Email:"/>
+
+            <StackLayout>
+                <Button Text="Change Password" BackgroundColor="#F79726" CornerRadius="50" Margin="30,0,30,0" BorderColor="#F79726"/>
+            </StackLayout>
+
+            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="ID.pdf"/>
+                <ImageButton Source="attachfiles.png"  WidthRequest="25" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" BackgroundColor="WhiteSmoke"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="CV.pdf"/>
+                <ImageButton Source="attachfiles.png"  WidthRequest="25" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" BackgroundColor="WhiteSmoke"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Qualification"/>
+                <ImageButton Source="attachfiles.png"  WidthRequest="25" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" BackgroundColor="WhiteSmoke"/>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+
 </ContentPage>

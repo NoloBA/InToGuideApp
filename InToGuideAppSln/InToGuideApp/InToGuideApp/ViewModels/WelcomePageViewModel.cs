@@ -23,6 +23,8 @@ namespace InToGuideApp.ViewModels
 
             await NavigationService.NavigateAsync("MenteeCreateAccountPage");
 
+
+
         }
 
         private DelegateCommand _mentorCommand;
@@ -32,6 +34,8 @@ namespace InToGuideApp.ViewModels
         private async void ExecuteMentorCommand()
         {
             await NavigationService.NavigateAsync("MentorCreateAccountPage");
+
+
         }
     }
 }
