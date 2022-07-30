@@ -1,71 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com" xmlns:viewmodels="clr-namespace:InToGuideApp.ViewModels" x:DataType="viewmodels:MenteeCreateAccountPageViewModel"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:controls="clr-namespace:InToGuideApp.Views"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MenteeCreateAccountPage" BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
     <ScrollView>
-        <StackLayout>
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
-            <Label Text="CREATE ACCOUNT" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+        <StackLayout BackgroundColor="WhiteSmoke" xct:StateLayout.CurrentState="{Binding MainState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView 
+                    StateKey="Loading"
+                    VerticalOptions="FillAndExpand">
+                    <controls:LoadingView></controls:LoadingView>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
 
-            <Label Text="Name" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Surname" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Qualification" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Institution" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Location" HorizontalOptions="Start"/>
+            <!--<Line Stroke="#F79726"  X2="300" StrokeThickness="4" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0"/>
+            <Label Text="Create Mentee Account" FontSize="35" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+            <Line Stroke="#F79726"  X2="300"  StrokeThickness="5" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"/>-->
 
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
+            <Frame BorderColor="#F79726"   Padding="10" Margin="10,20" BackgroundColor="WhiteSmoke" >
+                <Frame BorderColor="#F79726"   Padding="10" Margin="0" BackgroundColor="WhiteSmoke" >
+                    <Label Text="Create Mentee Account" FontSize="30" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
+                </Frame>
             </Frame>
-            <Label Text="Cell" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="ID Number" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Hobbies" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Email" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Password" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
-            </Frame>
-            <Label Text="Confirm Password" HorizontalOptions="Start"/>
-            <Frame  BorderColor="#f79726" CornerRadius="50" Margin="5,0,5,0" Padding="-7">
-                <Entry></Entry>
+
+            <Entry x:Name="firstNameEntry" Text="{Binding FirstName.Value}" Placeholder="First Name" Keyboard="Text" Margin="10,5"></Entry>
+
+
+            <Entry x:Name="lastNameEntry" Text="{Binding LastName.Value}" Placeholder="Last Name" Keyboard="Text" Margin="10,5"></Entry>
+
+
+            <Entry x:Name="qualificationEntry" Text="{Binding Qualification.Value}" Placeholder="Qualification" Keyboard="Text"  Margin="10,5"></Entry>
+
+
+            <Entry x:Name="institutionEntry" Text="{Binding Institution.Value}" Placeholder="Institution" Keyboard="Text"  Margin="10,5"></Entry>
+
+
+            <Entry x:Name="cityEntry" Text="{Binding City.Value}" Placeholder="City" Keyboard="Text"  Margin="10,5"></Entry>
+
+            <Entry x:Name="provinceEntry" Text="{Binding Province.Value}" Placeholder="Province" Keyboard="Text"  Margin="10,5"></Entry>
+
+
+            <Entry x:Name="hobbiesEntry" Text="{Binding Hobbies.Value}" Placeholder="Leisure Activity" Keyboard="Text"  Margin="10,5"></Entry>
+
+            <Entry x:Name="idNumberEntry" Text="{Binding IdNumber.Value}" Placeholder="ID Number" Keyboard="Text"  Margin="10,5"></Entry>
             
-            </Frame>
-            <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+            <Entry x:Name="phoneNumberEntry" Text="{Binding PhoneNumber.Value}" Placeholder="Phone Number" Keyboard="Telephone"  Margin="10,5">
+                <!--<Entry.Behaviors>
+                    <local:PhoneNumberValidationBehaviour></local:PhoneNumberValidationBehaviour>
+                </Entry.Behaviors>-->
+            </Entry>
             
-           <!-- <Button x:Name="Create" Text="Create Account" CornerRadius="50" Margin="30,0,30,0" BorderColor="#f79726" BackgroundColor="#f79726"
-                    Command="{Binding CreateMenteeAccountCommand}"/> -->
-            
-                                              
-                   
-    </StackLayout>
+            <Entry x:Name="emailAddressEntry" Text="{Binding EmailAddress.Value}" Placeholder="Email Address" Keyboard="Email"  Margin="10,5">
+                <!--<Entry.Behaviors>
+                    <local:EmailValidationBehaviour></local:EmailValidationBehaviour>
+                </Entry.Behaviors>-->
+            </Entry>
+
+            <Entry x:Name="passwordEntry" Text="{Binding Password.Value}" Placeholder="Password" Keyboard="Text"  Margin="10,5"></Entry>
+
+
+            <Button x:Name="MenteeCreateAccont" Text="Create Account" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
+                    Command="{Binding CreateMenteeAccountCommand}"/>
+
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InToGuideWebAPI.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class version1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,8 +15,8 @@ namespace InToGuideWebAPI.Migrations
                 {
                     AuthenticationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VerificationStatus = table.Column<bool>(type: "bit", nullable: false),
                     Enabled = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -26,80 +26,32 @@ namespace InToGuideWebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Chat",
-                columns: table => new
-                {
-                    MenteeUser = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    MentorUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ThreadId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    ChatMenteeUser = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Chat", x => x.MenteeUser);
-                    table.ForeignKey(
-                        name: "FK_Chat_Chat_ChatMenteeUser",
-                        column: x => x.ChatMenteeUser,
-                        principalTable: "Chat",
-                        principalColumn: "MenteeUser");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Match",
-                columns: table => new
-                {
-                    MatchId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MenteeId = table.Column<int>(type: "int", nullable: false),
-                    MentorId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Match", x => x.MatchId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Review",
-                columns: table => new
-                {
-                    ReviewId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Rating = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Review", x => x.ReviewId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountType = table.Column<int>(type: "int", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Qualification = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Institution = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Province = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Hobbies = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Qualification = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Institution = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Province = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Hobbies = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Profession = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.cs
                     AuthenticationId = table.Column<int>(type: "int", nullable: false),
-                    ChatId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MatchId = table.Column<int>(type: "int", nullable: false),
-                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                    CertificateId = table.Column<int>(type: "int", nullable: false)
+////========
+//                    AuthenticationId = table.Column<int>(type: "int", nullable: false)
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.cs
                 },
                 constraints: table =>
                 {
@@ -118,8 +70,8 @@ namespace InToGuideWebAPI.Migrations
                 {
                     CertificateId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -140,10 +92,10 @@ namespace InToGuideWebAPI.Migrations
                 {
                     EnquiryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -155,6 +107,30 @@ namespace InToGuideWebAPI.Migrations
                         principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Match",
+                columns: table => new
+                {
+                    MatchId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MenteeId = table.Column<int>(type: "int", nullable: true),
+                    MentorId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Match", x => x.MatchId);
+                    table.ForeignKey(
+                        name: "FK_Match_User_MenteeId",
+                        column: x => x.MenteeId,
+                        principalTable: "User",
+                        principalColumn: "UserId");
+                    table.ForeignKey(
+                        name: "FK_Match_User_MentorId",
+                        column: x => x.MentorId,
+                        principalTable: "User",
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(
@@ -176,15 +152,33 @@ namespace InToGuideWebAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Review",
+                columns: table => new
+                {
+                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    ReviewMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Review", x => x.ReviewId);
+                    table.ForeignKey(
+                        name: "FK_Review_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Certificate_UserId",
                 table: "Certificate",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Chat_ChatMenteeUser",
-                table: "Chat",
-                column: "ChatMenteeUser");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HelpAndSupport_UserId",
@@ -192,11 +186,29 @@ namespace InToGuideWebAPI.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Match_MenteeId",
+                table: "Match",
+                column: "MenteeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Match_MentorId",
+                table: "Match",
+                column: "MentorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MentorHistory_UserId",
                 table: "MentorHistory",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.cs
+                name: "IX_Review_UserId",
+                table: "Review",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.cs
                 name: "IX_User_AuthenticationId",
                 table: "User",
                 column: "AuthenticationId");
@@ -206,9 +218,6 @@ namespace InToGuideWebAPI.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Certificate");
-
-            migrationBuilder.DropTable(
-                name: "Chat");
 
             migrationBuilder.DropTable(
                 name: "HelpAndSupport");

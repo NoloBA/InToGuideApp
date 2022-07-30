@@ -1,7 +1,10 @@
+using InToGuideApp.Services;
+using InToGuideApp.Services.Interfaces;
 using InToGuideApp.ViewModels;
 using InToGuideApp.Views;
 using InToGuideApp.Services.Core;
 using InToGuideApp.Services.Interfaces;
+using InToGuideApp.Views.Dialogs;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Essentials.Implementation;
@@ -26,11 +29,18 @@ namespace InToGuideApp
             InitializeComponent();
 
             await NavigationService.NavigateAsync("NavigationPage/Chat");
+            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.Register<ICreateAccount, CreateAccountService>();
+            containerRegistry.Register<IAuthentication, AuthenticationService>();
+
+            containerRegistry.RegisterSingleton<IDataCache, InMemoryDataCache>();
+
+            containerRegistry.Register<IAppConfiguration, AppConfigurationService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
@@ -59,6 +69,8 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<ResetPasswordPage, ResetPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<Chat, ChatViewModel>();
             containerRegistry.Register<IChatService, ChatService>();
+
+            containerRegistry.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
         }
     }
 }

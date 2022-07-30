@@ -46,7 +46,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullfetch)
             {
-                var users = _inToGuideContext.Users.Include(u => u.MatchId).ToList();
+                var users = _inToGuideContext.Users.Include(u => u.UserId).ToList();
                 return users;
             }
             else 
@@ -61,7 +61,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullfetch)
             { 
-            var users = _inToGuideContext.Users.Where(x => x.UserId == id).Include(u => u.MatchId).FirstOrDefault();
+            var users = _inToGuideContext.Users.Where(x => x.UserId == id).Include(u => u.AccountType).FirstOrDefault();
                 return users;
             }
             else 
@@ -75,7 +75,8 @@ namespace InToGuideWebAPI.Data
         {
         if(fullFatch)              
                 {
-                    var users = _inToGuideContext.Users.Where(x => x.LastName.Contains(surname)).Include(x => x.MatchId).FirstOrDefault();
+                    var users = _inToGuideContext.Users.Where(x => x.LastName.Contains(surname)).Include(x => x.UserId).FirstOrDefault();
+                //remember to change the include to matchid or 
                     return users;
                 }
                 else
@@ -90,7 +91,7 @@ namespace InToGuideWebAPI.Data
         {
             if (fullFetch)
             {
-                var users = _inToGuideContext.Users.Where(x => x.EmailAddress == email).Include(x => x.MatchId).Include(x => x.MatchId).FirstOrDefault();
+                var users = _inToGuideContext.Users.Where(x => x.EmailAddress == email).Include(x => x.UserId).FirstOrDefault();
                 return users;
             }
             else
@@ -101,6 +102,22 @@ namespace InToGuideWebAPI.Data
             }
         }
 
+        public User GetUserByAuthenticationId(int authenticationId, bool fullFetch = true)
+        {
+            if (fullFetch)
+            {
+
+                var users = _inToGuideContext.Users.Where(x => x.AuthenticationId == authenticationId).FirstOrDefault();
+                return users;
+            }
+
+            else
+            {
+                var users = _inToGuideContext.Users.Where(x => x.AuthenticationId == authenticationId).FirstOrDefault();
+                return users;
+
+            }
+        }
         /* public User GetUserAccountType(bool accounttype,bool fullFetch = true)
          {
              if (fullFetch)
@@ -199,26 +216,26 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        public Chat GetChat(string chatId)
-        {
-            throw new NotImplementedException();
-        }
+        //public Chat GetChat(string chatId)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public List<Chat> GetChatList(bool 
-            fullFetch = true)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<Chat> GetChatList(bool 
+        //    fullFetch = true)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public List<Chat> GetChatList(int ChatId, bool fullFetch = true)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<Chat> GetChatList(int ChatId, bool fullFetch = true)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public IEnumerable<Chat> GetChatList()
-        {
-            throw new NotImplementedException();
-        }
+        //public IEnumerable<Chat> GetChatList()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public List<HelpAndSupport> GetHelpAndSupports(bool fullFetch = true)
         {
@@ -231,7 +248,7 @@ namespace InToGuideWebAPI.Data
         #endregion
 
         #region Authentication
-        public bool PerfomAuthenticationCheck(string userName, string password) 
+        public bool PerformAuthenticationCheck(string userName, string password) 
         {
             var users = _inToGuideContext.Authentications.Where(u => u.EmailAddress == userName && u.Password == password).FirstOrDefault();
 
@@ -242,19 +259,27 @@ namespace InToGuideWebAPI.Data
             return false;
         }
 
+        public Authentication GetAuthentication(string userName, string pin)
+        {
+            var user = _inToGuideContext.Authentications.Where(u => u.EmailAddress == userName && u.Password == pin).FirstOrDefault();
+
+
+            return user;
+        }
+
         User IInToGuideRepossitory.GetUserByUserId(int UserId, bool fullFetch)
         {
             throw new NotImplementedException();
         }
 
-        Chat IInToGuideRepossitory.CreateChat(Chat chat)
-        {
-            throw new NotImplementedException();
-        }
+        //Chat IInToGuideRepossitory.CreateChat(Chat chat)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        bool IInToGuideRepossitory.DoesEmailAddresExistByUser(string email)
+        bool IInToGuideRepossitory.DoesUserExistByEmailAddress(string email)
         {
-            throw new NotImplementedException();
+            return _inToGuideContext.Users.Any(us => us.EmailAddress == email);
         }
 
         IActionResult IInToGuideRepossitory.CreateNewMatch()
@@ -277,15 +302,10 @@ namespace InToGuideWebAPI.Data
             throw new NotImplementedException();
         }
 
-        Task<object?> IInToGuideRepossitory.CreateNewUser()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IInToGuideRepossitory.PerformAuthenticationCheck(string userName, string password)
-        {
-            throw new NotImplementedException();
-        }
+        //Task<object?> IInToGuideRepossitory.CreateNewUser()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         Match IInToGuideRepossitory.CreateNewMatch(Match match)
         {
@@ -293,6 +313,21 @@ namespace InToGuideWebAPI.Data
         }
 
         public bool DoesHistoryIdExistUser(MentorHistory mentorhistory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesUserExistByUserId(int UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesUserExistByEmailAddress(object emailAddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesReviewExistById(int ReviewId)
         {
             throw new NotImplementedException();
         }

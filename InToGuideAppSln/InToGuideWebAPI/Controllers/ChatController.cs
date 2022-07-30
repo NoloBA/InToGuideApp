@@ -15,11 +15,11 @@ namespace InToGuideWebAPI.Controllers
         {
             _inToGuideRepossitory = inToGuideRepossitory;
         }
-        [HttpPost]
-        public IActionResult CreateChat([FromBody] Chat chat)
-        {
-            return (IActionResult)_inToGuideRepossitory.CreateChat(chat);//missing cast
-        }
+        
+        //public IActionResult CreateChat([FromBody] Chat chat)
+        //{
+        //    return (IActionResult)_inToGuideRepossitory.CreateChat(chat);//missing cast
+        //}
 
         /*[HttpGet]
         public IActionResult GetChat(string chatId)
@@ -27,37 +27,37 @@ namespace InToGuideWebAPI.Controllers
             return (IActionResult)_inToGuideRepossitory.GetChat(chatId);//missing caast
         }*/
 
-        [HttpGet]
-        public IEnumerable<Chat>GetChats(string chatId)
-        {
-            try
-            {
-                if (chatId == null)
-                {
-                    return (IEnumerable<Chat>)BadRequest();
-                }
-                _inToGuideRepossitory.GetChatList();
-            }
+//        [HttpGet]
+//        public IEnumerable<Chat>GetChats(string chatId)
+//        {
+//            try
+//            {
+//                if (chatId == null)
+//                {
+//                    return (IEnumerable<Chat>)BadRequest();
+//                }
+//                _inToGuideRepossitory.GetChatList();
+//            }
 
-            catch (Exception argex)
-            {
-                return (IEnumerable<Chat>)BadRequest(argex.Message);//Explicit cast
-            }
+//            catch (Exception argex)
+//            {
+//                return (IEnumerable<Chat>)BadRequest(argex.Message);//Explicit cast
+//            }
                 
             
 
 
-            return _inToGuideRepossitory.GetChatList();
-        }
-           // {}
-        // GET all action
+//            return _inToGuideRepossitory.GetChatList();
+//        }
+//           // {}
+//        // GET all action
 
-        // GET by Id action
+//        // GET by Id action
 
-        // POST action
+//        // POST action
 
-        // PUT action
+//        // PUT action
 
-        // DELETE action
+//        // DELETE action
     }
 }

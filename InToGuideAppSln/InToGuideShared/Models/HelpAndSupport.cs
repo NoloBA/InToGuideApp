@@ -8,8 +8,6 @@ namespace InToGuideWebAPI.Models
     [Table("HelpAndSupport")]
     public class HelpAndSupport
     {
-      
-       
             [Required]
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

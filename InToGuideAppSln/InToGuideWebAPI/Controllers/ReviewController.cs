@@ -16,23 +16,29 @@ namespace InToGuideWebAPI.Controllers
         {
             _inToGuideRepossitory = inToGuideRepossitory;
         }
-        
+
+
         [HttpPost]
-        public IActionResult CreateNewReview([FromBody] Review review)//Get review from body
+        public IActionResult CreateReview([FromBody] Review review)
         {
             try
             {
-                if (review == null)
+                if (review == null || !ModelState.IsValid)//no such user or invalid modelstate 
                 {
-                    return BadRequest(SystemErrorCodes.ReviewBodyEmpty);
+                    return BadRequest(SystemErrorCodes.UserNotValid.ToString());
                 }
-
-                return Ok(review);
+                bool reviewExists = _inToGuideRepossitory.DoesReviewExistById(review.ReviewId );//don't duplicate
+                if (reviewExists)
+                {
+                    return StatusCode(StatusCodes.Status409Conflict, SystemErrorCodes.UserDuplicate.ToString());
+                }
+                _inToGuideRepossitory.CreateNewReview(review);//create user
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest(SystemErrorCodes.ReviewNotCreated);
+                return BadRequest(SystemErrorCodes.ReviewCreationFailed.ToString());
             }
+            return Ok(review); //success
         }
 
         [HttpGet]

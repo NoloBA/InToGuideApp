@@ -8,9 +8,11 @@
 
     <StackLayout BackgroundColor="WhiteSmoke">
 
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+        <!--<Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
         <Label Text="ABOUT" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>-->
+
+        <Label Text="About Us" TextColor="Black" FontSize="65" HorizontalOptions="CenterAndExpand" Margin="10,20" />
 
         <Frame BackgroundColor="WhiteSmoke" BorderColor="#F79726" Padding="5" Margin="50,20">
             <Label Text="WHO ARE WE?" FontSize="Large" HorizontalTextAlignment="Center" TextColor="Black"></Label>

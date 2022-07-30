@@ -4,6 +4,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace InToGuideApp.ViewModels
 {
@@ -16,6 +17,13 @@ namespace InToGuideApp.ViewModels
         {
             get { return _title; }
             set { SetProperty(ref _title, value); }
+        }
+
+        private LayoutState _mainState;
+        public LayoutState MainState
+        {
+            get { return _mainState; }
+            set { SetProperty(ref _mainState, value); }
         }
 
         public ViewModelBase(INavigationService navigationService)

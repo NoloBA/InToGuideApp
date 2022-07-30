@@ -1,76 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:effects="clr-namespace:InToGuideApp.Effects"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.HelpAndSupportPage"
              Title="{Binding Title}">
 
     <StackLayout BackgroundColor="WhiteSmoke">
 
-        <Line Stroke="#F79726"  X2="350" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+        <!--<Line Stroke="#F79726"  X2="350" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
         <Label Text="Help and Support" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
-        <Line Stroke="#F79726"  X2="350" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+        <Line Stroke="#F79726"  X2="350" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>-->
 
-            <Label 
-                Text="Full name" 
-                FontSize="Medium" 
-                TextColor="Black" 
-                Margin="20,20,20,0">
-                
-            </Label>
-       
-        <Entry Keyboard="Text"
-                   Placeholder="Enter Name"
-                   VerticalOptions="StartAndExpand"
-                   Margin="20,0,20,0" />
-
-        <Label 
-                Text="Email Address" 
-                FontSize="Medium" 
-                TextColor="Black" 
-                Margin="20,20,20,0">
-
-        </Label>
-
-        <Entry Keyboard="Text"
-                   Placeholder="Enter Email Address"
-                   VerticalOptions="StartAndExpand"
-                   Margin="20,0,20,0" />
+        <Label Text="Help &amp; Support" TextColor="Black" FontSize="50" HorizontalOptions="CenterAndExpand" Margin="10,20" />
 
 
-        <Label 
-                Text="Message" 
-                FontSize="Medium" 
-                TextColor="Black" 
-                Margin="20,20,20,0">
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="40"
+               Margin="10,15,10,10"
+               Padding="2">
+            <Entry x:Name="fullNameEntry" Placeholder="Enter Full Name" Keyboard="Text"  Margin="0">
+                <Entry.Effects>
+                    <effects:PlainEntry/>
+                </Entry.Effects>
+            </Entry>
+        </Frame>
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="40"
+               Margin="10,10,10,10"
+               Padding="2">
+            <Entry x:Name="emailEntry" Placeholder="Enter Email Address" Keyboard="Text"  Margin="0">
+                <Entry.Effects>
+                    <effects:PlainEntry/>
+                </Entry.Effects>
+            </Entry>
+        </Frame>
+        <Frame BorderColor="Black"
+               BackgroundColor="WhiteSmoke"
+               HeightRequest="300"
+               Margin="10,10,10,20"
+               Padding="0">
+            <Editor x:Name="queryEntry" Placeholder="Enter Query Message"  Keyboard="Text"  Margin="0" HeightRequest="150">
+            </Editor>
+        </Frame>
 
-        </Label>
 
-        <Entry Keyboard="Text"
-                   Placeholder="Type Message"
-                   VerticalOptions="StartAndExpand"
-                   Margin="20,0,20,0" />
-
-
-
-
-
-
-
-
-
-        <Frame Margin="20,0,20,50" CornerRadius="50" BorderColor="#F79726" Background="White"  Padding="10">
-                <Button Text="Submit" FontSize="Medium"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
-                BackgroundColor="White"
-                
-                />
-            </Frame>
-           
-        
-       
+        <Button x:Name="HelpAndSupportButton" Text="Submit" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,10,30,0" 
+                    Command="{Binding HelpAndSupportQueryCommand}"/>
 
 
     </StackLayout>

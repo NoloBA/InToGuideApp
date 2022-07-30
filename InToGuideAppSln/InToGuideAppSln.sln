@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InToGuideApp.iOS", "InToGui
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InToGuideWebAPI", "InToGuideWebAPI\InToGuideWebAPI.csproj", "{60E04559-3046-4F31-A127-B7EA9D883135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InToGuideShared", "InToGuideShared\InToGuideShared.csproj", "{88792A57-E74D-4936-8B0F-0BF2EC93DF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InToGuideShared", "InToGuideShared\InToGuideShared.csproj", "{88792A57-E74D-4936-8B0F-0BF2EC93DF0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

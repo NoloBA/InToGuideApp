@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InToGuideWebAPI.Migrations
 {
     [DbContext(typeof(InToGuideContext))]
-    [Migration("20220714083606_FirstMigration")]
-    partial class FirstMigration
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
+    [Migration("20220728114912_version1")]
+    partial class version1
+//========
+//    [Migration("20220727124242_FirstMigration")]
+//    partial class FirstMigration
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,14 +38,12 @@ namespace InToGuideWebAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthenticationId"), 1L, 1);
 
                     b.Property<string>("EmailAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Enabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("VerificationStatus")
@@ -63,11 +66,9 @@ namespace InToGuideWebAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -80,38 +81,6 @@ namespace InToGuideWebAPI.Migrations
                     b.ToTable("Certificate");
                 });
 
-            modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
-                {
-                    b.Property<string>("MenteeUser")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ChatMenteeUser")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("MentorUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ThreadId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MenteeUser");
-
-                    b.HasIndex("ChatMenteeUser");
-
-                    b.ToTable("Chat");
-                });
-
             modelBuilder.Entity("InToGuideWebAPI.Models.HelpAndSupport", b =>
                 {
                     b.Property<int>("EnquiryId")
@@ -121,19 +90,15 @@ namespace InToGuideWebAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EnquiryId"), 1L, 1);
 
                     b.Property<string>("EmailAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -154,16 +119,17 @@ namespace InToGuideWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"), 1L, 1);
 
-                    b.Property<int>("MenteeId")
+                    b.Property<int?>("MenteeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MentorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
+                    b.Property<int?>("MentorId")
                         .HasColumnType("int");
 
                     b.HasKey("MatchId");
+
+                    b.HasIndex("MenteeId");
+
+                    b.HasIndex("MentorId");
 
                     b.ToTable("Match");
                 });
@@ -200,6 +166,9 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
+                    b.Property<string>("ReviewMessage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
@@ -207,6 +176,8 @@ namespace InToGuideWebAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ReviewId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Review");
                 });
@@ -225,58 +196,53 @@ namespace InToGuideWebAPI.Migrations
                     b.Property<int>("AuthenticationId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ChatId")
-                        .IsRequired()
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
+                    b.Property<int>("CertificateId")
+                        .HasColumnType("int");
+
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("City")
-                        .IsRequired()
+                    b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Hobbies")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Institution")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MatchId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profession")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Province")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Qualification")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("int");
 
                     b.HasKey("UserId");
 
@@ -288,19 +254,12 @@ namespace InToGuideWebAPI.Migrations
             modelBuilder.Entity("InToGuideWebAPI.Models.Certificate", b =>
                 {
                     b.HasOne("InToGuideWebAPI.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Certificates")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
-                {
-                    b.HasOne("InToGuideWebAPI.Models.Chat", null)
-                        .WithMany("chats")
-                        .HasForeignKey("ChatMenteeUser");
                 });
 
             modelBuilder.Entity("InToGuideWebAPI.Models.HelpAndSupport", b =>
@@ -314,6 +273,21 @@ namespace InToGuideWebAPI.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("InToGuideWebAPI.Models.Match", b =>
+                {
+                    b.HasOne("InToGuideWebAPI.Models.User", "Mentee")
+                        .WithMany()
+                        .HasForeignKey("MenteeId");
+
+                    b.HasOne("InToGuideWebAPI.Models.User", "Mentor")
+                        .WithMany()
+                        .HasForeignKey("MentorId");
+
+                    b.Navigation("Mentee");
+
+                    b.Navigation("Mentor");
+                });
+
             modelBuilder.Entity("InToGuideWebAPI.Models.MentorHistory", b =>
                 {
                     b.HasOne("InToGuideWebAPI.Models.User", "User")
@@ -325,6 +299,20 @@ namespace InToGuideWebAPI.Migrations
                     b.Navigation("User");
                 });
 
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
+            modelBuilder.Entity("InToGuideWebAPI.Models.Review", b =>
+                {
+                    b.HasOne("InToGuideWebAPI.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
             modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
                 {
                     b.HasOne("InToGuideWebAPI.Models.Authentication", "Authentication")
@@ -335,11 +323,14 @@ namespace InToGuideWebAPI.Migrations
 
                     b.Navigation("Authentication");
                 });
+//<<<<<<<< HEAD:InToGuideAppSln/InToGuideWebAPI/Migrations/20220728114912_version1.Designer.cs
 
-            modelBuilder.Entity("InToGuideWebAPI.Models.Chat", b =>
+            modelBuilder.Entity("InToGuideWebAPI.Models.User", b =>
                 {
-                    b.Navigation("chats");
+                    b.Navigation("Certificates");
                 });
+//========
+//>>>>>>>> bf37d2d3c09c18fe4d5b05f746a085c06c67c16e:InToGuideAppSln/InToGuideWebAPI/Migrations/20220727124242_FirstMigration.Designer.cs
 #pragma warning restore 612, 618
         }
     }
