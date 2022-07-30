@@ -15,14 +15,14 @@ namespace InToGuideApp.ViewModels
             Title = "Mentee Create Account Page";
         }
 
-        private DelegateCommand _createMenteeAccountCommand;
-        public DelegateCommand CreateMenteeAccountCommand =>
-            _createMenteeAccountCommand ?? (_createMenteeAccountCommand = new DelegateCommand(ExecuteCreateMenteeAccountCommand));
+        /* private DelegateCommand _createMenteeAccountCommand;
+         public DelegateCommand CreateMenteeAccountCommand =>
+             _createMenteeAccountCommand ?? (_createMenteeAccountCommand = new DelegateCommand(ExecuteCreateMenteeAccountCommand));
 
-        async void ExecuteCreateMenteeAccountCommand()
-        {
-            await NavigationService.NavigateAsync("LoginPage");
-            AccountTypeEnum = 2;
-        }
+         async void ExecuteCreateMenteeAccountCommand()
+         {
+             await NavigationService.NavigateAsync("LoginPage");
+             AccountTypeEnum = 2;
+         }*/
     }
 }

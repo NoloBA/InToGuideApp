@@ -1,5 +1,7 @@
 using InToGuideApp.ViewModels;
 using InToGuideApp.Views;
+using InToGuideApp.Services.Core;
+using InToGuideApp.Services.Interfaces;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Essentials.Implementation;
@@ -23,7 +25,7 @@ namespace InToGuideApp
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/IntroductionPage");
+            await NavigationService.NavigateAsync("NavigationPage/Chat");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -55,6 +57,8 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<ReviewPage, ReviewPageViewModel>();
             containerRegistry.RegisterForNavigation<ForgotPasswordPage, ForgotPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<ResetPasswordPage, ResetPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<Chat, ChatViewModel>();
+            containerRegistry.Register<IChatService, ChatService>();
         }
     }
 }
