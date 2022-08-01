@@ -8,49 +8,39 @@
              IconImageSource="information.png">
 
     <StackLayout BackgroundColor="WhiteSmoke">
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
+        <!--<Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>
         <Label Text="Resources" FontSize="50" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
+        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>-->
 
-        
+        <Label Text="Resources" TextColor="Black" FontSize="65" HorizontalOptions="CenterAndExpand" Margin="10,20" />
 
-        <Label Text="Supporting Documents"
-               FontSize="Medium"
-               TextColor="Black" 
-               Margin="20,20,20,0"/>
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
+        <Frame BackgroundColor="WhiteSmoke" BorderColor="#F79726" Padding="5" Margin="50,20">
+            <Label Text="Supporting documents" FontSize="Large" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+        </Frame>
         <Frame
             BackgroundColor="WhiteSmoke"
             BorderColor="Black"
-            Margin="20,10,20,0"
+            Margin="10,10,10,0"
             HeightRequest="100">
             
         </Frame>
-        
-        
-        <Label Text="Supporting Video Links"
-               FontSize="Medium"
-               TextColor="Black" 
-               Margin="20,20,20,0"/>
-        <Line Stroke="#F79726"  X2="300" StrokeThickness="3" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
+
+
+        <Frame BackgroundColor="WhiteSmoke" BorderColor="#F79726" Padding="5" Margin="50,20">
+            <Label Text="Supporting videos" FontSize="Large" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+        </Frame>
         <Frame
             BackgroundColor="WhiteSmoke"
             BorderColor="Black"
-            Margin="20,10,20,0"
+            Margin="10,10,10,0"
             HeightRequest="100">
 
         </Frame>
 
-        <Button Text="Mentee Certificate "
-                    BorderColor="#F79726"
-                    BorderWidth="3"
-                    BackgroundColor="#F79726"
-                    Padding="5"
-                    CornerRadius="100"
-                    Margin="20,10,20,10"
-                HorizontalOptions="EndAndExpand"
-                VerticalOptions="EndAndExpand"/>
+        <Button x:Name="CertificateButton" Text="Certificate" FontAttributes="Bold" FontSize="15" HorizontalOptions="EndAndExpand" BackgroundColor="#f79726" CornerRadius="50" Margin="0,20,25,0" Padding="15"
+                    Command="{Binding CertificateCommand}"/>
 
+        <Label Text="Personalized certificate" HorizontalOptions="EndAndExpand" FontAttributes="Italic" Margin="0,0,10,0"/>
     </StackLayout>
 
 </ContentPage>
