@@ -3,6 +3,7 @@
   <item android:drawable="@color/launcher_background"/>
   <item>
     <bitmap android:gravity="center"
-            android:src="@drawable/icon" />
+            android:src="@drawable/intoguidelogo"  />
+	  <animated-rotate android:gravity="center" android:drawable="@drawable/intoguide"/>
   </item>
 </layer-list>

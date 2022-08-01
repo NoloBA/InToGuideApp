@@ -1,4 +1,5 @@
 using InToGuideWebAPI.Data;
+using InToGuideWebAPI.Hubs;
 using InToGuideWebAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -21,6 +22,9 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddSignalR();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -45,7 +49,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+
 app.MapControllers();
+app.MapHub<Chathub>("Chathub");
 
 // Seed Database with information
 using var scope = app.Services.CreateScope();

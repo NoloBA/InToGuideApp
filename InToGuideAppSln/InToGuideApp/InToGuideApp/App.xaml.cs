@@ -2,6 +2,8 @@ using InToGuideApp.Services;
 using InToGuideApp.Services.Interfaces;
 using InToGuideApp.ViewModels;
 using InToGuideApp.Views;
+using InToGuideApp.Services.Core;
+using InToGuideApp.Services.Interfaces;
 using InToGuideApp.Views.Dialogs;
 using Prism;
 using Prism.Ioc;
@@ -64,6 +66,8 @@ namespace InToGuideApp
             containerRegistry.RegisterForNavigation<ReviewPage, ReviewPageViewModel>();
             containerRegistry.RegisterForNavigation<ForgotPasswordPage, ForgotPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<ResetPasswordPage, ResetPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<Chat, ChatViewModel>();
+            containerRegistry.Register<IChatService, ChatService>();
 
             containerRegistry.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
         }
