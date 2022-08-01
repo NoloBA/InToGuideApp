@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using InToGuideApp.Services.Interfaces;
+using InToGuideWebAPI.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -9,22 +11,47 @@ namespace InToGuideApp.ViewModels
 {
     public class SettingsPageViewModel : ViewModelBase
     {
-        public SettingsPageViewModel(INavigationService navigationService)
+
+        private IDataCache _dataCache;
+
+        private User _loggedInUser;
+        public User LoggedInUser
+        {
+            get { return _loggedInUser; }
+            set { SetProperty(ref _loggedInUser, value); }
+        }
+        public SettingsPageViewModel(INavigationService navigationService, IDataCache dataCache)
            : base(navigationService)
         {
-            Title = "Settings";
+            _dataCache = dataCache;
+           
         }
 
        
 
-        private DelegateCommand _mentorProfileCommand;
-        public DelegateCommand MentorProfileCommand =>
-            _mentorProfileCommand ?? (_mentorProfileCommand = new DelegateCommand(ExecuteMentorProfileCommand));
+        private DelegateCommand _profileCommand;
+        public DelegateCommand ProfileCommand =>
+            _profileCommand ?? (_profileCommand = new DelegateCommand(ExecuteProfileCommand));
 
-        async void ExecuteMentorProfileCommand()
+        async void ExecuteProfileCommand()
         {
-            await NavigationService.NavigateAsync("ProfilePage"); //how do i redirect mentee/mmentor profile to only profile
+            LoggedInUser = _dataCache.AuthenticatedUser;
+
+            if (LoggedInUser != null)
+            {
+                if (LoggedInUser.AccountType == 1) //if mentor
+                {
+                    await NavigationService.NavigateAsync("MentorProfilePage"); //redirects to mentor profile page
+                }
+                else if (LoggedInUser.AccountType == 2) //if mentee
+                {
+                    await NavigationService.NavigateAsync("MenteeProfilePage"); //redirects to mentee profile page
+                }
+            }
+            //await NavigationService.NavigateAsync("ProfilePage"); //how do i redirect mentee/mmentor profile to only profile
         }
+
+
 
         private DelegateCommand _appearanceCommand;
         public DelegateCommand AppearanceCommand =>
@@ -79,5 +106,11 @@ namespace InToGuideApp.ViewModels
         {
             //Do logout code stuff here 
         }
+
+        public override void Initialize(INavigationParameters parameters)
+        {
+            Title = "Settings";
+        }
+
     }
 }
