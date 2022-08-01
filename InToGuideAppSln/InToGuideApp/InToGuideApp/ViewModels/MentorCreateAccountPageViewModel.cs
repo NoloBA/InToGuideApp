@@ -180,7 +180,7 @@ namespace InToGuideApp.ViewModels
 
         public override void Initialize(INavigationParameters parameters)
         {
-            Title = "Mentor Create Account Page";
+            Title = "Create Mentor Account";
             
 
         }

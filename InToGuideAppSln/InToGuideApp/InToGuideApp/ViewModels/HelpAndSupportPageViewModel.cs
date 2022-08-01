@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public HelpAndSupportPageViewModel(INavigationService navigationService)
            : base(navigationService)
         {
-            Title = "Help And Support Page";
+            Title = "Help And Support";
         }
     }
 }

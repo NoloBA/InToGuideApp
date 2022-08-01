@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.SettingsPage"
+            NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
     <ScrollView>
@@ -18,7 +19,7 @@
                     <Label Text="Settings" FontSize="30" TextColor="Black"  HorizontalTextAlignment="Center"></Label>
                 </Frame>
             </Frame>-->
-            <Label Text="Settings" TextColor="Black" FontSize="65" HorizontalOptions="CenterAndExpand" Margin="10,20" />
+            <Label Text="Menu" TextColor="Black" FontSize="55" HorizontalOptions="CenterAndExpand" Margin="10,10" />
 
             <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="50,10,50,5" Padding="10" CornerRadius="30">
                 <StackLayout Orientation="Horizontal">

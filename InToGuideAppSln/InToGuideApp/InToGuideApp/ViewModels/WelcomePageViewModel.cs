@@ -11,7 +11,7 @@ namespace InToGuideApp.ViewModels
     {
         public WelcomePageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Welcome Page";
+            Title = "Welcome";
 
         }
         private DelegateCommand _menteeCommand;

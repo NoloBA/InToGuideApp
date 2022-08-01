@@ -161,7 +161,7 @@ namespace InToGuideApp.ViewModels
 
         public override void Initialize(INavigationParameters parameters)
         {
-            Title = "Login Page";
+            Title = "Login";
 
             
         }

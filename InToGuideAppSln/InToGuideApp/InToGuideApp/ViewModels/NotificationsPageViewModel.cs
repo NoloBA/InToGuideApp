@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public NotificationsPageViewModel(INavigationService navigationService)
            : base(navigationService)
         {
-            Title = "Notifications Page";
+            Title = "Notifications";
         }
 
         

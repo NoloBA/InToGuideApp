@@ -71,11 +71,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.0" />
-    <PackageReference Include="System.Net.Http">
-      <Version>4.3.4</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
-    <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
     <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
@@ -84,8 +79,6 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Services\IgnoreSsIHandler.cs" />
     <Compile Include="Services\NoSsIAndroidHandler.cs" />
-    <Compile Include="Services\IgnoreSslHandler.cs" />
-    <Compile Include="Services\NoSslAndroidHandler.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <LinkDescription Include="LinkerSettings.xml" />
@@ -195,7 +188,13 @@
     <AndroidResource Include="Resources\drawable\review.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\xml\network_security_config.xml" />
+    <AndroidResource Include="Resources\drawable\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\suitcase.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
