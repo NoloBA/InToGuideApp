@@ -2,33 +2,59 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InToGuideApp.Views.Chat"
-             
+             Title="{Binding Title}"
              NavigationPage.HasNavigationBar="false"
              >
-    <Grid RowDefinitions="*, auto">
-        <ListView ItemsSource="{Binding MessagesList}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-
-
-                        <Grid RowDefinitions="auto, auto"  >
-                            <Label Text="{Binding UserName}"/>
-                            <Label Text="{Binding Message}"/>
-                        </Grid>
-
-                    </ViewCell>
-                </DataTemplate>
-
-            </ListView.ItemTemplate>
-           
-            
-        </ListView>
-
-        <StackLayout Grid.Row="1">
-            <Entry Text="{Binding Message}"/>
-            <Button Text="Send" Command="{Binding SendMsgCommand}"/>
-            
+    <StackLayout>
+        <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
+            <Image Source="profile" Margin="10" HeightRequest="50" HorizontalOptions="Start"/>
+            <Label Text="{Binding fullName}" FontAttributes="Italic" FontSize="Large"/>
         </StackLayout>
-    </Grid>
+
+
+        <Grid RowDefinitions="*, auto">
+            <ListView ItemsSource="{Binding MessagesList}"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Text="{Binding fullname}" FontSize="Large"/>
+                                <Label Grid.Column="0" 
+                                               Grid.Row="0"  
+                                               Text="{Binding Message}"
+                                       />
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+
+                <Entry Text="{Binding Message}" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="sendarrow" Grid.Column="2" Command="{Binding SendMsgCommand}"
+                         Padding="7"
+                         BackgroundColor="{StaticResource PrimaryColor}"
+                         Aspect="AspectFit"                        
+                         CornerRadius="50"
+                         HeightRequest="40"
+                         VerticalOptions="Center"
+                         WidthRequest="40"  />
+
+            </StackLayout>
+
+        </Grid>
+    </StackLayout>
 </ContentPage>

@@ -8,7 +8,7 @@ namespace InToGuideApp.Models
     {
         public long Id { get; set; }
 
-        public string UserName { get; set; }
+        public string fullname { get; set; }
 
         public string Message { get; set; }
 
