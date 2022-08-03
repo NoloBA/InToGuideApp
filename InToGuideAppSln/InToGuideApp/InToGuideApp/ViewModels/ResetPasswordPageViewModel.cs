@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public ResetPasswordPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Reset Password Page";
+            Title = "Reset Password";
         }
     }
 }

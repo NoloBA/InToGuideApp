@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public AboutPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "About Page";
+            Title = "About Us";
         }
     }
 }

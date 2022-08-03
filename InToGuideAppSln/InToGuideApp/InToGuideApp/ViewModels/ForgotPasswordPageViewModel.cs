@@ -13,7 +13,7 @@ namespace InToGuideApp.ViewModels
         public ForgotPasswordPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Forgot Password Page";
+            Title = "Forgot Password";
         }
 
         private DelegateCommand _forgotPasswordCommand;

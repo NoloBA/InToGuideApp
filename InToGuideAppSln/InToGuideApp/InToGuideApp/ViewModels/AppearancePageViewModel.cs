@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public AppearancePageViewModel(INavigationService navigationService)
           : base(navigationService)
         {
-            Title = "Appearance Page";
+            Title = "Appearance";
         }
     }
 }

@@ -91,7 +91,7 @@ namespace InToGuideApp.ViewModels
 
         public override void Initialize(INavigationParameters parameters)
         {
-            Title = "Mentee Profile Page";
+            Title = "Profile";
 
             LoggedInUser = _dataCache.AuthenticatedUser;
 

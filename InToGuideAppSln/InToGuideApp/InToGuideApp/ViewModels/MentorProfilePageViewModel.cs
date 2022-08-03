@@ -90,7 +90,7 @@ namespace InToGuideApp.ViewModels
 
         public override void Initialize(INavigationParameters parameters)
         {
-            Title = "Mentor Profile Page";
+            Title = "Profile";
 
             LoggedInUser = _dataCache.AuthenticatedUser;
 
