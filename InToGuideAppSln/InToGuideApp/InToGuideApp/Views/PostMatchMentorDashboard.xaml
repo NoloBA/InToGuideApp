@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="InToGuideApp.Views.PostMatchMentorDashboard"
+             Title="{Binding Title}"
+              NavigationPage.HasNavigationBar="False"
+             IconImageSource="dashboard.png">
+    <ScrollView>
+
+        <StackLayout Background="WhiteSmoke">
+
+            <ImageButton Source="burgermenu.png"
+                         HorizontalOptions="EndAndExpand"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         Margin="0,0,10,0"
+                         BackgroundColor="WhiteSmoke"
+                         Command="{Binding SettingsCommand}"/>
+
+            <Label Text="{Binding WelcomeMessage}" TextColor="Black" FontSize="30" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="10" />
+            <Label Text="You have been matched with a Mentee" Margin="20,20,20,0" TextColor="DarkSlateGray" FontSize="55" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+            <!--<Line Stroke="#F79726"  X2="400" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="10,20,10,10"/>-->
+            <!--<Button x:Name="Template" Text="Mentor Template" FontAttributes="Bold" FontSize="15" HorizontalOptions="Start" BackgroundColor="#f79726" CornerRadius="50" Margin="10" Padding="15"
+                    Command="{Binding TemplateCommand}"/>-->
+
+            <!--<Label Text="Mentoring template for new Mentors" HorizontalOptions="EndAndExpand"  FontAttributes="Italic" Margin="0,0,20,0"/>-->
+            <Frame BorderColor="#F79726" BackgroundColor="WhiteSmoke" Margin="10" Padding="10,5">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+
+                    <Image Source="profile.png" WidthRequest="90" HeightRequest="90" Margin="10,10,0,0" HorizontalOptions="StartAndExpand"/>
+                    <StackLayout>
+                        <Label Text="{Binding FullName}"  HorizontalTextAlignment="Center" Margin="0,15,50,0" FontSize="18" TextColor="Black" />
+                        <Label Text="{Binding Qualification}" HorizontalOptions="Center" Margin="0,0,40,0" FontSize="15" FontAttributes="Italic" TextColor="Black" />
+                        <Label Text="{Binding Institution}" HorizontalOptions="Center" Margin="0,0,40,0" FontSize="15" FontAttributes="Italic" TextColor="Black" />
+                        <!--<Line Stroke="#F79726"  X2="200"  StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,50,0"/>-->
+                        <!--<Button x:Name="Template" Text="Mentor Template" FontAttributes="Bold" FontSize="15" HorizontalOptions="Start" BackgroundColor="#f79726" CornerRadius="50" Margin="10" Padding="15"
+                    Command="{Binding TemplateCommand}"/>-->
+                    </StackLayout>
+                </StackLayout>
+                    <Button x:Name="Template" Text="Access the Mentor Template here" FontAttributes="Italic" FontSize="Micro" HorizontalOptions="EndAndExpand" BackgroundColor="WhiteSmoke" CornerRadius="50" Margin="0" Padding="0"
+                    Command="{Binding TemplateCommand}"/>
+                </StackLayout>
+
+            </Frame>
+
+            <Button x:Name="CertificateButton" Text="Certificate" FontAttributes="Bold" FontSize="15" HorizontalOptions="EndAndExpand" BackgroundColor="#f79726" CornerRadius="50" Margin="10,25,25,0" Padding="15"
+                    Command="{Binding CertificateCommand}"/>
+
+            <Label Text="Personalized certificate" HorizontalOptions="EndAndExpand" FontAttributes="Italic" Margin="0,0,20,0"/>
+            
+
+        </StackLayout>
+     </ScrollView>
+
+</ContentPage>

@@ -14,5 +14,14 @@ namespace InToGuideApp.ViewModels
         {
             Title = "Resources";
         }
+
+        private DelegateCommand _certificateCommand;
+        public DelegateCommand CertificateCommand =>
+            _certificateCommand ?? (_certificateCommand = new DelegateCommand(ExecuteCertificateCommand));
+
+        async void ExecuteCertificateCommand()
+        {
+            await NavigationService.NavigateAsync(""); // mentee certificate link added here
+        }
     }
 }

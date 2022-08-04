@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace InToGuideApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ForgotPasswordMessageView : StackLayout
+    public partial class SavingView : StackLayout
     {
-        public ForgotPasswordMessageView()
+        public SavingView()
         {
             InitializeComponent();
         }

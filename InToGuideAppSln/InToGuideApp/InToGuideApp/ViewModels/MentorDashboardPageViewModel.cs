@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using InToGuideApp.Services.Interfaces;
+using InToGuideWebAPI.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -9,10 +11,40 @@ namespace InToGuideApp.ViewModels
 {
     public class MentorDashboardPageViewModel : ViewModelBase
     {
-        public MentorDashboardPageViewModel(INavigationService navigationService)
+        private IDataCache _dataCache;
+
+        private User _loggedInUser;
+        public User LoggedInUser
+        {
+            get { return _loggedInUser; }
+            set { SetProperty(ref _loggedInUser, value); }
+        }
+
+        private string _welcomeMessage;
+        public string WelcomeMessage
+        {
+            get { return _welcomeMessage; }
+            set { SetProperty(ref _welcomeMessage, value); }
+        }
+        public MentorDashboardPageViewModel(INavigationService navigationService, IDataCache dataCache)
             : base(navigationService)
         {
-            Title = "Dashbord";
+            _dataCache = dataCache;
+        }
+
+        public override void Initialize(INavigationParameters parameters)
+        {
+            Title = "Dashboard";
+
+            LoggedInUser = _dataCache.AuthenticatedUser;
+
+
+            if (LoggedInUser != null)
+            {
+                WelcomeMessage = $"Welcome {LoggedInUser.FirstName} {LoggedInUser.LastName}!";
+
+            }
+
         }
 
         private DelegateCommand _settingsCommand;
@@ -23,5 +55,15 @@ namespace InToGuideApp.ViewModels
         {
             await NavigationService.NavigateAsync("SettingsPage");
         }
+
+        private DelegateCommand _postMatchCommand;
+        public DelegateCommand PostMatchCommand =>
+            _postMatchCommand ?? (_postMatchCommand = new DelegateCommand(ExecutePostMatchCommand));
+
+        async void ExecutePostMatchCommand()
+        {
+            await NavigationService.NavigateAsync("PostMatchMentorTabbedPage");
+        }
+        
     }
 }

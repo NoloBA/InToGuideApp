@@ -4,6 +4,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.UI.Views;
 
 namespace InToGuideApp.ViewModels
@@ -20,10 +21,13 @@ namespace InToGuideApp.ViewModels
         public DelegateCommand ForgotPasswordCommand =>
             _forgotPasswordCommand ?? (_forgotPasswordCommand = new DelegateCommand(ExecuteForgotPasswordCommand));
 
-        void ExecuteForgotPasswordCommand()
+        async void ExecuteForgotPasswordCommand()
         {
-            MainState = LayoutState.Custom;
+
+            MainState = LayoutState.Saving;
+            await Task.Delay(10000);
+            MainState = LayoutState.None;
         }
-        
+
     }
 }

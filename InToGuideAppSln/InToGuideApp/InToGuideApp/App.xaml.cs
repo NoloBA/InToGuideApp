@@ -28,7 +28,7 @@ namespace InToGuideApp
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/SettingsPage");
+            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -70,6 +70,10 @@ namespace InToGuideApp
             containerRegistry.Register<IChatService, ChatService>();
 
             containerRegistry.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
+            containerRegistry.RegisterForNavigation<PostMatchMenteeTabbedPage, PostMatchMenteeTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<PostMatchMenteeDashboard, PostMatchMenteeDashboardViewModel>();
+            containerRegistry.RegisterForNavigation<PostMatchMentorTabbedPage, PostMatchMentorTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<PostMatchMentorDashboard, PostMatchMentorDashboardViewModel>();
         }
     }
 }

@@ -3,16 +3,13 @@ using InToGuideWebAPI.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
-using Prism.Navigation.TabbedPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Xamarin.CommunityToolkit.UI.Views;
 
 namespace InToGuideApp.ViewModels
 {
-    public class MenteeDashboardPageViewModel : ViewModelBase
+    public class PostMatchMenteeDashboardViewModel : ViewModelBase
     {
 
         private IDataCache _dataCache;
@@ -30,8 +27,9 @@ namespace InToGuideApp.ViewModels
             get { return _welcomeMessage; }
             set { SetProperty(ref _welcomeMessage, value); }
         }
-        public MenteeDashboardPageViewModel(INavigationService navigationService, IDataCache dataCache)
-            : base(navigationService)
+
+        public PostMatchMenteeDashboardViewModel(INavigationService navigationService, IDataCache dataCache)
+           : base(navigationService)
         {
             _dataCache = dataCache;
         }
@@ -51,6 +49,16 @@ namespace InToGuideApp.ViewModels
             }
 
         }
+
+        private DelegateCommand _viewProfileCommand;
+        public DelegateCommand ViewProfileCommand =>
+            _viewProfileCommand ?? (_viewProfileCommand = new DelegateCommand(ExecuteViewProfileCommand));
+
+        async void ExecuteViewProfileCommand()
+        {
+            await NavigationService.NavigateAsync("MentorProfileView");
+        }
+
         private DelegateCommand _settingsCommand;
         public DelegateCommand SettingsCommand =>
             _settingsCommand ?? (_settingsCommand = new DelegateCommand(ExecuteSettingsCommand));
@@ -59,23 +67,6 @@ namespace InToGuideApp.ViewModels
         {
             await NavigationService.NavigateAsync("SettingsPage");
         }
-
-        private DelegateCommand _findMatchCommand;
-        public DelegateCommand FindMatchCommand =>
-            _findMatchCommand ?? (_findMatchCommand = new DelegateCommand(ExecuteFindMatchCommand));
-
-        async void ExecuteFindMatchCommand()
-        {
-            try
-            {
-                MainState = LayoutState.Success;
-                await Task.Delay(2000);
-                await NavigationService.NavigateAsync("PostMatchMenteeTabbedPage");
-            }
-            finally
-            {
-                MainState = LayoutState.None;
-            }
-        }
     }
+
 }

@@ -4,9 +4,15 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.IntroductionPage"
+              NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
-    <Button Text="Next" 
-            Command="{Binding IntroductionCommand}"/> 
-
+    <StackLayout BackgroundColor="WhiteSmoke">
+        <!--Insert gif here--> 
+        <Button Text="Continue" 
+            Command="{Binding IntroductionCommand}"
+                BackgroundColor="White"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="EndAndExpand"/>
+    </StackLayout>
 </ContentPage>

@@ -5,9 +5,12 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.MentorDashboardPage"
              Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="False"
              IconImageSource="dashboard.png">
 
-    <StackLayout Background="WhiteSmoke">
+    <ScrollView>
+
+        <StackLayout Background="WhiteSmoke">
 
         <ImageButton Source="burgermenu.png"
                          HorizontalOptions="EndAndExpand"
@@ -17,112 +20,17 @@
                          BackgroundColor="WhiteSmoke"
                          Command="{Binding SettingsCommand}"/>
 
-                    <!--<Label Text="{Binding MatchStatus}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
 
 
-        <StackLayout Orientation="Horizontal">
-            <StackLayout>
-                <Image Source="profile.png" HeightRequest="50" WidthRequest="50"
-               Margin="10,20,0,0" />
-                <!--<Label Text="{Binding Name}" 
-            <Label Text="{Binding Qualification}"-->
-            <Frame BorderColor="#F79726" 
-               BackgroundColor="WhiteSmoke"
-               Margin="15,0,5,0"
-               HorizontalOptions="CenterAndExpand"
-               Padding="1">
-                <Button Text="Connect"
-                        
-                   BackgroundColor="WhiteSmoke"
-                   TextColor="Black"
-                   FontSize="Medium" 
-                    Command="{Binding ConnectCommand}"/>
-            </Frame>
-            </StackLayout>
+           
+            <Label Text="{Binding WelcomeMessage}" TextColor="Black" FontSize="30" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="10" />
+        <Label Text="You have not been matched with a Mentee yet..." Margin="20,20,20,0" TextColor="DarkSlateGray" FontSize="55" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+        <Line Stroke="#F79726"  X2="400" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="10,20,10,10"/>
 
-            <StackLayout>
-                <Image Source="profile.png" HeightRequest="50" WidthRequest="50"
-               Margin="10,20,0,0" />
-                <!--<Label Text="{Binding Name}" 
-            <Label Text="{Binding Qualification}"-->
-                <Frame BorderColor="#F79726" 
-               BackgroundColor="WhiteSmoke"
-               Margin="5,0,5,0"
-               HorizontalOptions="CenterAndExpand"
-               Padding="1">
-                    <Button Text="Connect"
-                            
-                   BackgroundColor="WhiteSmoke"
-                   TextColor="Black"
-                   FontSize="Medium" 
-                    Command="{Binding ConnectCommand}"/>
-                </Frame>
-            </StackLayout>
+        <Label Text="Keep checking your dashboard for updates. You will receive a notification as soon as you have been matched with a Mentee." HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Italic" Margin="20,0"/>
 
-            <StackLayout>
-                <Image Source="profile.png" HeightRequest="50" WidthRequest="50"
-               Margin="10,20,0,0" />
-                <!--<Label Text="{Binding Name}" 
-            <Label Text="{Binding Qualification}"-->
-                <Frame BorderColor="#F79726" 
-               BackgroundColor="WhiteSmoke"
-               Margin="5,0,15,0"
-               HorizontalOptions="CenterAndExpand"
-               Padding="1">
-                    <Button Text="Connect"
-                            
-                   BackgroundColor="WhiteSmoke"
-                   TextColor="Black"
-                   FontSize="Medium" 
-                    Command="{Binding ConnectCommand}"/>
-                </Frame>
-            </StackLayout>
+            <Button Text="POST MATCH" Command="{Binding PostMatchCommand}" Margin="0,200" />
 
-            
         </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            
-            <Button Text="Mentor Template "
-                    BorderColor="#F79726"
-                    BorderWidth="3"
-                    BackgroundColor="#F79726"
-                    Padding="5"
-                    CornerRadius="100"
-                    Margin="20,10,20,10"/>
-
-            <Button Text="Mentor Certificate "
-                    BorderColor="#F79726"
-                    BorderWidth="3"
-                    BackgroundColor="#F79726"
-                    Padding="5"
-                    CornerRadius="100"
-                    Margin="20,10,20,10"/>
-        </StackLayout>
-
-        <Label Text="Mentoring History"
-                   TextColor="Black"
-                   FontSize="Large" 
-               HorizontalOptions="CenterAndExpand"/>
-        <Line Stroke="#F79726"  X2="400" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"/>
-
-        <Frame BorderColor="Black"
-               BackgroundColor="WhiteSmoke"
-               HeightRequest="100"
-               Margin="20,10,20,0">
-
-            <ScrollView>
-                
-                    <StackLayout Orientation="Horizontal">
-                    <Image Source="profile.png"
-                           HeightRequest="50"
-                           WidthRequest="50"
-                           HorizontalOptions="Start"/>
-
-                    <!--<Label Text="{Binding MenteeInfo}"/>-->
-                </StackLayout>
-                
-            </ScrollView>
-        </Frame>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

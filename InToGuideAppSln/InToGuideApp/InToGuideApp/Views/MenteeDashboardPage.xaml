@@ -3,11 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:InToGuideApp.Views" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="InToGuideApp.Views.MenteeDashboardPage"
              Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="False"
              IconImageSource="dashboard.png">
-    <StackLayout BackgroundColor="WhiteSmoke">
-
+    <StackLayout BackgroundColor="WhiteSmoke" xct:StateLayout.CurrentState="{Binding MainState}">
+        <xct:StateLayout.StateViews>
+            <xct:StateView 
+                    StateKey="Success"
+                    VerticalOptions="FillAndExpand">
+                <controls:SuccessView></controls:SuccessView>
+            </xct:StateView>
+        </xct:StateLayout.StateViews>
         <ImageButton Source="burgermenu.png"
                          HorizontalOptions="EndAndExpand"
                          HeightRequest="25"
@@ -19,26 +28,15 @@
         
         <!--<Label Text="{Binding MatchStatus}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
 
-        <Label Text="{Binding WelcomeMessage}" />
-        <Frame BorderColor="#F79726" 
-               BackgroundColor="WhiteSmoke"
-               Margin="20"
-               HorizontalOptions="CenterAndExpand"
-               Padding="5">
-            <Button Text="Connect"
-                   BackgroundColor="WhiteSmoke"
-                   TextColor="Black"
-                   FontSize="Medium" 
-                    Command="{Binding ConnectCommand}"/>
-        </Frame>
+        <Label Text="{Binding WelcomeMessage}" TextColor="Black" FontSize="30" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="10" />
+        <Label Text="You have not been matched with a Mentor yet..." Margin="20,20,20,0" TextColor="DarkSlateGray" FontSize="55" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+        <Button x:Name="findMatch" Text="Find me a Mentor" FontAttributes="Bold" FontSize="15" BackgroundColor="#f79726" CornerRadius="50" Margin="30,50,30,0" 
+                    Command="{Binding FindMatchCommand}"/>
+        <Label Text="Click the button to find a professional match" HorizontalOptions="CenterAndExpand" FontAttributes="Italic" Margin="0,0"/>
 
-        <StackLayout Orientation="Horizontal">
-            <Image Source="profile.png" HeightRequest="70" WidthRequest="70"
-               Margin="20" />
-            <!--<Label Text="{Binding Name}" 
-            <Label Text="{Binding Qualification}"-->
-        </StackLayout>
-    
+
+
+
     </StackLayout>
 
 </ContentPage>

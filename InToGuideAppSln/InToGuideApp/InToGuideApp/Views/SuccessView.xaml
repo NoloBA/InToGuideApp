@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InToGuideApp.Views.SuccessView"
+              HorizontalOptions="Center"
+             VerticalOptions="Center"
+             BackgroundColor="WhiteSmoke">
+    <ActivityIndicator Color="#F79726"
+                       IsRunning="True" />
+    <!--<ProgressBar ProgressColor="#F79726" 
+                 IsVisible="True"
+                 
+                 IsEnabled="True"
+                 Margin="20,0"/>-->
+
+    <Label Text="Finding a match..."
+           TextColor="Black"
+           HorizontalOptions="Center" />
+</StackLayout>

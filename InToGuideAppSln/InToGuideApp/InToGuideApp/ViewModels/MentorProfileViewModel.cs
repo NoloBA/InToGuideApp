@@ -56,13 +56,16 @@ namespace InToGuideApp.ViewModels
 
             LoggedInUser = _dataCache.AuthenticatedUser;
 
-            if (LoggedInUser.AccountType == 1)
-            {
+            //if (LoggedInUser.AccountType == 1)
+            //{
                 FullName = $"{LoggedInUser.FirstName} {LoggedInUser.LastName}";
-                Profession = LoggedInUser.Profession;
-                Location = $"{LoggedInUser.City}, {LoggedInUser.Province}";
-                EmailAddress = LoggedInUser.EmailAddress;
-            }
+                //Profession = LoggedInUser.Profession;
+                Profession = "Data Scientist";
+                //Location = $"{LoggedInUser.City}, {LoggedInUser.Province}";
+                Location = "Cape Town, Western Cape";
+                //EmailAddress = LoggedInUser.EmailAddress;
+                EmailAddress = "willsmith@gmail.com";
+            //}
         }
 
         private DelegateCommand _settingsCommand;
