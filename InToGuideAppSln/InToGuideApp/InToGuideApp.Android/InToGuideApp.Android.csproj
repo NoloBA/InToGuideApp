@@ -77,8 +77,9 @@
     <Compile Include="AndroidPlainEntryEffect.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Services\IgnoreSsIHandler.cs" />
     <Compile Include="Services\NoSsIAndroidHandler.cs" />
+    <Compile Include="Services\IgnoreSslHandler.cs" />
+    <Compile Include="Services\NoSslAndroidHandler.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <LinkDescription Include="LinkerSettings.xml" />
@@ -198,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\inbox.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sendarrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

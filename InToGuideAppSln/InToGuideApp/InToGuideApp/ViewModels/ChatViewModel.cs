@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using InToGuideApp.Models;
+using InToGuideWebAPI.Models;
 using System.Text;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
@@ -18,13 +19,12 @@ namespace InToGuideApp.ViewModels
     {
         private readonly IChatService chatService;
 
-        private string userName;
-        public string UserName
+        private string fullname;
+        public string FullName
         {
-            get => userName;
-            set => SetProperty(ref userName,value);
+            get { return fullname; }
+            set { SetProperty(ref fullname, value); }
         }
-
 
         private string message;
         public string Message 
@@ -73,7 +73,7 @@ namespace InToGuideApp.ViewModels
             }
             catch (System.Exception exp)
             {
-         //       throw;
+                throw;
             }
 
 
@@ -81,32 +81,32 @@ namespace InToGuideApp.ViewModels
 
             private void SendMsg()
             {
-                chatService.SendMessage(UserName, Message);
+                chatService.SendMessage(fullname, Message);
                 
-                AddMessage(UserName, Message, true);
+                AddMessage(fullname, Message, true);
             }
 
-        private void AddMessage(string message, string userName, bool IsOwner)
+        private void AddMessage(string message, string FullName, bool IsOwner)
         {
             var tempList = MessagesList.ToList();
-            tempList.Add(new MessageModel { IsOwnerMessage = IsOwner, Message = message, UserName = userName });
+            tempList.Add(new MessageModel { IsOwnerMessage = IsOwner, Message = message, fullname = FullName });
             MessagesList = new List<MessageModel>(tempList);
             Message = string.Empty;
         }
 
-        private void GetMessage( string message, string UserName)
+        private void GetMessage( string message, string fullName)
             {
-                AddMessage(UserName, message, false);
+                AddMessage(fullname, message, false);
             }
 
-
-           
-
-        
-    }
-}
-        /*public async Task SendMessage (string user,string message) 
+       /* public async Task SendMessage(string user, string message)
         {
             await .All.SendAsync("ReceiveMessage", user, message);
-        }
-            */
+        }*/
+
+
+
+    }
+}
+        
+            
