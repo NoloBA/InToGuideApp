@@ -4,6 +4,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Essentials;
 
 namespace InToGuideApp.ViewModels
 {
@@ -21,7 +22,10 @@ namespace InToGuideApp.ViewModels
 
         async void ExecuteCertificateCommand()
         {
-            await NavigationService.NavigateAsync("https://noloba.github.io/MenteeCertificate/"); // mentee certificate link added here
+            await Browser.OpenAsync("https://noloba.github.io/MenteeCertificate/");
+          
         }
+
+
     }
 }

@@ -28,7 +28,7 @@ namespace InToGuideApp
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njc2NDQxQDMyMzAyZTMyMmUzMEJNOHAxS2xuSUFCdVRBLytzbE1SdlM5QVBvdnlML2g0WGxsTllIMEtOVGs9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            await NavigationService.NavigateAsync("NavigationPage/MenteeResourcesPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

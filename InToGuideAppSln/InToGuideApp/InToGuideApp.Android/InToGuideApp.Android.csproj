@@ -79,7 +79,6 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Services\NoSsIAndroidHandler.cs" />
     <Compile Include="Services\IgnoreSslHandler.cs" />
-    <Compile Include="Services\NoSslAndroidHandler.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <LinkDescription Include="LinkerSettings.xml" />
