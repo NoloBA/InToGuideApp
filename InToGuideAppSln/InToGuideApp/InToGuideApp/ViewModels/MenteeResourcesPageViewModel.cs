@@ -21,7 +21,7 @@ namespace InToGuideApp.ViewModels
 
         async void ExecuteCertificateCommand()
         {
-            await NavigationService.NavigateAsync(""); // mentee certificate link added here
+            await NavigationService.NavigateAsync("https://noloba.github.io/MenteeCertificate/"); // mentee certificate link added here
         }
     }
 }
