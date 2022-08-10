@@ -4,14 +4,17 @@
              x:Class="InToGuideApp.Views.Chat"
              Title="{Binding Title}"
              NavigationPage.HasNavigationBar="false"
-             >
+              IconImageSource="connect.png">
     <StackLayout>
-        <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
-            <Image Source="profile" Margin="10" HeightRequest="50" HorizontalOptions="Start"/>
-            <Label Text="{Binding fullName}" FontAttributes="Italic" FontSize="Large"/>
+        <StackLayout BackgroundColor="{StaticResource PrimaryColor}" Orientation="Horizontal" >
+            <Image Source="captainbarbosa.jfif" Margin="10" HeightRequest="50" HorizontalOptions="Start"/>
+            <Label Text="Captain Barbosa" FontAttributes="Italic" FontSize="Large" Margin="10,20,10,10"/>
         </StackLayout>
-
-
+        <!--<Frame>
+            <Label Text="Hi, I hope I can be of Great assistance towards your journey to building your career" TextColor="Orange" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            
+        </Frame>-->
+        
         <Grid RowDefinitions="*, auto">
             <ListView ItemsSource="{Binding MessagesList}"
                       SeparatorVisibility="None"
@@ -21,7 +24,7 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="110"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -32,6 +35,8 @@
                                 <Label Grid.Column="0" 
                                                Grid.Row="0"  
                                                Text="{Binding Message}"
+                                       
+                                       Margin="10"
                                        />
                                 
                             </Grid>
@@ -56,5 +61,6 @@
             </StackLayout>
 
         </Grid>
+        
     </StackLayout>
 </ContentPage>

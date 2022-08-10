@@ -62,6 +62,7 @@ namespace InToGuideApp.ViewModels
 
         public override async void Initialize(INavigationParameters parameters)
         {
+            Title = "Chat";
           //  UserName = parameters.GetValue<string>("UserNameId");
             //base.Initialize(parameters);
             //await chatService.Connect();

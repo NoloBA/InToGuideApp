@@ -52,19 +52,19 @@ namespace InToGuideApp.ViewModels
 
         public override void Initialize(INavigationParameters parameters)
         {
-            Title = "Profile View";
+            Title = "Mentor Profile";
 
             LoggedInUser = _dataCache.AuthenticatedUser;
 
             //if (LoggedInUser.AccountType == 1)
             //{
-                FullName = $"{LoggedInUser.FirstName} {LoggedInUser.LastName}";
+                FullName = "Captain Barbosa";
                 //Profession = LoggedInUser.Profession;
                 Profession = "Data Scientist";
                 //Location = $"{LoggedInUser.City}, {LoggedInUser.Province}";
                 Location = "Cape Town, Western Cape";
                 //EmailAddress = LoggedInUser.EmailAddress;
-                EmailAddress = "willsmith@gmail.com";
+                EmailAddress = "captainbarbosa@gmail.com";
             //}
         }
 

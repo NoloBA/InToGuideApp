@@ -70,7 +70,7 @@ namespace InToGuideApp.ViewModels
             {
                 MainState = LayoutState.Success;
                 await Task.Delay(2000);
-                await NavigationService.NavigateAsync("PostMatchMenteeTabbedPage");
+                await NavigationService.NavigateAsync("myapp:///NavigationPage/PostMatchMenteeTabbedPage");
             }
             finally
             {

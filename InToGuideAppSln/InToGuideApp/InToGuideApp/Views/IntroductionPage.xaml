@@ -4,15 +4,26 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="InToGuideApp.Views.IntroductionPage"
+             
               NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
-    <StackLayout BackgroundColor="WhiteSmoke">
-        <!--Insert gif here--> 
-        <Button Text="Continue" 
-            Command="{Binding IntroductionCommand}"
-                BackgroundColor="White"
-                HorizontalOptions="EndAndExpand"
-                VerticalOptions="EndAndExpand"/>
+    <StackLayout BackgroundColor="White">
+        <!--Insert gif here-->
+        <!--<controls:CarouselViewControl Orientation="Horizontal"  Position="{Binding ImagePosition}">
+            <controls:CarouselView.ItemsSource>
+                <x:Array Type="{x:Type View}">
+                    <Image Source="slide1.png" />
+                    <Image Source="slide2.png"/>
+                    <Image Source="slide3.png"/>
+                </x:Array>
+            </controls:CarouselView.ItemsSource>
+        </controls:CarouselViewControl>-->
+
+        <Image Source="intro.gif" IsAnimationPlaying="True" HeightRequest="650" WidthRequest="650" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        
+        <Button x:Name="Introduction" Text="Continue" FontAttributes="Bold" FontSize="15" BackgroundColor="White" CornerRadius="0" Margin="0,0,10,10" HorizontalOptions="EndAndExpand"
+                    Command="{Binding IntroductionCommand}"/>
+        
     </StackLayout>
 </ContentPage>

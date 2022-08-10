@@ -4,11 +4,12 @@
             xmlns:prism="http://prismlibrary.com"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="InToGuideApp.Views.MenteeTabbedPage"
+            NavigationPage.HasNavigationBar="False"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:views="clr-namespace:InToGuideApp.Views"
             android:TabbedPage.ToolbarPlacement="Bottom">
 
     <views:MenteeDashboardPage/>
-    <views:MenteeConnectPage/>
+    <views:Chat/>
     <views:MenteeResourcesPage/>
 
 

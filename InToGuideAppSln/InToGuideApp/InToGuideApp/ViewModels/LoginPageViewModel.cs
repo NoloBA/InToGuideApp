@@ -76,11 +76,11 @@ namespace InToGuideApp.ViewModels
                         {
                             if (LoggedInUser.AccountType == 1) //if mentor
                             {
-                                await NavigationService.NavigateAsync("MentorTabbedPage"); //redirects to mentor tabbed page
+                                await NavigationService.NavigateAsync("myapp:///NavigationPage/MentorTabbedPage"); //redirects to mentor tabbed page
                             }
                             else if (LoggedInUser.AccountType == 2) //if mentee
                             {
-                                await NavigationService.NavigateAsync("MenteeTabbedPage"); //redirects to mentee tabbed page
+                                await NavigationService.NavigateAsync("myapp:///NavigationPage/MenteeTabbedPage"); //redirects to mentee tabbed page
                             }
                         }
                     }

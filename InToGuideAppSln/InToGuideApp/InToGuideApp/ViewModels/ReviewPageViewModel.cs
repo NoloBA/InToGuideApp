@@ -12,7 +12,7 @@ namespace InToGuideApp.ViewModels
         public ReviewPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Review";
+            Title = "Mentor Review";
         }
     }
 }

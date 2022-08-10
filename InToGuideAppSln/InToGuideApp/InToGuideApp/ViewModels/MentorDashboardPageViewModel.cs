@@ -62,7 +62,7 @@ namespace InToGuideApp.ViewModels
 
         async void ExecutePostMatchCommand()
         {
-            await NavigationService.NavigateAsync("PostMatchMentorTabbedPage");
+            await NavigationService.NavigateAsync("myapp:///NavigationPage/PostMatchMentorTabbedPage");
         }
         
     }

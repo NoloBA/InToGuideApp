@@ -23,11 +23,11 @@
 
 
            
-            <Label Text="{Binding WelcomeMessage}" TextColor="Black" FontSize="30" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="10" />
-        <Label Text="You have not been matched with a Mentee yet..." Margin="20,20,20,0" TextColor="DarkSlateGray" FontSize="55" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="{Binding WelcomeMessage}" TextColor="Black" FontSize="28" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="10" />
+        <Label Text="You have not been matched with a Mentee yet..." Margin="20,70,20,40" TextColor="DarkSlateGray" FontSize="55" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
         <Line Stroke="#F79726"  X2="400" StrokeThickness="3" HorizontalOptions="CenterAndExpand" Margin="10,20,10,10"/>
 
-        <Label Text="Keep checking your dashboard for updates. You will receive a notification as soon as you have been matched with a Mentee." HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Italic" Margin="20,0"/>
+        <Label Text="Keep checking your dashboard for updates. You will receive a PUSH notification as soon as you have been matched with a Mentee." HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Italic" Margin="20,0"/>
 
             <Button Text="POST MATCH" Command="{Binding PostMatchCommand}" Margin="0,200" />
 

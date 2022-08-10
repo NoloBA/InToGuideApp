@@ -64,7 +64,7 @@ namespace InToGuideApp.ViewModels
                 WelcomeMessage = $"Welcome {LoggedInUser.FirstName} {LoggedInUser.LastName}!";
                 Qualification = "BSc Chemical Science";
                 Institution = "Stellenbosch University";
-                FullName = "Jada Smith";
+                FullName = "Jack Sparrow";
 
             }
 
