@@ -8,11 +8,13 @@ It is a bridge between University and the worlplace.
 
 # TechStack & Tools
 C#
+Canva
 Xamarin Forms-Android
 MS SLQServer
 ERD for Database Design
 Signal for Chat function
-Swagger for API testing
+Swagger for API testing'
+
 
 
 
